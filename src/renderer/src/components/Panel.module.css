@@ -1,0 +1,52 @@
+.panel {
+  position: absolute;
+  top: var(--panel-pad-shadow);
+  bottom: var(--panel-pad-shadow);
+  left: var(--panel-pad-shadow);
+  right: var(--panel-pad-edge);
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-panel);
+  overflow: hidden;
+  transform-origin: right center;
+}
+
+.body {
+  position: relative; /* sütun genişletme tutamağı buna göre konumlanıyor */
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  background: var(--note-bg, transparent);
+  transition: background-color 0.3s ease;
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text-secondary);
+}
+
+.empty p {
+  margin: 0;
+}
+
+.emptyButton {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 7px;
+  background: var(--accent);
+  color: #fff;
+  font: 500 13px var(--font);
+  cursor: default;
+}
+
+.emptyButton:hover {
+  filter: brightness(1.08);
+}

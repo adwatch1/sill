@@ -1,0 +1,142 @@
+/* macOS menüsü: yuvarlak köşe, ince kenar, geniş yumuşak gölge, seçili satır sistem mavisi. */
+.menu {
+  position: absolute;
+  z-index: 20;
+  min-width: 190px;
+  padding: 5px;
+  border-radius: 10px;
+  background: var(--menu-bg);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.25),
+    0 0 0 0.5px var(--separator);
+  transform-origin: top left;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 4px 10px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--text);
+  font: 400 13px var(--font);
+  text-align: left;
+  cursor: default;
+}
+
+.item:hover:not(:disabled) {
+  background: var(--menu-highlight);
+  color: #fff;
+}
+
+.item:disabled {
+  color: var(--text-tertiary);
+}
+
+/* Uzun adlar (ör. "Mikrofon (Realtek High Definition Audio)") menüyü panelden taşırmasın. */
+.label {
+  flex: 1;
+  min-width: 0;
+  max-width: 260px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Seçim listesinde onay işaretinin yeri — macOS'taki gibi solda. */
+.check {
+  flex: none;
+  width: 12px;
+  margin-right: -18px; /* .item'ın 24 px'lik aralığını daraltır */
+  display: grid;
+  place-items: center;
+}
+
+.shortcut {
+  color: var(--text-tertiary);
+  font-size: 12px;
+}
+
+.item:hover:not(:disabled) .shortcut {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.destructive {
+  color: var(--destructive);
+}
+
+.destructive:hover:not(:disabled) {
+  background: var(--destructive);
+}
+
+.separator {
+  height: 0.5px;
+  margin: 5px 10px;
+  background: var(--separator);
+}
+
+/* ── Renk seçici (Finder etiketleri gibi bir sıra daire) ── */
+.colorSection {
+  padding: 4px 10px 6px;
+}
+
+.sectionLabel {
+  margin-bottom: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+}
+
+.colors {
+  display: flex;
+  gap: 7px;
+}
+
+.swatch {
+  width: 17px;
+  height: 17px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  box-shadow: inset 0 0 0 0.5px rgba(0, 0, 0, 0.15);
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: default;
+}
+
+.swatch:hover {
+  transform: scale(1.18);
+}
+
+.selected {
+  box-shadow:
+    0 0 0 2px var(--menu-bg),
+    0 0 0 3.5px var(--text-tertiary);
+}
+
+/* "Renksiz": içi boş, çapraz çizgili daire */
+.none {
+  background:
+    linear-gradient(
+      135deg,
+      transparent calc(50% - 0.75px),
+      var(--text-tertiary) calc(50% - 0.75px),
+      var(--text-tertiary) calc(50% + 0.75px),
+      transparent calc(50% + 0.75px)
+    ),
+    var(--surface);
+  box-shadow: inset 0 0 0 1px var(--text-tertiary);
+}
+
+.none.selected {
+  box-shadow:
+    inset 0 0 0 1px var(--text-tertiary),
+    0 0 0 2px var(--menu-bg),
+    0 0 0 3.5px var(--text-tertiary);
+}

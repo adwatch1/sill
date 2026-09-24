@@ -1,0 +1,126 @@
+.column {
+  /* Genişlik ayardan geliyor; aradaki dikey çizgiden sürüklenerek değişiyor. */
+  width: var(--subtab-width, 136px);
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 8px;
+  border-right: 0.5px solid var(--separator);
+  min-height: 0;
+}
+
+.list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  min-height: 0;
+  /* Havaya kalkan (büyüyen) başlığın çerçevesi kenarlardan kesilmesin. */
+  padding: 4px;
+  margin: -4px;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.item {
+  position: relative;
+  flex-shrink: 0;
+  padding: 6px 22px 6px 10px;
+  border-radius: 7px;
+  color: var(--text);
+  transition:
+    background-color 0.2s,
+    box-shadow 0.2s;
+}
+
+/* Basılı tutulup "havaya kalkmış" başlık — üst tab'larla aynı dil. */
+.item.lifted,
+.item.lifted:hover {
+  background: var(--surface-raised);
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.35),
+    0 0 0 1.5px var(--accent);
+  cursor: grabbing;
+}
+
+.item.lifted .close {
+  display: none;
+}
+
+.item:hover {
+  background: var(--hover);
+}
+
+.active,
+.active:hover {
+  background: transparent;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.pill {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 7px;
+  background: var(--accent-soft);
+}
+
+.label {
+  position: relative;
+  z-index: 1;
+}
+
+.close {
+  position: absolute;
+  z-index: 2;
+  right: 4px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  margin-top: -8px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  opacity: 0;
+  transition: opacity 0.12s;
+  cursor: default;
+}
+
+.item:hover .close {
+  opacity: 0.7;
+}
+
+.close:hover {
+  opacity: 1 !important;
+  background: var(--hover);
+}
+
+.add {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-tertiary);
+  font: inherit;
+  text-align: left;
+  cursor: default;
+}
+
+.add:hover {
+  background: var(--hover);
+  color: var(--text-secondary);
+}

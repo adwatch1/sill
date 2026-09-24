@@ -1,0 +1,21 @@
+.label {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.input {
+  min-width: 0;
+  max-width: 100%;
+  padding: 0 4px;
+  margin: 0 -4px;
+  border: none;
+  border-radius: 5px;
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+  background: var(--surface-raised);
+  color: var(--text);
+  font: inherit;
+  user-select: text;
+}

@@ -1,0 +1,140 @@
+/* Tema token'ları: tüm renk, font, yarıçap ve gölge değerleri buradan gelir.
+   Bir rengi değiştirmek için sadece burayı değiştirmek yeter. */
+
+:root {
+  /* Pencere içindeki şeffaf paylar — src/main/config.ts PANEL ile AYNI olmalı */
+  --panel-pad-shadow: 28px;
+  --panel-pad-edge: 8px;
+
+  --font: 'Inter Variable', 'Segoe UI Variable', 'Segoe UI', sans-serif;
+
+  --accent: #007aff;
+  --accent-soft: rgba(0, 122, 255, 0.12);
+  --destructive: #ff3b30;
+  --badge: #8e8e93;
+
+  --text: #1d1d1f;
+  --text-secondary: #86868b;
+  --text-tertiary: #aeaeb2;
+
+  --surface: #f6f6f8;
+  --surface-raised: #ffffff;
+  --surface-sunken: rgba(0, 0, 0, 0.04);
+  --hover: rgba(0, 0, 0, 0.05);
+  --separator: rgba(0, 0, 0, 0.08);
+  --border: rgba(255, 255, 255, 0.7);
+
+  --radius-panel: 20px;
+  --radius-control: 9px;
+
+  --shadow-panel: 0 8px 22px rgba(0, 0, 0, 0.16), 0 1px 4px rgba(0, 0, 0, 0.08);
+  --shadow-control: 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 0 0.5px rgba(0, 0, 0, 0.04);
+
+  /* Menü (macOS: seçili satır sistem mavisiyle vurgulanır, tab renginden bağımsız) */
+  --menu-bg: rgba(250, 250, 252, 0.98);
+  --menu-highlight: #007aff;
+  --segment-pill: #ffffff; /* segmentli düğmede seçili parça */
+
+  /* Tab renkleri — Apple sistem renkleri. --c-*: nokta/ton, --c-*-text: okunaklı yazı tonu */
+  --c-blue: #007aff;
+  --c-blue-text: #0058d0;
+  --c-pink: #ff2d55;
+  --c-pink-text: #d30f45;
+  --c-green: #34c759;
+  --c-green-text: #248a3d;
+  --c-yellow: #ffcc00;
+  --c-yellow-text: #a05a00;
+  --c-purple: #af52de;
+  --c-purple-text: #8944ab;
+  --c-orange: #ff9500;
+  --c-orange-text: #c93400;
+  --tint-strength: 9%; /* not alanının ne kadar renge boyanacağı */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #0a84ff;
+    --accent-soft: rgba(10, 132, 255, 0.22);
+    --destructive: #ff453a;
+    --badge: #8e8e93;
+
+    --text: #f5f5f7;
+    --text-secondary: #98989d;
+    --text-tertiary: #636366;
+
+    --surface: #1e1e20;
+    --surface-raised: #3a3a3c;
+    --surface-sunken: rgba(255, 255, 255, 0.05);
+    --hover: rgba(255, 255, 255, 0.07);
+    --separator: rgba(255, 255, 255, 0.08);
+    --border: rgba(255, 255, 255, 0.1);
+
+    --shadow-panel: 0 8px 22px rgba(0, 0, 0, 0.45), 0 1px 4px rgba(0, 0, 0, 0.3);
+    --shadow-control: 0 1px 3px rgba(0, 0, 0, 0.4);
+
+    --menu-bg: rgba(44, 44, 46, 0.98);
+    --menu-highlight: #0a84ff;
+    --segment-pill: #636366;
+
+    --c-blue: #0a84ff;
+    --c-blue-text: #409cff;
+    --c-pink: #ff375f;
+    --c-pink-text: #ff6482;
+    --c-green: #30d158;
+    --c-green-text: #30d158;
+    --c-yellow: #ffd60a;
+    --c-yellow-text: #ffd60a;
+    --c-purple: #bf5af2;
+    --c-purple-text: #da8fff;
+    --c-orange: #ff9f0a;
+    --c-orange-text: #ffb340;
+    --tint-strength: 9%;
+  }
+}
+
+/* Renkli tab seçiliyken içerik alanı (alt başlıklar + not) o rengi giyer:
+   vurgu rengi tab rengine döner, arka plan çok açık bir tonuna bürünür. */
+[data-color='blue'] { --tint: var(--c-blue); --tint-text: var(--c-blue-text); }
+[data-color='pink'] { --tint: var(--c-pink); --tint-text: var(--c-pink-text); }
+[data-color='green'] { --tint: var(--c-green); --tint-text: var(--c-green-text); }
+[data-color='yellow'] { --tint: var(--c-yellow); --tint-text: var(--c-yellow-text); }
+[data-color='purple'] { --tint: var(--c-purple); --tint-text: var(--c-purple-text); }
+[data-color='orange'] { --tint: var(--c-orange); --tint-text: var(--c-orange-text); }
+
+[data-color] {
+  --accent: var(--tint-text);
+  --accent-soft: color-mix(in srgb, var(--tint) 20%, transparent);
+  --note-bg: color-mix(in srgb, var(--tint) var(--tint-strength), var(--surface));
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: transparent; /* pencere şeffaf; sadece panel görünür */
+}
+
+body {
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  cursor: default;
+}
+
+::selection {
+  background: var(--accent-soft);
+}
+
+/* Klavyeyle gezerken odak halkası (fareyle tıklayınca görünmez) — macOS gibi. */
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}

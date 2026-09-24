@@ -1,0 +1,68 @@
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.card {
+  width: 260px;
+  padding: 18px 16px 14px;
+  border-radius: 14px;
+  background: var(--surface-raised);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25), 0 0 0 0.5px var(--separator);
+  text-align: center;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.message {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.button {
+  flex: 1;
+  height: 28px;
+  border: none;
+  border-radius: 7px;
+  background: var(--surface-sunken);
+  color: var(--text);
+  font: 500 13px var(--font);
+  cursor: default;
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.button:hover {
+  background: var(--hover);
+}
+
+.destructive,
+.destructive:hover {
+  background: var(--destructive);
+  color: #fff;
+}
+
+.destructive:hover {
+  filter: brightness(1.08);
+}

@@ -1,0 +1,89 @@
+{
+  "name": "sill",
+  "productName": "Sill",
+  "version": "1.0.0",
+  "description": "A notes panel on the edge of your Windows screen",
+  "author": "stilless",
+  "main": "./out/main/index.js",
+  "private": true,
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "typecheck": "tsc --noEmit",
+    "dist": "electron-vite build && electron-builder --win",
+    "dist:store": "electron-vite build && electron-builder --win appx"
+  },
+  "devDependencies": {
+    "@fontsource-variable/inter": "^5.3.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.2.0",
+    "electron": "^44.4.3",
+    "electron-builder": "^26.15.3",
+    "electron-vite": "^5.0.0",
+    "framer-motion": "^13.4.0",
+    "lucide-react": "^1.47.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.6"
+  },
+  "build": {
+    "appId": "app.sill.desktop",
+    "productName": "Sill",
+    "copyright": "© 2026 stilless",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "out/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/tray.png",
+        "to": "tray.png"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "runAfterFinish": true,
+      "createDesktopShortcut": false,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Sill",
+      "deleteAppDataOnUninstall": false,
+      "artifactName": "Sill-Setup-${version}.exe"
+    },
+    "appx": {
+      "applicationId": "Sill",
+      "identityName": "stilless.Sill",
+      "publisher": "CN=00000000-0000-0000-0000-000000000000",
+      "publisherDisplayName": "stilless",
+      "displayName": "Sill",
+      "backgroundColor": "transparent",
+      "languages": [
+        "tr-TR",
+        "en-US"
+      ],
+      "customExtensionsPath": "build/appx-extensions.xml",
+      "artifactName": "Sill-Store-${version}.${ext}",
+      "minVersion": "10.0.17763.0",
+      "maxVersionTested": "10.0.26100.0"
+    }
+  },
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,105 @@
+/* Kayıt çubuğu: notun altında, alt bilginin üstünde, ses kartıyla aynı yüzey. */
+.bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 14px 8px;
+  padding: 6px 6px 6px 12px;
+  border-radius: 12px;
+  background: var(--surface-sunken);
+}
+
+/* "Kayıtta" kırmızı noktası — yavaşça nefes alır. */
+.dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--destructive);
+  animation: breathe 1.4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.time {
+  flex: none;
+  min-width: 34px;
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Çizim rengi CSS'teki `color`dan okunuyor: tema değişince dalga da değişir. */
+.wave {
+  flex: 1;
+  min-width: 0;
+  height: 22px;
+  color: var(--text-secondary);
+}
+
+.mic,
+.icon {
+  flex: none;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  padding: 0 6px;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: default;
+}
+
+.icon {
+  width: 26px;
+  padding: 0;
+}
+
+.mic:hover,
+.icon:hover {
+  background: var(--separator);
+  color: var(--text);
+}
+
+.icon:hover {
+  color: var(--destructive);
+}
+
+/* Durdur: kırmızı daire, içinde beyaz kare. */
+.stop {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--destructive);
+  cursor: default;
+  transition: transform 0.12s ease;
+}
+
+.stop:hover {
+  filter: brightness(1.08);
+}
+
+.stop:active {
+  transform: scale(0.92);
+}
+
+.square {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: #fff;
+}

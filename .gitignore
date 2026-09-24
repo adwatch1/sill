@@ -1,0 +1,30 @@
+# Bağımlılıklar ve derleme çıktıları
+node_modules/
+out/
+dist/
+*.tsbuildinfo
+.vite/
+
+# Ortam ve gizli bilgiler
+.env
+.env.*
+*.pem
+*.key
+*.pfx
+*.p12
+
+# Geçici dosyalar ve kayıtlar
+*.log
+*.tmp
+*.bak
+data*.json
+*.corrupt-*.json
+__pycache__/
+*.pyc
+
+# Editör / işletim sistemi
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store

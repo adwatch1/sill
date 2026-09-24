@@ -1,0 +1,107 @@
+/* YouTube kartı: tam genişlik, üstte 16:9 küçük resim, altında başlık. Ses kartıyla aynı yüzey. */
+.card {
+  position: relative;
+  margin: 10px 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--surface-sunken);
+  cursor: default;
+}
+
+.thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  background: var(--separator);
+}
+
+/* 480×360'lık küçük resmin üst/alt siyah bantları 16:9 kırpılınca görünmez. */
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  -webkit-user-drag: none;
+}
+
+/* Oynat simgesi: koyu yarı saydam daire. YouTube logosu değil — markayı taklit etmiyoruz. */
+.play {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.card:hover .play {
+  transform: scale(1.08);
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.playIcon {
+  margin-left: 3px;
+}
+
+.meta {
+  padding: 8px 12px 9px;
+}
+
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  color: var(--text);
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.sub {
+  margin-top: 2px;
+  overflow: hidden;
+  color: var(--text-secondary);
+  font-size: 11px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Üzerine gelince beliren yuvarlak silme rozeti (görsellerdeki ile aynı). */
+.remove {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 17px;
+  height: 17px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.8);
+  transition:
+    opacity 0.12s ease,
+    transform 0.12s ease,
+    background 0.12s ease;
+  cursor: default;
+}
+
+.card:hover .remove,
+.remove:focus-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.remove:hover {
+  background: var(--destructive);
+}

@@ -1,0 +1,42 @@
+/* Görünmez sürükleme şeridi. Üzerine gelince ortasında ince bir çizgi beliriyor. */
+.handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 9px;
+  z-index: 4;
+  cursor: ew-resize;
+}
+
+.handle::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  border-radius: 1px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.handle:hover::after,
+.dragging::after {
+  opacity: 0.55;
+}
+
+.dragging::after {
+  opacity: 0.85;
+}
+
+/* Panelin sol kenarı: şeridin yarısı panelin dışında kalsın ki kenara denk gelsin. */
+.panelEdge {
+  left: -4px;
+}
+
+/* Alt başlık sütunuyla not alanı arasındaki dikey çizgi. */
+.columnEdge {
+  left: calc(var(--subtab-width, 136px) - 4px);
+}
