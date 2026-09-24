@@ -7,6 +7,7 @@ import { thumbUrl } from '../../../shared/media'
 import { cardEnter, cardVisible, springSnappy } from '../motion'
 import { useContextMenu } from './ContextMenu'
 import styles from './LinkCard.module.css'
+import { useI18n } from '../i18n'
 
 // Bu oturumda önizlemesi zaten istenmiş videolar. Kart her açılışta yeniden kuruluyor;
 // başarılı bir cevaptan sonra tekrar tekrar sormayalım. İnternet yoksa ya da ayar kapalıysa
@@ -34,6 +35,7 @@ interface Props {
 /** YouTube kartı: 16:9 küçük resim + oynat simgesi, altında başlık ve kanal. Tıklayınca tarayıcıda açılır. */
 export function LinkCard({ block, onDelete, onPatch }: Props) {
   const openMenu = useContextMenu()
+  const { t } = useI18n()
   const complete = Boolean(block.att && block.title)
 
   // Eksik önizlemeyi tamamla. İnternete arayüz değil arka plan çıkar (main/youtube.ts).
@@ -74,10 +76,10 @@ export function LinkCard({ block, onDelete, onPatch }: Props) {
       onClick={open}
       onContextMenu={(e) =>
         openMenu(e, [
-          { type: 'item', label: 'Tarayıcıda aç', onSelect: open },
-          { type: 'item', label: 'Linki kopyala', onSelect: () => copyText(block.url) },
+          { type: 'item', label: t('link.open'), onSelect: open },
+          { type: 'item', label: t('link.copy'), onSelect: () => copyText(block.url) },
           { type: 'separator' },
-          { type: 'item', label: 'Videoyu sil', destructive: true, onSelect: () => onDelete(block) }
+          { type: 'item', label: t('link.delete'), destructive: true, onSelect: () => onDelete(block) }
         ])
       }
     >
@@ -92,7 +94,7 @@ export function LinkCard({ block, onDelete, onPatch }: Props) {
         <div className={styles.sub}>YouTube{block.channel ? ` · ${block.channel}` : ''}</div>
       </div>
 
-      <button className={styles.remove} title="Videoyu sil" onClick={remove}>
+      <button className={styles.remove} title={t('link.delete')} onClick={remove}>
         <X size={11} strokeWidth={3} />
       </button>
     </motion.div>

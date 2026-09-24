@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { LayoutGroup, motion } from 'framer-motion'
-import { ChevronLeft, Coffee, ExternalLink, FolderOpen } from 'lucide-react'
+import { ChevronDown, ChevronLeft, Coffee, ExternalLink, FolderOpen } from 'lucide-react'
 import { formatShortcut, LIMITS, type Settings, type ThemeMode } from '../../../shared/settings'
 import { springSnappy } from '../motion'
 // Sadece sürüm numarası: package.json'ın tamamı programın içine gömülmesin.
 import { version } from '../../../../package.json'
 import { COPYRIGHT } from '../../../shared/app'
+import { LANGS, type LangPref } from '../../../shared/i18n'
+import { setLanguagePref, useI18n } from '../i18n'
 import styles from './SettingsView.module.css'
 
 interface Props {
@@ -19,6 +21,7 @@ export function SettingsView({ onClose }: Props) {
   const [isPackaged, setIsPackaged] = useState(false)
   const [isStore, setIsStore] = useState(false)
   const [layoutGroupId] = useState(() => crypto.randomUUID())
+  const { t, locale } = useI18n()
 
   useEffect(() => {
     window.settings.get().then((r) => {
@@ -46,67 +49,88 @@ export function SettingsView({ onClose }: Props) {
       <header className={styles.header}>
         <button className={styles.back} onClick={onClose}>
           <ChevronLeft size={18} strokeWidth={2.2} />
-          <span>Notlar</span>
+          <span>{t('settings.back')}</span>
         </button>
-        <h1 className={styles.title}>Ayarlar</h1>
+        <h1 className={styles.title}>{t('settings.title')}</h1>
       </header>
 
       {settings && (
         <LayoutGroup id={layoutGroupId}>
           <div className={styles.scroll}>
-            <Group title="Görünüm">
-              <Row label="Tema">
+            <Group title={t('settings.appearance')}>
+              <Row label={t('settings.theme')}>
                 <Segmented
                   value={settings.theme}
                   options={[
-                    ['system', 'Sistem'],
-                    ['light', 'Açık'],
-                    ['dark', 'Koyu']
+                    ['system', t('settings.themeSystem')],
+                    ['light', t('settings.themeLight')],
+                    ['dark', t('settings.themeDark')]
                   ]}
                   onChange={(theme) => update({ theme })}
                 />
               </Row>
+              <Row label={t('settings.language')}>
+                <span className={styles.selectWrap}>
+                  <select
+                    className={styles.select}
+                    value={settings.language}
+                    onChange={(e) => {
+                      const language = e.target.value as LangPref
+                      setLanguagePref(language)
+                      void update({ language })
+                    }}
+                  >
+                    <option value="system">{t('settings.languageSystem')}</option>
+                    {LANGS.map((l) => (
+                      <option key={l.code} value={l.code}>
+                        {l.name}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown size={13} strokeWidth={2.2} className={styles.selectIcon} />
+                </span>
+              </Row>
             </Group>
 
-            <Group title="Açılma">
+            <Group title={t('settings.opening')}>
               <SliderRow
-                label="Tetik bölgesi"
-                hint="Ekranın sağ kenarında, panelin açıldığı alan"
+                label={t('settings.trigger')}
+                hint={t('settings.triggerHint')}
                 value={settings.triggerZone}
-                display={`%${Math.round(settings.triggerZone * 100)}`}
+                display={new Intl.NumberFormat(locale, { style: 'percent' }).format(settings.triggerZone)}
                 {...LIMITS.triggerZone}
                 onChange={(triggerZone) => update({ triggerZone })}
                 extra={<ZonePreview zone={settings.triggerZone} />}
               />
               <SliderRow
-                label="Açılma gecikmesi"
-                hint="Mouse kenarda bu kadar durunca açılır"
+                label={t('settings.delay')}
+                hint={t('settings.delayHint')}
                 value={settings.dwellMs}
-                display={settings.dwellMs === 0 ? 'Anında' : `${settings.dwellMs} ms`}
+                display={settings.dwellMs === 0 ? t('settings.instant') : `${settings.dwellMs} ms`}
                 {...LIMITS.dwellMs}
                 onChange={(dwellMs) => update({ dwellMs })}
               />
-              <Row label="Klavye kısayolu">
+              <Row label={t('settings.shortcut')}>
                 <ShortcutRecorder value={settings.shortcut} onChange={(shortcut) => update({ shortcut })} />
               </Row>
             </Group>
 
             <Group
-              title="Sistem"
+              title={t('settings.system')}
               footnote={
                 isStore
-                  ? 'Sill, Windows açılışında kendiliğinden başlar. Açıp kapatmak için Windows Ayarları → Başlangıç.'
+                  ? t('settings.startupStore')
                   : isPackaged
                     ? undefined
-                    : 'Windows açılışında başlatma, programı kurduktan sonra çalışır.'
+                    : t('settings.startupDev')
               }
             >
-              <Row label="Windows açılışında başlat">
+              <Row label={t('settings.startup')}>
                 {isStore ? (
                   // Mağaza sürümünde bu ayar Windows'un kendi Başlangıç sayfasında.
                   <button className={styles.button} onClick={() => window.settings.openStartupSettings()}>
                     <ExternalLink size={13} strokeWidth={2} />
-                    Ayarla
+                    {t('settings.startupButton')}
                   </button>
                 ) : (
                   <Toggle
@@ -116,28 +140,28 @@ export function SettingsView({ onClose }: Props) {
                   />
                 )}
               </Row>
-              <Row label="Notların klasörü">
+              <Row label={t('settings.notesFolder')}>
                 <button className={styles.button} onClick={() => window.settings.openDataFolder()}>
                   <FolderOpen size={13} strokeWidth={2} />
-                  Klasörü aç
+                  {t('settings.openFolder')}
                 </button>
               </Row>
             </Group>
 
             <Group
-              title="Gizlilik"
-              footnote="Açıkken nota bir YouTube linki yapıştırınca videonun küçük resmi ve başlığı YouTube'dan bir kez indirilir. Sill'in internete çıktığı tek yer burası. Kapalıyken kart resimsiz görünür."
+              title={t('settings.privacy')}
+              footnote={t('settings.privacyNote')}
             >
-              <Row label="Link önizlemeleri">
+              <Row label={t('settings.linkPreviews')}>
                 <Toggle checked={settings.linkPreviews} onChange={(linkPreviews) => update({ linkPreviews })} />
               </Row>
             </Group>
 
-            <Group title="Destek" footnote="Sill ücretsiz. Beğendiysen bir kahve ısmarlayarak geliştirilmesine destek olabilirsin.">
-              <Row label="Sill'i beğendin mi?">
+            <Group title={t('settings.support')} footnote={t('settings.supportNote')}>
+              <Row label={t('settings.likeIt')}>
                 <button className={styles.button} onClick={() => window.settings.openSupport()}>
                   <Coffee size={13} strokeWidth={2} />
-                  Kahve ısmarla
+                  {t('settings.coffee')}
                 </button>
               </Row>
             </Group>
@@ -306,6 +330,7 @@ function keyFromCode(code: string): string | null {
 }
 
 function ShortcutRecorder({ value, onChange }: { value: string; onChange: (v: string) => Promise<string | null> }) {
+  const { t } = useI18n()
   const [recording, setRecording] = useState(false)
   const [error, setError] = useState<string | null>(null)
   // En güncel onChange'i ref'te tut: ekran yeniden çizilince kayıt dinleyicisi baştan kurulmasın.
@@ -330,7 +355,7 @@ function ShortcutRecorder({ value, onChange }: { value: string; onChange: (v: st
         e.metaKey && 'Super'
       ].filter(Boolean) as string[]
       if (mods.length === 0 || (mods.length === 1 && mods[0] === 'Shift')) {
-        setError('En az bir Ctrl, Alt veya Win tuşu gerekli.')
+        setError(t('settings.needsModifier'))
         return
       }
       setRecording(false)
@@ -352,7 +377,7 @@ function ShortcutRecorder({ value, onChange }: { value: string; onChange: (v: st
           setRecording((r) => !r)
         }}
       >
-        {recording ? 'Tuşlara basın…' : formatShortcut(value)}
+        {recording ? t('settings.pressKeys') : formatShortcut(value)}
       </button>
       {error && <div className={styles.error}>{error}</div>}
     </div>

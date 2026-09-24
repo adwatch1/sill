@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { getT } from '../i18n'
 
 // Mikrofonla ses kaydı.
 //
@@ -66,15 +67,15 @@ function describe(e: unknown): RecordError {
   const name = e instanceof DOMException ? e.name : ''
   if (name === 'NotAllowedError' || name === 'SecurityError') {
     return {
-      message: 'Mikrofona erişilemiyor. Windows ayarlarında masaüstü uygulamalarının mikrofonu kullanmasına izin verin.',
+      message: getT()('rec.denied'),
       openSettings: true
     }
   }
-  if (name === 'NotFoundError') return { message: 'Bağlı bir mikrofon bulunamadı.' }
+  if (name === 'NotFoundError') return { message: getT()('rec.notFound') }
   if (name === 'NotReadableError') {
-    return { message: 'Mikrofon açılamadı. Başka bir program kullanıyor olabilir.' }
+    return { message: getT()('rec.busy') }
   }
-  return { message: 'Mikrofon açılamadı.' }
+  return { message: getT()('rec.failed') }
 }
 
 /**
@@ -93,7 +94,7 @@ async function listMics(): Promise<MicDevice[]> {
   const all = await navigator.mediaDevices.enumerateDevices()
   return all
     .filter((d) => d.kind === 'audioinput' && d.deviceId !== 'default' && d.deviceId !== 'communications')
-    .map((d, i) => ({ id: d.deviceId, label: d.label || `Mikrofon ${i + 1}` }))
+    .map((d, i) => ({ id: d.deviceId, label: d.label || getT()('rec.micN', { n: i + 1 }) }))
 }
 
 const stopTracks = (s: MediaStream): void => s.getTracks().forEach((t) => t.stop())
@@ -134,7 +135,7 @@ export function useRecorder({ onDone, onError }: Options) {
       if (s.discard) return
       const durationMs = Math.round(performance.now() - s.startedAt)
       if (durationMs < MIN_MS || s.chunks.length === 0) {
-        cb.current.onError({ message: 'Kayıt çok kısaydı, eklenmedi.' })
+        cb.current.onError({ message: getT()('rec.tooShort') })
         return
       }
       const blob = new Blob(s.chunks, { type: MIME })
@@ -242,7 +243,7 @@ export function useRecorder({ onDone, onError }: Options) {
         recorder.onerror = () => {
           s.discard = true
           void finish(s)
-          cb.current.onError({ message: 'Kayıt bir hata yüzünden durdu.' })
+          cb.current.onError({ message: getT()('rec.error') })
         }
         // Parçalar saniyede bir gelsin: uzun kayıtta tek dev parça beklemeyelim.
         recorder.start(1000)
@@ -250,7 +251,7 @@ export function useRecorder({ onDone, onError }: Options) {
         stopTracks(stream)
         setState('idle')
         console.error('Kayıt başlatılamadı:', e)
-        cb.current.onError({ message: 'Kayıt başlatılamadı.' })
+        cb.current.onError({ message: getT()('rec.startFailed') })
         return
       }
 

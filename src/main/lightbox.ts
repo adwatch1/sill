@@ -2,6 +2,7 @@ import { BrowserWindow, ipcMain, screen } from 'electron'
 import { join } from 'path'
 import { attUrl, isHash, isImageExt } from '../shared/media'
 import { alive } from './util'
+import { currentLang } from './i18n'
 
 // Görseli büyütmek için ekranı kaplayan ikinci pencere (macOS'taki Quick Look gibi).
 // Panel penceresi ~516 px genişliğinde; büyütülmüş görsel oraya sığmaz, bu yüzden ayrı pencere.
@@ -94,7 +95,7 @@ function open(src: string, name: string | undefined): void {
     closeLightbox()
   }, READY_TIMEOUT_MS)
 
-  const payload = { src, name }
+  const payload = { src, name, lang: currentLang() }
   ipcMain.once('lightbox:ready', () => {
     clearWatchdog()
     if (!alive(target)) return

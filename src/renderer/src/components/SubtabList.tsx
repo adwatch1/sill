@@ -9,6 +9,7 @@ import { EditableLabel } from './EditableLabel'
 import type { ConfirmRequest } from './ConfirmDialog'
 import { useContextMenu } from './ContextMenu'
 import styles from './SubtabList.module.css'
+import { useI18n } from '../i18n'
 
 interface Props {
   tab: Tab
@@ -19,6 +20,7 @@ interface Props {
 // tıkla = seç · çift tıkla = yeniden adlandır · basılı tut + sürükle = sırala · × = sil.
 export function SubtabList({ tab, onConfirm }: Props) {
   const { actions } = useNotes()
+  const { t } = useI18n()
   const [renamingId, setRenamingId] = useState<string | null>(null)
   const listRef = useRef<HTMLDivElement>(null)
 
@@ -30,14 +32,14 @@ export function SubtabList({ tab, onConfirm }: Props) {
       ?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
   }, [focusId, tab.subtabs.length])
 
-  const add = () => setRenamingId(actions.addSubtab(tab.id))
+  const add = () => setRenamingId(actions.addSubtab(tab.id, t('subtabs.new')))
 
   const remove = (sub: Subtab) => {
     const doDelete = () => actions.deleteSubtab(tab.id, sub.id)
     if (!sub.content.trim()) return doDelete()
     onConfirm({
-      title: `"${sub.title}" silinsin mi?`,
-      message: 'Bu başlıktaki not silinecek. Bu geri alınamaz.',
+      title: t('tabs.confirmTitle', { name: sub.title }),
+      message: t('subtabs.confirmMessage'),
       onConfirm: doDelete
     })
   }
@@ -76,7 +78,7 @@ export function SubtabList({ tab, onConfirm }: Props) {
             aşağıda hareket edecek boş alan bulsun, kutunun kenarında kesilmesin. */}
         <motion.button layout="position" className={styles.add} onClick={add}>
           <Plus size={13} strokeWidth={2} />
-          <span>Yeni başlık</span>
+          <span>{t('subtabs.new')}</span>
         </motion.button>
       </Reorder.Group>
     </nav>
@@ -100,6 +102,7 @@ function SubtabItem(props: SubtabItemProps) {
   const { sub, tabId, active, renaming } = props
   const { lifted, itemProps } = useHoldToDrag(renaming, props.bounds)
   const openMenu = useContextMenu()
+  const { t } = useI18n()
 
   return (
     <Reorder.Item
@@ -118,9 +121,9 @@ function SubtabItem(props: SubtabItemProps) {
       onDoubleClick={props.onStartRename}
       onContextMenu={(e) =>
         openMenu(e, [
-          { type: 'item', label: 'Yeniden adlandır', onSelect: props.onStartRename },
+          { type: 'item', label: t('tabs.rename'), onSelect: props.onStartRename },
           { type: 'separator' },
-          { type: 'item', label: 'Başlığı sil', destructive: true, onSelect: props.onRemove }
+          { type: 'item', label: t('subtabs.delete'), destructive: true, onSelect: props.onRemove }
         ])
       }
     >
@@ -137,7 +140,7 @@ function SubtabItem(props: SubtabItemProps) {
       />
       <button
         className={styles.close}
-        title="Başlığı sil"
+        title={t('subtabs.delete')}
         onPointerDown={(e) => e.stopPropagation()} // × basmak sürüklemeyi başlatmasın
         onClick={(e) => {
           e.stopPropagation()

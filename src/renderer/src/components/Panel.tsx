@@ -13,6 +13,7 @@ import { LIMITS, DEFAULT_SETTINGS } from '../../../shared/settings'
 import resizerStyles from './Resizer.module.css'
 import { isTabColor } from '../../../shared/notes'
 import styles from './Panel.module.css'
+import { useI18n } from '../i18n'
 
 interface Props {
   settingsOpen: boolean
@@ -39,6 +40,7 @@ export function Panel({
   onSubtabWidth
 }: Props) {
   const { activeTab, actions } = useNotes()
+  const { t } = useI18n()
   const [confirm, setConfirm] = useState<ConfirmRequest | null>(null)
   const [resizing, setResizing] = useState(false)
   // Her açılışta yeni bir animasyon grubu: seçim hapları önceki panelden kalan konumu
@@ -84,7 +86,7 @@ export function Panel({
               {/* Alt başlık sütunuyla not arasındaki dikey çizgi: sürüklenerek genişler. */}
               <Resizer
                 className={resizerStyles.columnEdge}
-                title="Sürükleyerek başlık sütununu genişlet (çift tıkla: varsayılan)"
+                title={t('panel.resizeColumn')}
                 getValue={() => subtabWidth}
                 min={LIMITS.subtabWidth.min}
                 max={LIMITS.subtabWidth.max}
@@ -96,9 +98,9 @@ export function Panel({
             </div>
           ) : (
             <div className={styles.empty}>
-              <p>Henüz tab yok.</p>
-              <button className={styles.emptyButton} onClick={() => actions.addTab()}>
-                İlk tab'ı ekle
+              <p>{t('panel.noTabs')}</p>
+              <button className={styles.emptyButton} onClick={() => actions.addTab(t('tabs.new'))}>
+                {t('panel.addFirstTab')}
               </button>
             </div>
           )}
@@ -111,7 +113,7 @@ export function Panel({
       {!settingsOpen && (
         <Resizer
           className={resizerStyles.panelEdge}
-          title="Sürükleyerek paneli genişlet (çift tıkla: varsayılan)"
+          title={t('panel.resizePanel')}
           getValue={getPanelWidth}
           min={LIMITS.panelWidth.min}
           max={LIMITS.panelWidth.max}

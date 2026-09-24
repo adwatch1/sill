@@ -1,7 +1,7 @@
 {
   "name": "sill",
   "productName": "Sill",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A notes panel on the edge of your Windows screen",
   "author": "stilless",
   "main": "./out/main/index.js",
@@ -76,8 +76,16 @@
       "displayName": "Sill",
       "backgroundColor": "transparent",
       "languages": [
+        "en-US",
         "tr-TR",
-        "en-US"
+        "de-DE",
+        "fr-FR",
+        "es-ES",
+        "pt-BR",
+        "it-IT",
+        "ru-RU",
+        "ja-JP",
+        "zh-CN"
       ],
       "customExtensionsPath": "build/appx-extensions.xml",
       "artifactName": "Sill-Store-${version}.${ext}",

@@ -18,6 +18,7 @@ import { registerMediaIpc, registerMediaProtocol } from './media'
 import { registerYouTubeIpc } from './youtube'
 import { flushSettings, getSettings, initSettings, updateSettings } from './settings'
 import { formatShortcut } from '../shared/settings'
+import { mt } from './i18n'
 
 let tray: Tray | null = null
 
@@ -135,15 +136,16 @@ function createTray(): void {
 
 function updateTrayMenu(): void {
   if (!tray) return
+  const t = mt() // dil ayarı değişince menü yeniden kurulur (initSettings → onChange)
   tray.setContextMenu(
     Menu.buildFromTemplate([
       {
-        label: `Paneli aç / kapat    (${formatShortcut(getSettings().shortcut)})`,
+        label: `${t('tray.toggle')}    (${formatShortcut(getSettings().shortcut)})`,
         click: togglePanel
       },
-      { label: 'Ayarlar…', click: openSettingsView },
+      { label: t('tray.settings'), click: openSettingsView },
       { type: 'separator' },
-      { label: 'Çıkış', click: () => app.quit() }
+      { label: t('tray.quit'), click: () => app.quit() }
     ])
   )
 }

@@ -338,3 +338,38 @@
   font-size: 11px;
   color: var(--text-tertiary);
 }
+
+/* Dil seçici: sistemin açılır listesi, düğmelerle aynı görünümde */
+.selectWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.select {
+  appearance: none;
+  padding: 5px 28px 5px 11px;
+  border: none;
+  border-radius: 7px;
+  background: var(--surface-sunken);
+  color: var(--text);
+  font: 500 12px var(--font);
+  cursor: default;
+  outline: none;
+}
+
+.select:hover {
+  background: var(--hover);
+}
+
+.select option {
+  background: var(--surface-raised);
+  color: var(--text);
+}
+
+.selectIcon {
+  position: absolute;
+  right: 9px;
+  color: var(--text-secondary);
+  pointer-events: none;
+}

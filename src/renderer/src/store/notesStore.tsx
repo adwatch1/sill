@@ -24,6 +24,7 @@ import {
   type Tab,
   type TabColor
 } from '../../../shared/notes'
+import { getT } from '../i18n'
 
 /** Link kartında sonradan dolan alanlar (kimlik ve adres asla değişmez). */
 export type LinkPatch = Partial<Pick<LinkBlock, 'title' | 'channel' | 'att' | 'ext'>>
@@ -230,7 +231,12 @@ function seedData(): NotesData {
     const subtabs = subs.map((s) => newSubtab(crypto.randomUUID(), s))
     return { id: crypto.randomUUID(), title, subtabs, activeSubtabId: subtabs[0]?.id ?? null }
   }
-  const tabs = [mk('Günlük', ['Ev işi', 'Alışveriş', 'Fikirler']), mk('İş', ['Toplantılar']), mk('Proje', [])]
+  const t = getT() // ilk açılışta arayüz dilinde
+  const tabs = [
+    mk(t('sample.daily'), [t('sample.chores'), t('sample.shopping'), t('sample.ideas')]),
+    mk(t('sample.work'), [t('sample.meetings')]),
+    mk(t('sample.project'), [])
+  ]
   return { version: 1, tabs, activeTabId: tabs[0].id }
 }
 
@@ -277,7 +283,7 @@ function useNotesState(initialData: NotesData, canSave: boolean) {
   const actions = useMemo(
     () => ({
       /** Yeni tab ekler, id'sini döndürür (hemen adlandırma moduna girmek için). */
-      addTab: (title = 'Yeni tab') => {
+      addTab: (title = getT()('tabs.new')) => {
         const id = crypto.randomUUID()
         dispatch({ type: 'addTab', id, title })
         return id
@@ -287,7 +293,7 @@ function useNotesState(initialData: NotesData, canSave: boolean) {
       selectTab: (id: string) => dispatch({ type: 'selectTab', id }),
       reorderTabs: (ids: string[]) => dispatch({ type: 'reorderTabs', ids }),
       setTabColor: (id: string, color: TabColor | null) => dispatch({ type: 'setTabColor', id, color }),
-      addSubtab: (tabId: string, title = 'Yeni başlık') => {
+      addSubtab: (tabId: string, title = getT()('subtabs.new')) => {
         const id = crypto.randomUUID()
         dispatch({ type: 'addSubtab', tabId, id, title })
         return id

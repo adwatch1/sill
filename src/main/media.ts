@@ -6,6 +6,7 @@ import { Readable } from 'stream'
 import { basename, dirname, join } from 'path'
 import { pathToFileURL } from 'url'
 import { renameWithRetry } from './util'
+import { mt } from './i18n'
 import {
   AUDIO_EXTS,
   IMAGE_EXTS,
@@ -32,9 +33,6 @@ const thumbPath = (hash: string): string => join(userDir(), 'thumbs', shard(hash
 const fail = (message: string): ImportResult => ({ ok: false, message })
 const mb = (bytes: number): string => (bytes / 1024 / 1024).toFixed(1)
 
-const TYPE_MESSAGE =
-  'Bu dosya türü eklenemiyor. Görsel için PNG, JPG, GIF, BMP, WebP; ses için MP3, WAV, M4A, OGG, Opus, FLAC, WebM olmalı.'
-const AIFF_MESSAGE = 'AIFF dosyaları çalınamıyor. Dosyayı WAV olarak dışa aktarıp öyle ekleyin.'
 
 const exists = async (p: string): Promise<boolean> =>
   fs
@@ -109,7 +107,10 @@ async function makeThumb(hash: string, srcPath: string): Promise<{ w: number; h:
 function tooBig(kind: 'image' | 'audio', size: number): string | null {
   const max = kind === 'audio' ? MAX_AUDIO_BYTES : MAX_IMAGE_BYTES
   if (size <= max) return null
-  return `Dosya çok büyük (${mb(size)} MB). ${kind === 'audio' ? 'Ses' : 'Görsel'} en fazla ${Math.round(max / 1024 / 1024)} MB olabilir.`
+  return mt()(kind === 'audio' ? 'media.tooBigAudio' : 'media.tooBigImage', {
+    size: mb(size),
+    max: Math.round(max / 1024 / 1024)
+  })
 }
 
 /**
@@ -118,8 +119,8 @@ function tooBig(kind: 'image' | 'audio', size: number): string | null {
  */
 export async function importBuffer(buf: Buffer, name: string): Promise<ImportResult> {
   const s = sniff(buf)
-  if (!s) return fail(TYPE_MESSAGE)
-  if (s.kind === 'aiff') return fail(AIFF_MESSAGE)
+  if (!s) return fail(mt()('media.typeUnsupported'))
+  if (s.kind === 'aiff') return fail(mt()('media.aiff'))
   const big = tooBig(s.kind, buf.length)
   if (big) return fail(big)
 
@@ -158,11 +159,11 @@ function hashFile(path: string): Promise<string> {
 async function importOne(path: string): Promise<ImportResult> {
   try {
     const st = await fs.stat(path)
-    if (!st.isFile()) return fail('Bu bir dosya değil.')
+    if (!st.isFile()) return fail(mt()('media.notFile'))
     // Önce türüne ve boyutuna bak, sonra oku: 4 GB'lık bir dosyayı belleğe almayalım.
     const s = sniff(await readHead(path))
-    if (!s) return fail(TYPE_MESSAGE)
-    if (s.kind === 'aiff') return fail(AIFF_MESSAGE)
+    if (!s) return fail(mt()('media.typeUnsupported'))
+    if (s.kind === 'aiff') return fail(mt()('media.aiff'))
     const big = tooBig(s.kind, st.size)
     if (big) return fail(big)
 
@@ -175,7 +176,7 @@ async function importOne(path: string): Promise<ImportResult> {
     return { ok: true, kind: 'audio', att: hash, ext: s.ext, w: 0, h: 0, name: basename(path) }
   } catch (e) {
     console.error('Dosya eklenemedi:', path, e)
-    return fail('Dosya okunamadı.')
+    return fail(mt()('media.readError'))
   }
 }
 
@@ -276,8 +277,8 @@ export function registerMediaIpc(hooks: MediaHooks): void {
   // o yüzden baytları arayüzden geliyor. Tür yine ilk baytlardan anlaşılıyor —
   // arayüzün "bu bir PNG" demesine güvenmiyoruz.
   ipcMain.handle('media:import-bytes', async (_e, data: unknown, name: unknown): Promise<ImportResult> => {
-    if (!(data instanceof Uint8Array)) return fail('Yapıştırılan içerik okunamadı.')
-    return importBuffer(Buffer.from(data), typeof name === 'string' && name ? name : 'Pano görseli.png')
+    if (!(data instanceof Uint8Array)) return fail(mt()('media.pasteError'))
+    return importBuffer(Buffer.from(data), typeof name === 'string' && name ? name : `${mt()('media.pastedImage')}.png`)
   })
 
   // Windows gizlilik ayarında mikrofon kapalıysa program izin isteyemiyor, Windows sessizce
@@ -291,14 +292,15 @@ export function registerMediaIpc(hooks: MediaHooks): void {
   // seçtiği dosyalar doğrudan burada içeri alınır.
   ipcMain.handle('media:pick', async (e, kind: unknown): Promise<ImportResult[]> => {
     const audio = kind === 'audio'
+    const t = mt()
     const parent = BrowserWindow.fromWebContents(e.sender)
     const opts: OpenDialogOptions = {
-      title: audio ? 'Ses ekle' : 'Görsel ekle',
-      buttonLabel: 'Ekle',
+      title: t(audio ? 'dialog.addAudio' : 'dialog.addImage'),
+      buttonLabel: t('dialog.add'),
       properties: ['openFile', 'multiSelections'],
       filters: audio
-        ? [{ name: 'Ses dosyaları', extensions: [...AUDIO_EXTS, 'aif', 'aiff'] }]
-        : [{ name: 'Görseller', extensions: [...IMAGE_EXTS, 'jpeg'] }]
+        ? [{ name: t('dialog.audio'), extensions: [...AUDIO_EXTS, 'aif', 'aiff'] }]
+        : [{ name: t('dialog.images'), extensions: [...IMAGE_EXTS, 'jpeg'] }]
     }
     hooks.onDialogOpen()
     try {

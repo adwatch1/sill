@@ -6,6 +6,7 @@ import { attUrl, thumbUrl } from '../../../shared/media'
 import { springSnappy } from '../motion'
 import { useContextMenu } from './ContextMenu'
 import styles from './MediaGrid.module.css'
+import { useI18n } from '../i18n'
 
 interface Props {
   items: ImageBlock[]
@@ -36,6 +37,7 @@ function Tile({ block, onOpen, onDelete, onOrient }: { block: ImageBlock } & Omi
   // Önizleme üretilememişse (ör. nativeImage dosyayı açamadıysa) orijinali göster.
   const [src, setSrc] = useState(thumbUrl(block.att))
   const openMenu = useContextMenu()
+  const { t } = useI18n()
 
   const remove = (e: ReactMouseEvent): void => {
     e.stopPropagation()
@@ -55,23 +57,23 @@ function Tile({ block, onOpen, onDelete, onOrient }: { block: ImageBlock } & Omi
         openMenu(e, [
           {
             type: 'item',
-            label: orient === 'wide' ? 'Dikey yerleştir' : 'Yatay yerleştir',
+            label: orient === 'wide' ? t('image.makeTall') : t('image.makeWide'),
             onSelect: () => onOrient(block, orient === 'wide' ? 'tall' : 'wide')
           },
           { type: 'separator' },
-          { type: 'item', label: 'Görseli sil', destructive: true, onSelect: () => onDelete(block) }
+          { type: 'item', label: t('image.delete'), destructive: true, onSelect: () => onDelete(block) }
         ])
       }
     >
       <img
         className={styles.image}
         src={src}
-        alt={block.name ?? 'Görsel'}
+        alt={block.name ?? t('image.alt')}
         draggable={false}
         onError={() => setSrc(attUrl(block.att, block.ext))}
       />
       {/* Launchpad tarzı silme rozeti — tab'lardaki ile aynı dil. */}
-      <button className={styles.remove} title="Görseli sil" onClick={remove}>
+      <button className={styles.remove} title={t('image.delete')} onClick={remove}>
         <X size={11} strokeWidth={3} />
       </button>
     </motion.div>

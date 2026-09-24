@@ -6,6 +6,8 @@ import { X } from 'lucide-react'
 import '@fontsource-variable/inter'
 import type { LightboxItem } from '../../../preload/lightbox'
 import './lightbox.css'
+import { setLanguagePref, useI18n } from '../i18n'
+import type { LangPref } from '../../../shared/i18n'
 
 declare global {
   interface Window {
@@ -15,10 +17,14 @@ declare global {
 
 /** Ekranı kaplayan büyütme görünümü: karartılmış zemin, ortada görsel, X ve Esc ile kapanır. */
 function Lightbox() {
+  const { t } = useI18n()
   const [item, setItem] = useState<LightboxItem | null>(null)
 
   useEffect(() => {
-    const off = window.lightbox.onShow(setItem)
+    const off = window.lightbox.onShow((it) => {
+      if (it.lang) setLanguagePref(it.lang as LangPref)
+      setItem(it)
+    })
     window.lightbox.ready() // "kuruldum, gönder ve pencereyi göster"
     return off
   }, [])
@@ -39,7 +45,7 @@ function Lightbox() {
       transition={{ duration: 0.14 }}
       onMouseDown={() => window.lightbox.close()}
     >
-      <button className="close" title="Kapat (Esc)" onClick={() => window.lightbox.close()}>
+      <button className="close" title={t('lightbox.close')} onClick={() => window.lightbox.close()}>
         <X size={18} strokeWidth={2.2} />
       </button>
 
@@ -49,7 +55,7 @@ function Lightbox() {
             key={item.src}
             className="image"
             src={item.src}
-            alt={item.name ?? 'Görsel'}
+            alt={item.name ?? t('image.alt')}
             draggable={false}
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}

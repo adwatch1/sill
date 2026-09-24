@@ -4,6 +4,7 @@ import { Panel } from './components/Panel'
 import { NotesProvider } from './store/notesStore'
 import { FOCUS_EDITOR_EVENT } from './components/NoteView'
 import type { Settings } from '../../shared/settings'
+import { setLanguagePref } from './i18n'
 
 export function App() {
   const [visible, setVisible] = useState(false)
@@ -14,6 +15,7 @@ export function App() {
 
   useEffect(() => {
     window.settings.get().then((r) => {
+      setLanguagePref(r.settings.language)
       setSettings(r.settings)
       panelWidthRef.current = r.settings.panelWidth
     })

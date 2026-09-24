@@ -3,6 +3,7 @@ import {
   useCallback,
   useEffect,
   useLayoutEffect,
+  useMemo,
   useRef,
   useState,
   type ClipboardEvent as ReactClipboardEvent,
@@ -33,18 +34,14 @@ import { LinkCard } from './LinkCard'
 import { useRecorder, type RecordTarget } from '../hooks/useRecorder'
 import { useContextMenu } from './ContextMenu'
 import styles from './NoteView.module.css'
+import { useI18n } from '../i18n'
 
 /** Bu olay tetiklenince imleç not alanına gider (kısayolla açılışta kullanılır). */
 export const FOCUS_EDITOR_EVENT = 'sill:focus-editor'
 
 const TOAST_MS = 6000
 
-const dateFormat = new Intl.DateTimeFormat('tr-TR', {
-  day: 'numeric',
-  month: 'short',
-  hour: '2-digit',
-  minute: '2-digit'
-})
+const DATE_OPTS: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }
 
 /** Verilen yönde ilk yazı bloğu (aradaki görsel/ses bloklarını atlayarak). */
 function nearestTextBlock(blocks: Block[], from: number, step: number): TextBlock | null {
@@ -110,6 +107,9 @@ type Toast = { message: string; undo?: Block[]; action?: { label: string; run: (
 export function NoteView() {
   const { activeTab, activeSubtab, actions, saveStatus } = useNotes()
   const openMenu = useContextMenu()
+  const { t, locale } = useI18n()
+  // Tarih biçimi dile göre (ör. "24 Eyl 22:27" / "Sep 24, 10:27 PM")
+  const dateFormat = useMemo(() => new Intl.DateTimeFormat(locale, DATE_OPTS), [locale])
 
   // Hangi bloğun yazı kutusu nerede — imleci bloklar arasında taşımak için.
   const editors = useRef(new Map<string, HTMLTextAreaElement>())
@@ -146,7 +146,7 @@ export function NoteView() {
   // Kayıt bitince ses, kaydın BAŞLADIĞI alt başlığa konur (bu arada başka yere geçilse bile).
   const recorder = useRecorder({
     onDone: async (target: RecordTarget, bytes: Uint8Array, durationMs: number) => {
-      const name = `Ses kaydı · ${dateFormat.format(Date.now())}`
+      const name = t('rec.name', { date: dateFormat.format(Date.now()) })
       const r = await window.media.importBytes(bytes, name)
       if (!r.ok) {
         showToast(r.message)
@@ -162,15 +162,15 @@ export function NoteView() {
         durationMs,
         updatedAt: Date.now()
       }
-      const { tabId: t, subId: s, caret } = target
-      if (caret) actions.insertBlocksAtCaret(t, s, caret.blockId, caret.from, caret.to, [block])
-      else actions.insertBlocks(t, s, -1, [block]) // notun sonuna
+      const { tabId: tid, subId: sid, caret } = target
+      if (caret) actions.insertBlocksAtCaret(tid, sid, caret.blockId, caret.from, caret.to, [block])
+      else actions.insertBlocks(tid, sid, -1, [block]) // notun sonuna
     },
     onError: (err) =>
       showToast(
         err.message,
         undefined,
-        err.openSettings ? { label: 'Ayarları aç', run: window.media.openMicSettings } : undefined
+        err.openSettings ? { label: t('toast.openSettings'), run: window.media.openMicSettings } : undefined
       )
   })
   const recording = recorder.state !== 'idle'
@@ -226,9 +226,9 @@ export function NoteView() {
   if (!activeSubtab) {
     return (
       <main className={styles.empty}>
-        <p>Bu tab'da henüz başlık yok.</p>
-        <button className={styles.emptyButton} onClick={() => actions.addSubtab(activeTab.id)}>
-          Başlık ekle
+        <p>{t('note.noSubtabs')}</p>
+        <button className={styles.emptyButton} onClick={() => actions.addSubtab(activeTab.id, t('subtabs.new'))}>
+          {t('note.addSubtab')}
         </button>
       </main>
     )
@@ -305,7 +305,7 @@ export function NoteView() {
       }
       const ms = await probeDuration(r.att, r.ext)
       if (ms === null) {
-        problem ??= `"${r.name}" çalınamıyor. Dosyayı WAV ya da MP3 olarak dışa aktarıp tekrar deneyin.`
+        problem ??= t('toast.cantPlay', { name: r.name })
         continue
       }
       out.push({ ...base, type: 'audio', ...(ms !== undefined ? { durationMs: ms } : {}) })
@@ -391,8 +391,8 @@ export function NoteView() {
           ? { ...b, text: b.text.slice(0, from) + text.trim() + b.text.slice(to), updatedAt: Date.now() }
           : b
       )
-      showToast('Video kartı eklendi', undefined, {
-        label: 'Düz yazı olarak bırak',
+      showToast(t('toast.videoAdded'), undefined, {
+        label: t('toast.keepAsText'),
         run: () => {
           actions.setBlocks(tabId, subId, asText)
           setFocusReq({ blockId: block.id, offset: from + text.trim().length })
@@ -430,7 +430,7 @@ export function NoteView() {
   const deleteMedia = (b: ImageBlock | AudioBlock | LinkBlock): void => {
     const before = blocks // silmeden önceki hâli sakla: "Geri al" bunu geri koyar
     actions.deleteBlock(tabId, subId, b.id)
-    showToast(b.type === 'audio' ? 'Ses silindi' : b.type === 'link' ? 'Video silindi' : 'Görsel silindi', before)
+    showToast(t(b.type === 'audio' ? 'toast.audioDeleted' : b.type === 'link' ? 'toast.videoDeleted' : 'toast.imageDeleted'), before)
   }
 
   const undoDelete = (): void => {
@@ -449,21 +449,21 @@ export function NoteView() {
       window.panel.edit(cmd)
     }
     openMenu(e, [
-      { type: 'item', label: 'Geri al', shortcut: 'Ctrl+Z', onSelect: edit('undo') },
+      { type: 'item', label: t('menu.undo'), shortcut: 'Ctrl+Z', onSelect: edit('undo') },
       { type: 'separator' },
-      { type: 'item', label: 'Kes', shortcut: 'Ctrl+X', disabled: !hasSelection, onSelect: edit('cut') },
-      { type: 'item', label: 'Kopyala', shortcut: 'Ctrl+C', disabled: !hasSelection, onSelect: edit('copy') },
+      { type: 'item', label: t('menu.cut'), shortcut: 'Ctrl+X', disabled: !hasSelection, onSelect: edit('cut') },
+      { type: 'item', label: t('menu.copy'), shortcut: 'Ctrl+C', disabled: !hasSelection, onSelect: edit('copy') },
       // Yapıştır yine Windows'un komutu: panoda görsel varsa yazı alanında `paste`
       // olayı tetikleniyor ve yukarıdaki onPaste onu yakalıyor.
-      { type: 'item', label: 'Yapıştır', shortcut: 'Ctrl+V', onSelect: edit('paste') },
+      { type: 'item', label: t('menu.paste'), shortcut: 'Ctrl+V', onSelect: edit('paste') },
       { type: 'separator' },
-      { type: 'item', label: 'Tümünü seç', shortcut: 'Ctrl+A', onSelect: edit('selectAll') },
+      { type: 'item', label: t('menu.selectAll'), shortcut: 'Ctrl+A', onSelect: edit('selectAll') },
       { type: 'separator' },
-      { type: 'item', label: 'Görsel ekle…', onSelect: () => void pickMedia('image', block.id, from, to) },
-      { type: 'item', label: 'Ses ekle…', onSelect: () => void pickMedia('audio', block.id, from, to) },
+      { type: 'item', label: t('menu.addImage'), onSelect: () => void pickMedia('image', block.id, from, to) },
+      { type: 'item', label: t('menu.addAudio'), onSelect: () => void pickMedia('audio', block.id, from, to) },
       {
         type: 'item',
-        label: 'Ses kaydet',
+        label: t('menu.record'),
         disabled: recording,
         onSelect: () => startRecording({ tabId, subId, caret: { blockId: block.id, from, to } })
       }
@@ -496,7 +496,7 @@ export function NoteView() {
                 <TextBlockEditor
                   at={g.at}
                   block={g.block}
-                  placeholder={single ? 'Yazmaya başla…' : undefined}
+                  placeholder={single ? t('note.placeholder') : undefined}
                   onRegister={register}
                   onChange={(text) => actions.setBlockText(tabId, subId, g.block.id, text)}
                   onKeyDown={(e) => handleKeyDown(e, g.block, g.at)}
@@ -529,9 +529,9 @@ export function NoteView() {
                 <div
                   data-at={g.at}
                   className={styles.unknown}
-                  title={`Bilinmeyen parça: ${g.block.type}`}
+                  title={t('note.unknownBlockTitle', { type: g.block.type })}
                 >
-                  Bu parça bu sürümde gösterilemiyor
+                  {t('note.unknownBlock')}
                 </div>
               )}
             </Fragment>
@@ -552,7 +552,7 @@ export function NoteView() {
             <span>{toast.message}</span>
             {toast.undo && (
               <button className={styles.toastButton} onClick={undoDelete}>
-                Geri al
+                {t('toast.undo')}
               </button>
             )}
             {toast.action && (
@@ -585,14 +585,14 @@ export function NoteView() {
       </AnimatePresence>
 
       <footer className={styles.footer}>
-        {saveStatus === 'saved' && <span>Düzenlendi: {dateFormat.format(activeSubtab.updatedAt)}</span>}
-        {saveStatus === 'error' && <span className={styles.warn}>⚠ Kaydedilemedi — tekrar denenecek</span>}
+        {saveStatus === 'saved' && <span>{t('note.edited', { date: dateFormat.format(activeSubtab.updatedAt) })}</span>}
+        {saveStatus === 'error' && <span className={styles.warn}>{t('note.saveError')}</span>}
         {saveStatus === 'disabled' && (
-          <span className={styles.warn}>⚠ Notlar yüklenemedi — kayıt kapalı</span>
+          <span className={styles.warn}>{t('note.loadError')}</span>
         )}
         <button
           className={styles.micButton}
-          title="Ses kaydet"
+          title={t('menu.record')}
           disabled={recording}
           onClick={() => startRecording({ tabId, subId })}
         >

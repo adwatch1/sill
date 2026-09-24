@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import styles from './ConfirmDialog.module.css'
+import { useI18n } from '../i18n'
 
 export interface ConfirmRequest {
   title: string
@@ -16,6 +17,7 @@ interface Props {
 
 // macOS "sheet" tarzı onay penceresi — panelin içinde açılır.
 export function ConfirmDialog({ request, onClose }: Props) {
+  const { t } = useI18n()
   const confirm = () => {
     request.onConfirm()
     onClose()
@@ -56,10 +58,10 @@ export function ConfirmDialog({ request, onClose }: Props) {
         <div className={styles.message}>{request.message}</div>
         <div className={styles.buttons}>
           <button className={styles.button} onClick={onClose}>
-            Vazgeç
+            {t('confirm.cancel')}
           </button>
           <button className={`${styles.button} ${styles.destructive}`} onClick={confirm} autoFocus>
-            {request.confirmLabel ?? 'Sil'}
+            {request.confirmLabel ?? t('confirm.delete')}
           </button>
         </div>
       </motion.div>

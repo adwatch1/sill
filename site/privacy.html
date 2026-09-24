@@ -14,112 +14,34 @@
   <div class="wrap nav-in">
     <a class="brand" href="./"><img src="img/icon.png" alt="">Sill</a>
     <div class="nav-links">
-      <a href="./"><span class="en">Home</span><span class="tr">Ana sayfa</span></a>
-      <a class="coffee-pill" href="https://buymeacoffee.com/stilless">☕ <span class="en">Buy me a coffee</span><span class="tr">Kahve ısmarla</span></a>
-      <button class="lang" id="lang" aria-label="Language">TR</button>
+      <a href="./" data-i18n="nav.home">Home</a>
+      <a class="coffee-pill" href="https://buymeacoffee.com/stilless">☕ <span data-i18n="coffee">Buy me a coffee</span></a>
+      <select class="lang" id="lang" aria-label="Language"></select>
     </div>
   </div>
 </nav>
 
 <main class="doc">
   <div class="wrap narrow">
-
-    <div class="en">
-      <h1>Privacy Policy</h1>
-      <p class="date">Last updated: September 25, 2026</p>
-
-      <p>Sill is a notes app for Windows. It is built to keep your notes on your own computer. This policy
-      explains exactly what Sill does and does not do with your data.</p>
-
-      <h2>The short version</h2>
-      <ul>
-        <li>Sill has no accounts, no cloud sync, no analytics, no advertising and no tracking.</li>
-        <li>Your notes, images, audio and settings are stored only on your computer.</li>
-        <li>Sill connects to the internet in one situation only, described below, and you can turn it off.</li>
-      </ul>
-
-      <h2>Data stored on your computer</h2>
-      <p>Your notes, the images and audio files you add, your voice recordings and your settings are saved
-      in Sill’s folder in your Windows user profile. The developer never receives them. You can open this folder
-      from <i>Settings → Notes folder</i>. If you uninstall the Microsoft Store version, Windows removes this
-      folder, so copy it first if you want to keep your notes.</p>
-
-      <h2>YouTube link previews (the only network use)</h2>
-      <p>When you paste or drop a YouTube link into a note, Sill downloads that video’s thumbnail image from
-      <code>i.ytimg.com</code> and its title and channel name from <code>youtube.com/oembed</code>. This happens once
-      per video, and the result is saved locally. These requests go directly from your computer to YouTube (Google),
-      which receives your IP address and the video ID, as with any web request. See
-      <a href="https://policies.google.com/privacy">Google’s Privacy Policy</a>. No note content is sent. You can
-      turn this off in <i>Settings → Privacy → Link previews</i>. Clicking a video card opens the video in your web
-      browser.</p>
-
-      <h2>Microphone</h2>
-      <p>Sill uses the microphone only while you are recording a voice note. The recording is saved as a file on your
-      computer and is never uploaded. The microphone is released as soon as recording stops, is cancelled or the
-      panel closes. Windows shows when an app is using the microphone.</p>
-
-      <h2>Donations</h2>
-      <p>The “Buy me a coffee” button opens <a href="https://buymeacoffee.com/stilless">buymeacoffee.com/stilless</a>
-      in your browser. Payments are handled by Buy Me a Coffee under its own privacy policy. Sill itself does not
-      process any payment information.</p>
-
-      <h2>Children</h2>
-      <p>Sill does not collect personal information from anyone, including children.</p>
-
-      <h2>Changes</h2>
-      <p>If this policy changes, the updated version will be published on this page with a new date.</p>
-
-      <h2>Contact</h2>
-      <p>Questions: <a href="mailto:mailatikleri@gmail.com">mailatikleri@gmail.com</a></p>
-    </div>
-
-    <div class="tr">
-      <h1>Gizlilik Politikası</h1>
-      <p class="date">Son güncelleme: 25 Eylül 2026</p>
-
-      <p>Sill, Windows için bir not uygulamasıdır ve notlarını kendi bilgisayarında tutmak için tasarlanmıştır.
-      Bu politika, Sill’in verilerinle ne yaptığını ve ne yapmadığını açıkça anlatır.</p>
-
-      <h2>Kısaca</h2>
-      <ul>
-        <li>Sill’de hesap, bulut senkronu, analiz, reklam ve takip yoktur.</li>
-        <li>Notların, görsellerin, seslerin ve ayarların sadece bilgisayarında saklanır.</li>
-        <li>Sill yalnızca aşağıda anlatılan tek durumda internete bağlanır ve bunu kapatabilirsin.</li>
-      </ul>
-
-      <h2>Bilgisayarında saklanan veriler</h2>
-      <p>Notların, eklediğin görsel ve ses dosyaları, sesli kayıtların ve ayarların Windows kullanıcı profilindeki
-      Sill klasörüne kaydedilir. Geliştiriciye hiçbir şekilde ulaşmaz. Bu klasörü <i>Ayarlar → Notların klasörü</i>
-      üzerinden açabilirsin. Microsoft Store sürümünü kaldırırsan Windows bu klasörü de siler. Notlarını saklamak
-      istiyorsan önce klasörü kopyala.</p>
-
-      <h2>YouTube link önizlemeleri (tek internet kullanımı)</h2>
-      <p>Bir nota YouTube linki yapıştırdığında ya da bıraktığında Sill, o videonun küçük resmini
-      <code>i.ytimg.com</code>’dan, başlığını ve kanal adını <code>youtube.com/oembed</code>’den indirir. Bu, her video
-      için bir kez olur ve sonuç bilgisayarına kaydedilir. İstek doğrudan bilgisayarından YouTube’a (Google) gider.
-      Her web isteğinde olduğu gibi Google IP adresini ve video kimliğini görür
-      (<a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a>). Not içeriğin gönderilmez. Bunu
-      <i>Ayarlar → Gizlilik → Link önizlemeleri</i> ile kapatabilirsin. Video kartına tıklamak videoyu tarayıcında açar.</p>
-
-      <h2>Mikrofon</h2>
-      <p>Sill mikrofonu yalnızca sesli not kaydederken kullanır. Kayıt bilgisayarında bir dosya olarak saklanır,
-      hiçbir yere yüklenmez. Kayıt durunca, iptal edilince ya da panel kapanınca mikrofon hemen bırakılır.</p>
-
-      <h2>Bağış</h2>
-      <p>“Kahve ısmarla” düğmesi tarayıcında <a href="https://buymeacoffee.com/stilless">buymeacoffee.com/stilless</a>
-      sayfasını açar. Ödemeler Buy Me a Coffee tarafından, onların gizlilik politikasına göre işlenir. Sill hiçbir ödeme
-      bilgisi işlemez.</p>
-
-      <h2>Çocuklar</h2>
-      <p>Sill, çocuklar dahil hiç kimseden kişisel bilgi toplamaz.</p>
-
-      <h2>Değişiklikler</h2>
-      <p>Bu politika değişirse güncel hâli yeni tarihle bu sayfada yayınlanır.</p>
-
-      <h2>İletişim</h2>
-      <p>Sorular için: <a href="mailto:mailatikleri@gmail.com">mailatikleri@gmail.com</a></p>
-    </div>
-
+    <h1 data-i18n="p.title">Privacy Policy</h1>
+    <p class="date" data-i18n="p.updated"></p>
+    <p data-i18n="p.intro"></p>
+    <h2 data-i18n="p.shortH"></h2>
+    <ul data-i18n="p.short"></ul>
+    <h2 data-i18n="p.storedH"></h2>
+    <p data-i18n="p.stored"></p>
+    <h2 data-i18n="p.ytH"></h2>
+    <p data-i18n="p.yt"></p>
+    <h2 data-i18n="p.micH"></h2>
+    <p data-i18n="p.mic"></p>
+    <h2 data-i18n="p.donH"></h2>
+    <p data-i18n="p.don"></p>
+    <h2 data-i18n="p.kidsH"></h2>
+    <p data-i18n="p.kids"></p>
+    <h2 data-i18n="p.changesH"></h2>
+    <p data-i18n="p.changes"></p>
+    <h2 data-i18n="p.contactH"></h2>
+    <p data-i18n="p.contact"></p>
   </div>
 </main>
 
@@ -130,6 +52,6 @@
   </div>
 </footer>
 
-<script src="lang.js"></script>
+<script src="i18n.js"></script>
 </body>
 </html>

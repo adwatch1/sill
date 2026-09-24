@@ -9,6 +9,7 @@ import { EditableLabel } from './EditableLabel'
 import type { ConfirmRequest } from './ConfirmDialog'
 import { useContextMenu } from './ContextMenu'
 import styles from './TabBar.module.css'
+import { useI18n } from '../i18n'
 
 interface Props {
   /** Panel/sütun kenarından sürükleme sürüyor mu (aşağıdaki uzun nota bak). */
@@ -23,6 +24,7 @@ interface Props {
 // · üzerine gel → köşedeki rozet = sil.
 export function TabBar({ resizing, onConfirm, onOpenSettings, pinned, onTogglePin }: Props) {
   const { data, actions } = useNotes()
+  const { t } = useI18n()
   const [renamingId, setRenamingId] = useState<string | null>(null)
   const trackRef = useRef<HTMLDivElement>(null)
   const railRef = useRef<HTMLDivElement>(null)
@@ -83,14 +85,14 @@ export function TabBar({ resizing, onConfirm, onOpenSettings, pinned, onTogglePi
       ?.scrollIntoView({ inline: 'nearest', block: 'nearest', behavior: 'smooth' })
   }, [focusId, data.tabs.length])
 
-  const add = () => setRenamingId(actions.addTab())
+  const add = () => setRenamingId(actions.addTab(t('tabs.new')))
 
   const remove = (tab: Tab) => {
     const doDelete = () => actions.deleteTab(tab.id)
     if (tab.subtabs.length === 0) return doDelete()
     onConfirm({
-      title: `"${tab.title}" silinsin mi?`,
-      message: `İçindeki ${tab.subtabs.length} alt başlık ve notları da silinecek. Bu geri alınamaz.`,
+      title: t('tabs.confirmTitle', { name: tab.title }),
+      message: t('tabs.confirmMessage', { count: tab.subtabs.length }),
       onConfirm: doDelete
     })
   }
@@ -138,18 +140,18 @@ export function TabBar({ resizing, onConfirm, onOpenSettings, pinned, onTogglePi
         </Reorder.Group>
       </div>
 
-      <button className={styles.add} title="Yeni tab" onClick={add}>
+      <button className={styles.add} title={t('tabs.new')} onClick={add}>
         <Plus size={16} strokeWidth={1.8} />
       </button>
       <button
         className={`${styles.add} ${styles.pin} ${pinned ? styles.pinned : ''}`}
-        title={pinned ? 'Sabitlendi: panel açık kalır (kaldırmak için tıkla)' : 'Sabitle: panel kendiliğinden kapanmasın'}
+        title={pinned ? t('tabs.pinned') : t('tabs.pin')}
         aria-pressed={pinned}
         onClick={onTogglePin}
       >
         <Pin size={15} strokeWidth={1.9} fill={pinned ? 'currentColor' : 'none'} />
       </button>
-      <button className={styles.add} title="Ayarlar" onClick={onOpenSettings}>
+      <button className={styles.add} title={t('tabs.settings')} onClick={onOpenSettings}>
         <Settings size={15} strokeWidth={1.8} />
       </button>
     </header>
@@ -173,6 +175,7 @@ function TabItem(props: TabItemProps) {
   const { tab, active, renaming } = props
   const { lifted, itemProps } = useHoldToDrag(renaming, props.bounds)
   const openMenu = useContextMenu()
+  const { t } = useI18n()
   const color = isTabColor(tab.color) ? tab.color : null
 
   return (
@@ -192,11 +195,11 @@ function TabItem(props: TabItemProps) {
       onDoubleClick={props.onStartRename}
       onContextMenu={(e) =>
         openMenu(e, [
-          { type: 'item', label: 'Yeniden adlandır', onSelect: props.onStartRename },
+          { type: 'item', label: t('tabs.rename'), onSelect: props.onStartRename },
           { type: 'separator' },
           { type: 'colors', value: color, onSelect: props.onColor },
           { type: 'separator' },
-          { type: 'item', label: "Tab'ı sil", destructive: true, onSelect: props.onRemove }
+          { type: 'item', label: t('tabs.delete'), destructive: true, onSelect: props.onRemove }
         ])
       }
     >
@@ -211,7 +214,7 @@ function TabItem(props: TabItemProps) {
       />
       <button
         className={styles.close}
-        title="Tab'ı sil"
+        title={t('tabs.delete')}
         onPointerDown={(e) => e.stopPropagation()} // rozete basmak sürüklemeyi başlatmasın
         onClick={(e) => {
           e.stopPropagation()

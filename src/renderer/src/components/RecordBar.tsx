@@ -6,6 +6,7 @@ import { useContextMenu } from './ContextMenu'
 import { formatTime } from './AudioPlayer'
 import { springSnappy } from '../motion'
 import styles from './RecordBar.module.css'
+import { useI18n } from '../i18n'
 
 
 interface Props {
@@ -25,13 +26,14 @@ interface Props {
  */
 export function RecordBar({ elapsed, analyser, devices, chosenId, onStop, onCancel, onSelectMic }: Props) {
   const openMenu = useContextMenu()
+  const { t } = useI18n()
   // Seçilen mikrofon artık takılı değilse kayıt Windows varsayılanına düşmüştür; onay da oraya.
   const chosen = devices.find((d) => d.id === chosenId)
   const current = chosen ? chosen.id : ''
 
   const micMenu = (e: ReactMouseEvent): void => {
     openMenu(e, [
-      { type: 'item', label: 'Windows varsayılanı', checked: current === '', onSelect: () => onSelectMic('') },
+      { type: 'item', label: t('rec.micDefault'), checked: current === '', onSelect: () => onSelectMic('') },
       { type: 'separator' },
       ...devices.map((d) => ({
         type: 'item' as const,
@@ -54,14 +56,14 @@ export function RecordBar({ elapsed, analyser, devices, chosenId, onStop, onCanc
       <span className={styles.time}>{formatTime(elapsed / 1000)}</span>
       <Wave analyser={analyser} />
 
-      <button className={styles.mic} title={chosen ? chosen.label : 'Mikrofon: Windows varsayılanı'} onClick={micMenu}>
+      <button className={styles.mic} title={chosen ? chosen.label : t('rec.micTitleDefault')} onClick={micMenu}>
         <Mic size={13} strokeWidth={2} />
         <ChevronDown size={11} strokeWidth={2.5} />
       </button>
-      <button className={styles.icon} title="Kaydı at" onClick={onCancel}>
+      <button className={styles.icon} title={t('rec.cancel')} onClick={onCancel}>
         <Trash2 size={14} strokeWidth={2} />
       </button>
-      <button className={styles.stop} title="Durdur ve ekle (Esc)" onClick={onStop}>
+      <button className={styles.stop} title={t('rec.stop')} onClick={onStop}>
         <span className={styles.square} />
       </button>
     </motion.div>

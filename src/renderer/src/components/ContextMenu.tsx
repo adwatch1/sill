@@ -14,6 +14,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Check } from 'lucide-react'
 import { TAB_COLORS, type TabColor } from '../../../shared/notes'
 import styles from './ContextMenu.module.css'
+import { useI18n } from '../i18n'
 
 type MenuItem =
   | {
@@ -29,14 +30,6 @@ type MenuItem =
   | { type: 'separator' }
   | { type: 'colors'; value: TabColor | null; onSelect: (color: TabColor | null) => void }
 
-const COLOR_NAMES: Record<TabColor, string> = {
-  blue: 'Mavi',
-  pink: 'Pembe',
-  green: 'Yeşil',
-  yellow: 'Sarı',
-  purple: 'Mor',
-  orange: 'Turuncu'
-}
 
 type OpenMenu = (e: ReactMouseEvent, items: MenuItem[]) => void
 const MenuContext = createContext<OpenMenu>(() => {})
@@ -87,6 +80,7 @@ function Menu({
   container,
   onClose
 }: MenuState & { container: RefObject<HTMLElement | null>; onClose: () => void }) {
+  const { t } = useI18n()
   const ref = useRef<HTMLDivElement>(null)
   const [pos, setPos] = useState({ left: x, top: y })
 
@@ -146,11 +140,11 @@ function Menu({
         if (item.type === 'colors') {
           return (
             <div key={i} className={styles.colorSection}>
-              <div className={styles.sectionLabel}>Renk</div>
+              <div className={styles.sectionLabel}>{t('color.label')}</div>
               <div className={styles.colors}>
                 <button
                   className={`${styles.swatch} ${styles.none} ${item.value == null ? styles.selected : ''}`}
-                  title="Renksiz"
+                  title={t('color.none')}
                   onClick={() => run(() => item.onSelect(null))}
                 />
                 {TAB_COLORS.map((c) => (
@@ -158,7 +152,7 @@ function Menu({
                     key={c}
                     className={`${styles.swatch} ${item.value === c ? styles.selected : ''}`}
                     style={{ background: `var(--c-${c})` }}
-                    title={COLOR_NAMES[c]}
+                    title={t(`color.${c}`)}
                     onClick={() => run(() => item.onSelect(c))}
                   >
                     {item.value === c && <Check size={10} strokeWidth={3.5} />}

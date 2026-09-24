@@ -6,6 +6,7 @@ import { attUrl } from '../../../shared/media'
 import { cardEnter, cardVisible, springSnappy } from '../motion'
 import { useContextMenu } from './ContextMenu'
 import styles from './AudioPlayer.module.css'
+import { useI18n } from '../i18n'
 
 // Panel kapanınca arayüz kaldırılıyor ve ses duruyor. Açınca kaldığı
 // yerden devam edilebilsin diye her sesin konumu burada, bellekte tutuluyor. Diske yazılmaz:
@@ -64,6 +65,7 @@ export function AudioPlayer({ block, onDelete }: Props) {
   const [duration, setDuration] = useState((block.durationMs ?? 0) / 1000)
   const [broken, setBroken] = useState(false)
   const openMenu = useContextMenu()
+  const { t } = useI18n()
 
   // Kart kalkarken (panel kapanırken, alt başlık değişirken, silinince) sesi durdur ve
   // konumu sakla.
@@ -114,7 +116,7 @@ export function AudioPlayer({ block, onDelete }: Props) {
   }
 
   const progress = duration > 0 ? Math.min(100, (time / duration) * 100) : 0
-  const name = block.name ?? 'Ses'
+  const name = block.name ?? t('audio.defaultName')
 
   return (
     <motion.div
@@ -124,7 +126,7 @@ export function AudioPlayer({ block, onDelete }: Props) {
       animate={cardVisible}
       className={styles.card}
       onContextMenu={(e) =>
-        openMenu(e, [{ type: 'item', label: 'Sesi sil', destructive: true, onSelect: () => onDelete(block) }])
+        openMenu(e, [{ type: 'item', label: t('audio.delete'), destructive: true, onSelect: () => onDelete(block) }])
       }
     >
       <audio
@@ -151,7 +153,7 @@ export function AudioPlayer({ block, onDelete }: Props) {
 
       <button
         className={styles.play}
-        title={isPlaying ? 'Duraklat' : 'Oynat'}
+        title={isPlaying ? t('audio.pause') : t('audio.play')}
         disabled={broken}
         onClick={toggle}
       >
@@ -167,7 +169,7 @@ export function AudioPlayer({ block, onDelete }: Props) {
           {name}
         </div>
         {broken ? (
-          <div className={styles.error}>Bu ses çalınamıyor</div>
+          <div className={styles.error}>{t('audio.broken')}</div>
         ) : (
           <div className={styles.row}>
             <input
@@ -179,7 +181,7 @@ export function AudioPlayer({ block, onDelete }: Props) {
               value={Math.min(time, duration || 0)}
               style={{ '--p': `${progress}%` } as CSSProperties}
               onChange={(e) => seek(Number(e.target.value))}
-              aria-label="Konum"
+              aria-label={t('audio.seek')}
             />
             <span className={styles.time}>
               {formatTime(time)} / {formatTime(duration)}
@@ -189,7 +191,7 @@ export function AudioPlayer({ block, onDelete }: Props) {
       </div>
 
       {/* Launchpad tarzı silme rozeti — görsellerdeki ile aynı dil. */}
-      <button className={styles.remove} title="Sesi sil" onClick={remove}>
+      <button className={styles.remove} title={t('audio.delete')} onClick={remove}>
         <X size={11} strokeWidth={3} />
       </button>
     </motion.div>

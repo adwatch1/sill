@@ -1,5 +1,6 @@
 // Kullanıcı ayarları — notlardan AYRI dosyada (%APPDATA%\Sill\settings.json).
 // Ayar dosyası bozulsa bile notlar etkilenmez; sadece varsayılan ayarlara dönülür.
+import { isLangPref, type LangPref } from './i18n'
 
 export type ThemeMode = 'system' | 'light' | 'dark'
 
@@ -29,6 +30,8 @@ export interface Settings {
    * Programın internete çıktığı TEK yer; kapalıyken kart resimsiz görünür.
    */
   linkPreviews: boolean
+  /** Arayüz dili. 'system' = Windows'un dilini izle (listede yoksa İngilizce). */
+  language: LangPref
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -43,7 +46,8 @@ export const DEFAULT_SETTINGS: Settings = {
   pinned: false,
   introShown: false,
   micId: '',
-  linkPreviews: true
+  linkPreviews: true,
+  language: 'system'
 }
 
 export const LIMITS = {
@@ -77,7 +81,8 @@ export function sanitizeSettings(v: unknown): Settings {
     pinned: typeof o.pinned === 'boolean' ? o.pinned : d.pinned,
     introShown: typeof o.introShown === 'boolean' ? o.introShown : d.introShown,
     micId: typeof o.micId === 'string' && o.micId.length <= 200 ? o.micId : d.micId,
-    linkPreviews: typeof o.linkPreviews === 'boolean' ? o.linkPreviews : d.linkPreviews
+    linkPreviews: typeof o.linkPreviews === 'boolean' ? o.linkPreviews : d.linkPreviews,
+    language: isLangPref(o.language) ? o.language : d.language
   }
 }
 

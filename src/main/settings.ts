@@ -9,6 +9,7 @@ import {
 } from '../shared/settings'
 import { SUPPORT_URL } from '../shared/app'
 import { IS_STORE } from './config'
+import { mt } from './i18n'
 
 // Ayarlar: %APPDATA%\Sill\settings.json. Notlardan ayrı; bozulursa varsayılana dönülür.
 const settingsPath = () => join(app.getPath('userData'), 'settings.json')
@@ -84,7 +85,7 @@ export function updateSettings(patch: Partial<Settings>): SettingsResult {
 
   if (next.shortcut !== current.shortcut && !registerShortcut(next.shortcut)) {
     next.shortcut = current.shortcut
-    error = 'Bu kısayol kullanılamıyor (başka bir program kullanıyor olabilir). Eski kısayol korundu.'
+    error = mt()('settings.shortcutTaken')
   }
   if (next.theme !== current.theme) nativeTheme.themeSource = next.theme
   if (next.launchAtStartup !== current.launchAtStartup) applyLoginItem(next.launchAtStartup)

@@ -6,6 +6,8 @@ import { contextBridge, ipcRenderer } from 'electron'
 export interface LightboxItem {
   src: string
   name?: string
+  /** Arayüz dili (panelle aynı). */
+  lang?: string
 }
 
 const lightboxApi = {
