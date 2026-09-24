@@ -64,6 +64,10 @@ html[lang='en'] .tr, html[lang='tr'] .en { display: none; }
 .nav-links { display: flex; align-items: center; gap: 22px; font-size: 14px; }
 .nav-links a { color: var(--ink); opacity: 0.8; }
 .nav-links a:hover { opacity: 1; text-decoration: none; }
+.nav-links a.coffee-pill {
+  opacity: 1; padding: 5px 13px; border-radius: 980px; background: #ffdd00; color: #1d1d1f; font-weight: 600;
+}
+.nav-links a.coffee-pill:hover { filter: brightness(0.96); }
 .lang {
   font: inherit; font-size: 12px; font-weight: 600; color: var(--ink-2);
   background: var(--bg-2); border: 0; border-radius: 980px; padding: 4px 10px; cursor: pointer;
@@ -128,7 +132,7 @@ details p { color: var(--ink-2); margin: 12px 0 0; }
 .doc p, .doc li { color: #333336; }
 
 @media (max-width: 760px) {
-  .nav-links a:not(:first-child):not(:last-of-type) { display: none; }
+  .nav-links a:not(.coffee-pill) { display: none; }
   .feat, .feat.flip { grid-template-columns: minmax(0, 1fr); padding: 28px 22px; gap: 24px; }
   .feat img { max-height: 460px; }
   .nav-links { gap: 14px; }
