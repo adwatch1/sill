@@ -75,7 +75,10 @@ html[lang='en'] .tr, html[lang='tr'] .en { display: none; }
 .lead { font-size: clamp(19px, 2.2vw, 24px); color: var(--ink-2); max-width: 720px; margin: 20px auto 0; line-height: 1.4; }
 .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
 .fine { color: var(--ink-2); font-size: 14px; margin: 14px 0 0; }
-.hero-img { margin: 36px auto 0; width: 100%; max-width: 1100px; }
+.steps { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; margin: 44px auto 0; max-width: 1240px; }
+.steps figure { margin: 0; }
+.steps figcaption { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 16px; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; }
+.steps figcaption b { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--blue); color: #fff; display: grid; place-items: center; font-size: 15px; }
 
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
@@ -131,4 +134,5 @@ details p { color: var(--ink-2); margin: 12px 0 0; }
   .nav-links { gap: 14px; }
   .feat.flip .txt { order: 0; }
   .hero { padding-top: 48px; }
+  .steps { grid-template-columns: minmax(0, 1fr); gap: 36px; }
 }
