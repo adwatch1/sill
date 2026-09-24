@@ -281,6 +281,13 @@ export function registerMediaIpc(hooks: MediaHooks): void {
     return importBuffer(Buffer.from(data), typeof name === 'string' && name ? name : `${mt()('media.pastedImage')}.png`)
   })
 
+  // İlk açılış: programla gelen örnek görselleri not klasörüne al (örnek notlarda kullanılır).
+  // Sadece sabit klasördeki sabit dosyalar; arayüzden yol gelmez. Sıra = sunset, night, forest.
+  ipcMain.handle('media:import-demo', async (): Promise<ImportResult[]> => {
+    const dir = app.isPackaged ? join(process.resourcesPath, 'demo') : join(app.getAppPath(), 'resources', 'demo')
+    return importAll(['sunset.jpg', 'night.jpg', 'forest.jpg'].map((f) => join(dir, f)))
+  })
+
   // Windows gizlilik ayarında mikrofon kapalıysa program izin isteyemiyor, Windows sessizce
   // reddediyor. Kullanıcıyı doğrudan o ayar sayfasına götürüyoruz. Adres sabit: arayüzden
   // gelen hiçbir şey açılmaz.

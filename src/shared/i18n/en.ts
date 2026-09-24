@@ -134,13 +134,25 @@ export const en: Dict = {
   'settings.support': 'Support',
   'settings.likeIt': 'Enjoying Sill?',
   'settings.coffee': 'Buy me a coffee',
+  'support.short': 'Buy me a coffee',
   'settings.supportNote': 'Sill is free. If you like it, you can support its development with a coffee.',
 
-  'sample.daily': 'Daily',
-  'sample.chores': 'Chores',
-  'sample.shopping': 'Shopping',
-  'sample.ideas': 'Ideas',
-  'sample.work': 'Work',
-  'sample.meetings': 'Meetings',
-  'sample.project': 'Project'
+  // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
+  'demo.welcomeTab': "Welcome",
+  'demo.welcomeNote': "Welcome to Sill",
+  'demo.welcomeText': "Your notes now live on the edge of your screen. ✨\n\n— Move your mouse to the right edge of the screen, or press Ctrl + Alt + N.\n— Click the panel to keep it open, or pin it.\n— Press Esc or click outside to close it.\n\nEverything you write is saved automatically.",
+  'demo.welcomeOutro': "Feel free to delete these sample notes and make Sill your own. Happy writing!",
+  'demo.tipsNote': "Tips",
+  'demo.tipsText': "— Drag an image into a note, or paste one with Ctrl + V.\n— Paste a YouTube link on its own: it becomes a card with a thumbnail.\n— Right-click a note → Record voice note.\n— Right-click a tab to give it a color.\n— Hold and drag a note to reorder it.\n— Drag the panel's left edge to make it wider.",
+  'demo.dailyTab': "Daily",
+  'demo.todoNote': "To-do",
+  'demo.todoText': "Today\n— Pay the bills\n— Gym at 6:30 PM\n— Call mom\n\nThis week\n— Book a dentist appointment\n— Finish the book",
+  'demo.shoppingNote': "Shopping",
+  'demo.shoppingText': "— Coffee\n— Bread\n— Oranges\n— AA batteries",
+  'demo.ideasTab': "Ideas",
+  'demo.moodNote': "Moodboard",
+  'demo.moodText': "Mood for a short film — night, forest, warm tones.",
+  'demo.moodInspo': "For inspiration:",
+  'demo.readingNote': "Reading list",
+  'demo.readingText': "— The Little Prince\n— The Alchemist\n— Jonathan Livingston Seagull"
 }

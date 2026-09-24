@@ -143,14 +143,25 @@ export const tr = {
   'settings.support': 'Destek',
   'settings.likeIt': "Sill'i beğendin mi?",
   'settings.coffee': 'Kahve ısmarla',
+  'support.short': 'Kahve ısmarla',
   'settings.supportNote': 'Sill ücretsiz. Beğendiysen bir kahve ısmarlayarak geliştirilmesine destek olabilirsin.',
 
-  // İlk açılıştaki örnek içerik
-  'sample.daily': 'Günlük',
-  'sample.chores': 'Ev işi',
-  'sample.shopping': 'Alışveriş',
-  'sample.ideas': 'Fikirler',
-  'sample.work': 'İş',
-  'sample.meetings': 'Toplantılar',
-  'sample.project': 'Proje'
+  // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
+  'demo.welcomeTab': "Hoş geldin",
+  'demo.welcomeNote': "Sill'e hoş geldin",
+  'demo.welcomeText': "Notların artık ekranın kenarında. ✨\n\n— Fareyi ekranın sağ kenarına götür ya da Ctrl + Alt + N'ye bas.\n— Panele tıklarsan açık kalır; raptiyeyle sabitleyebilirsin.\n— Esc'ye basınca ya da dışarı tıklayınca kapanır.\n\nYazdığın her şey kendiliğinden kaydedilir.",
+  'demo.welcomeOutro': "Bu örnek notları silip kendi düzenini kurabilirsin. Keyifli yazmalar!",
+  'demo.tipsNote': "İpuçları",
+  'demo.tipsText': "— Görsel eklemek için dosyayı nota sürükle ya da Ctrl + V ile yapıştır.\n— Tek başına bir YouTube linki yapıştır: küçük resimli bir karta dönüşür.\n— Not alanına sağ tıkla → Ses kaydet: tek tıkla sesli not.\n— Sekmeye sağ tıkla: renk seç.\n— Bir başlığı basılı tutup sürükle: sırasını değiştir.\n— Panelin sol kenarını sürükleyerek genişlet.",
+  'demo.dailyTab': "Günlük",
+  'demo.todoNote': "Yapılacaklar",
+  'demo.todoText': "Bugün\n— Faturaları öde\n— Spor 18:30\n— Annemi ara\n\nBu hafta\n— Dişçi randevusu al\n— Kitabı bitir",
+  'demo.shoppingNote': "Alışveriş",
+  'demo.shoppingText': "— Kahve\n— Ekmek\n— Portakal\n— Pil (AA)",
+  'demo.ideasTab': "Fikirler",
+  'demo.moodNote': "Moodboard",
+  'demo.moodText': "Kısa film için ruh hali — gece, orman, sıcak tonlar.",
+  'demo.moodInspo': "İlham için:",
+  'demo.readingNote': "Okunacaklar",
+  'demo.readingText': "— Küçük Prens\n— Simyacı\n— Martı Jonathan Livingston"
 }

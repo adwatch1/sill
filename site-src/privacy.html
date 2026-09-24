@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{desc}}">
+<meta name="keywords" content="{{keywords}}">
+<meta name="application-name" content="Sill Note">
+<link rel="canonical" href="{{canonical}}">
+{{hreflang}}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sill Note">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{desc}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:image" content="https://adwatch1.github.io/sill/img/og.png">
+<meta property="og:locale" content="{{ogLocale}}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="{{root}}img/favicon.png">
+<link rel="stylesheet" href="{{root}}style.css">
+{{jsonld}}
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="./"><img src="img/icon.png" alt="">Sill</a>
+    <div class="nav-links">
+      <a href="./" data-i18n="nav.home">Home</a>
+      <a class="coffee-pill" href="https://buymeacoffee.com/stilless">☕ <span data-i18n="coffee">Buy me a coffee</span></a>
+      <select class="lang" id="lang" aria-label="Language">{{langOptions}}</select>
+    </div>
+  </div>
+</nav>
+
+<main class="doc">
+  <div class="wrap narrow">
+    <h1 data-i18n="p.title">Privacy Policy</h1>
+    <p class="date" data-i18n="p.updated"></p>
+    <p data-i18n="p.intro"></p>
+    <h2 data-i18n="p.shortH"></h2>
+    <ul data-i18n="p.short"></ul>
+    <h2 data-i18n="p.storedH"></h2>
+    <p data-i18n="p.stored"></p>
+    <h2 data-i18n="p.ytH"></h2>
+    <p data-i18n="p.yt"></p>
+    <h2 data-i18n="p.micH"></h2>
+    <p data-i18n="p.mic"></p>
+    <h2 data-i18n="p.donH"></h2>
+    <p data-i18n="p.don"></p>
+    <h2 data-i18n="p.kidsH"></h2>
+    <p data-i18n="p.kids"></p>
+    <h2 data-i18n="p.changesH"></h2>
+    <p data-i18n="p.changes"></p>
+    <h2 data-i18n="p.contactH"></h2>
+    <p data-i18n="p.contact"></p>
+  </div>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span>© 2026 stilless · Sill Note</span>
+    <span class="links"><a href="./">Sill</a><a href="mailto:mailatikleri@gmail.com">mailatikleri@gmail.com</a></span>
+  </div>
+</footer>
+
+<script src="{{root}}lang.js"></script>
+</body>
+</html>

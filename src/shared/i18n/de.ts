@@ -136,13 +136,25 @@ export const de: Dict = {
   'settings.support': 'Unterstützen',
   'settings.likeIt': 'Gefällt dir Sill?',
   'settings.coffee': 'Spendier mir einen Kaffee',
+  'support.short': 'Kaffee spenden',
   'settings.supportNote': 'Sill ist kostenlos. Wenn es dir gefällt, kannst du die Entwicklung mit einem Kaffee unterstützen.',
 
-  'sample.daily': 'Alltag',
-  'sample.chores': 'Haushalt',
-  'sample.shopping': 'Einkaufen',
-  'sample.ideas': 'Ideen',
-  'sample.work': 'Arbeit',
-  'sample.meetings': 'Besprechungen',
-  'sample.project': 'Projekt'
+  // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
+  'demo.welcomeTab': "Willkommen",
+  'demo.welcomeNote': "Willkommen bei Sill",
+  'demo.welcomeText': "Deine Notizen wohnen jetzt am Rand deines Bildschirms. ✨\n\n— Bewege die Maus an den rechten Bildschirmrand oder drücke Strg + Alt + N.\n— Klicke ins Panel, damit es offen bleibt, oder hefte es an.\n— Mit Esc oder einem Klick daneben schließt es sich.\n\nAlles, was du schreibst, wird automatisch gespeichert.",
+  'demo.welcomeOutro': "Lösche diese Beispielnotizen ruhig und richte Sill nach deinem Geschmack ein. Viel Spaß beim Schreiben!",
+  'demo.tipsNote': "Tipps",
+  'demo.tipsText': "— Zieh ein Bild in eine Notiz oder füge es mit Strg + V ein.\n— Füge einen YouTube-Link allein ein: Er wird zur Karte mit Vorschaubild.\n— Rechtsklick in eine Notiz → Sprachnotiz aufnehmen.\n— Rechtsklick auf einen Tab, um ihm eine Farbe zu geben.\n— Halte eine Notiz gedrückt und zieh sie, um sie neu anzuordnen.\n— Zieh am linken Rand des Panels, um es zu verbreitern.",
+  'demo.dailyTab': "Alltag",
+  'demo.todoNote': "Aufgaben",
+  'demo.todoText': "Heute\n— Rechnungen bezahlen\n— Sport um 18:30\n— Mama anrufen\n\nDiese Woche\n— Zahnarzttermin machen\n— Das Buch zu Ende lesen",
+  'demo.shoppingNote': "Einkaufen",
+  'demo.shoppingText': "— Kaffee\n— Brot\n— Orangen\n— AA-Batterien",
+  'demo.ideasTab': "Ideen",
+  'demo.moodNote': "Moodboard",
+  'demo.moodText': "Stimmung für einen Kurzfilm — Nacht, Wald, warme Töne.",
+  'demo.moodInspo': "Zur Inspiration:",
+  'demo.readingNote': "Leseliste",
+  'demo.readingText': "— Der kleine Prinz\n— Der Alchimist\n— Die Möwe Jonathan"
 }

@@ -136,13 +136,25 @@ export const fr: Dict = {
   'settings.support': 'Soutenir',
   'settings.likeIt': 'Vous aimez Sill ?',
   'settings.coffee': 'Offrez-moi un café',
+  'support.short': 'Offrir un café',
   'settings.supportNote': 'Sill est gratuit. S’il vous plaît, vous pouvez soutenir son développement avec un café.',
 
-  'sample.daily': 'Quotidien',
-  'sample.chores': 'Tâches ménagères',
-  'sample.shopping': 'Courses',
-  'sample.ideas': 'Idées',
-  'sample.work': 'Travail',
-  'sample.meetings': 'Réunions',
-  'sample.project': 'Projet'
+  // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
+  'demo.welcomeTab': "Bienvenue",
+  'demo.welcomeNote': "Bienvenue dans Sill",
+  'demo.welcomeText': "Vos notes vivent désormais au bord de votre écran. ✨\n\n— Amenez la souris sur le bord droit de l’écran, ou appuyez sur Ctrl + Alt + N.\n— Cliquez dans le panneau pour le garder ouvert, ou épinglez-le.\n— Appuyez sur Échap ou cliquez à côté pour le fermer.\n\nTout ce que vous écrivez est enregistré automatiquement.",
+  'demo.welcomeOutro': "Supprimez ces notes d’exemple et organisez Sill à votre façon. Bonne écriture !",
+  'demo.tipsNote': "Astuces",
+  'demo.tipsText': "— Glissez une image dans une note, ou collez-la avec Ctrl + V.\n— Collez un lien YouTube seul : il devient une carte avec miniature.\n— Clic droit dans une note → Enregistrer une note vocale.\n— Clic droit sur un onglet pour lui donner une couleur.\n— Maintenez une note puis faites-la glisser pour la déplacer.\n— Faites glisser le bord gauche du panneau pour l’élargir.",
+  'demo.dailyTab': "Quotidien",
+  'demo.todoNote': "À faire",
+  'demo.todoText': "Aujourd’hui\n— Payer les factures\n— Sport à 18 h 30\n— Appeler maman\n\nCette semaine\n— Prendre rendez-vous chez le dentiste\n— Finir le livre",
+  'demo.shoppingNote': "Courses",
+  'demo.shoppingText': "— Café\n— Pain\n— Oranges\n— Piles AA",
+  'demo.ideasTab': "Idées",
+  'demo.moodNote': "Moodboard",
+  'demo.moodText': "Ambiance pour un court métrage — nuit, forêt, tons chauds.",
+  'demo.moodInspo': "Pour l’inspiration :",
+  'demo.readingNote': "À lire",
+  'demo.readingText': "— Le Petit Prince\n— L’Alchimiste\n— Jonathan Livingston le goéland"
 }

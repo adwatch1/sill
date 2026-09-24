@@ -136,13 +136,25 @@ export const es: Dict = {
   'settings.support': 'Apoyar',
   'settings.likeIt': '¿Te gusta Sill?',
   'settings.coffee': 'Invítame a un café',
+  'support.short': 'Invita un café',
   'settings.supportNote': 'Sill es gratis. Si te gusta, puedes apoyar su desarrollo con un café.',
 
-  'sample.daily': 'Día a día',
-  'sample.chores': 'Tareas de casa',
-  'sample.shopping': 'Compras',
-  'sample.ideas': 'Ideas',
-  'sample.work': 'Trabajo',
-  'sample.meetings': 'Reuniones',
-  'sample.project': 'Proyecto'
+  // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
+  'demo.welcomeTab': "Bienvenida",
+  'demo.welcomeNote': "Te damos la bienvenida a Sill",
+  'demo.welcomeText': "Tus notas ahora viven en el borde de la pantalla. ✨\n\n— Lleva el ratón al borde derecho de la pantalla o pulsa Ctrl + Alt + N.\n— Haz clic en el panel para que se quede abierto, o fíjalo.\n— Pulsa Esc o haz clic fuera para cerrarlo.\n\nTodo lo que escribes se guarda solo.",
+  'demo.welcomeOutro': "Borra estas notas de ejemplo y organiza Sill a tu manera. ¡Feliz escritura!",
+  'demo.tipsNote': "Consejos",
+  'demo.tipsText': "— Arrastra una imagen a una nota o pégala con Ctrl + V.\n— Pega un enlace de YouTube solo: se convierte en una tarjeta con miniatura.\n— Clic derecho en una nota → Grabar nota de voz.\n— Clic derecho en una pestaña para darle color.\n— Mantén pulsada una nota y arrástrala para reordenarla.\n— Arrastra el borde izquierdo del panel para ensancharlo.",
+  'demo.dailyTab': "Día a día",
+  'demo.todoNote': "Pendientes",
+  'demo.todoText': "Hoy\n— Pagar las facturas\n— Gimnasio a las 18:30\n— Llamar a mamá\n\nEsta semana\n— Pedir cita con el dentista\n— Terminar el libro",
+  'demo.shoppingNote': "Compras",
+  'demo.shoppingText': "— Café\n— Pan\n— Naranjas\n— Pilas AA",
+  'demo.ideasTab': "Ideas",
+  'demo.moodNote': "Moodboard",
+  'demo.moodText': "Ambiente para un cortometraje — noche, bosque, tonos cálidos.",
+  'demo.moodInspo': "Para inspirarse:",
+  'demo.readingNote': "Por leer",
+  'demo.readingText': "— El principito\n— El alquimista\n— Juan Salvador Gaviota"
 }

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type RefObject } from 'react'
 import { AnimatePresence, Reorder, motion } from 'framer-motion'
-import { Plus, X } from 'lucide-react'
+import { Coffee, Plus, X } from 'lucide-react'
 import { useNotes } from '../store/notesStore'
 import type { Subtab, Tab } from '../../../shared/notes'
 import { itemEnter, itemExit, itemVisible, springSnappy } from '../motion'
@@ -81,6 +81,15 @@ export function SubtabList({ tab, onConfirm }: Props) {
           <span>{t('subtabs.new')}</span>
         </motion.button>
       </Reorder.Group>
+
+      {/* Destek: sütunun altında, notun "Düzenlendi" satırıyla aynı hizada. Bilerek sade (gri, küçük);
+          sürekli göründüğü için reklam gibi durmamalı. */}
+      <footer className={styles.support}>
+        <button className={styles.supportButton} title={t('settings.coffee')} onClick={() => window.settings.openSupport()}>
+          <Coffee size={12} strokeWidth={2} />
+          <span>{t('support.short')}</span>
+        </button>
+      </footer>
     </nav>
   )
 }

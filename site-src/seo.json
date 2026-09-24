@@ -1,0 +1,82 @@
+{
+  "en": {
+    "title": "Sill Note — Free notes app for Windows 10 & 11",
+    "desc": "Sill Note is a free notes app for Windows 10 and 11. Your notes slide in from the edge of the screen: quick notes, sticky notes, voice notes, images and YouTube links. No account, fully private, in 10 languages.",
+    "keywords": "notes app for Windows, Windows note taking app, free notes app, sticky notes for Windows, desktop notes, quick notes, notepad, voice notes, Windows 11 notes app, sidebar notes, note organizer, Sill Note",
+    "privTitle": "Privacy Policy — Sill Note",
+    "privDesc": "Sill Note privacy policy: no account, no analytics, no tracking. Your notes stay on your Windows computer.",
+    "ogLocale": "en_US"
+  },
+  "tr": {
+    "title": "Sill Note — Windows için ücretsiz not uygulaması",
+    "desc": "Sill Note, Windows 10 ve 11 için ücretsiz bir not uygulaması. Notların ekranın kenarından kayarak gelir: hızlı not, yapışkan not, sesli not, görsel ve YouTube linkleri. Hesap yok, tamamen gizli, 10 dilde.",
+    "keywords": "Windows not uygulaması, not alma programı, ücretsiz not programı, masaüstü not, yapışkan not, hızlı not, not defteri, sesli not, Windows 11 not uygulaması, not tutma uygulaması, Sill Note",
+    "privTitle": "Gizlilik Politikası — Sill Note",
+    "privDesc": "Sill Note gizlilik politikası: hesap yok, analiz yok, takip yok. Notların Windows bilgisayarında kalır.",
+    "ogLocale": "tr_TR"
+  },
+  "de": {
+    "title": "Sill Note — Kostenlose Notiz-App für Windows 10 & 11",
+    "desc": "Sill Note ist eine kostenlose Notiz-App für Windows 10 und 11. Deine Notizen gleiten vom Bildschirmrand herein: schnelle Notizen, Haftnotizen, Sprachnotizen, Bilder und YouTube-Links. Kein Konto, ganz privat, in 10 Sprachen.",
+    "keywords": "Notiz-App Windows, Notizen Programm, kostenlose Notiz-App, Haftnotizen, Desktop-Notizen, schnelle Notizen, Notizblock, Sprachnotizen, Windows 11 Notizen, Notizen am Bildschirmrand, Sill Note",
+    "privTitle": "Datenschutzerklärung — Sill Note",
+    "privDesc": "Datenschutzerklärung von Sill Note: kein Konto, keine Analyse, kein Tracking. Deine Notizen bleiben auf deinem Windows-PC.",
+    "ogLocale": "de_DE"
+  },
+  "fr": {
+    "title": "Sill Note — Application de notes gratuite pour Windows",
+    "desc": "Sill Note est une application de notes gratuite pour Windows 10 et 11. Vos notes glissent depuis le bord de l’écran : notes rapides, pense-bêtes, notes vocales, images et liens YouTube. Sans compte, entièrement privée, en 10 langues.",
+    "keywords": "application de notes Windows, prise de notes, application de notes gratuite, pense-bête, notes adhésives, notes sur le bureau, bloc-notes, notes vocales, notes Windows 11, Sill Note",
+    "privTitle": "Politique de confidentialité — Sill Note",
+    "privDesc": "Politique de confidentialité de Sill Note : pas de compte, pas de statistiques, pas de pistage. Vos notes restent sur votre PC Windows.",
+    "ogLocale": "fr_FR"
+  },
+  "es": {
+    "title": "Sill Note — App de notas gratis para Windows 10 y 11",
+    "desc": "Sill Note es una app de notas gratis para Windows 10 y 11. Tus notas aparecen desde el borde de la pantalla: notas rápidas, notas adhesivas, notas de voz, imágenes y enlaces de YouTube. Sin cuenta, totalmente privada, en 10 idiomas.",
+    "keywords": "app de notas para Windows, tomar notas, app de notas gratis, notas adhesivas, notas de escritorio, notas rápidas, bloc de notas, notas de voz, notas Windows 11, Sill Note",
+    "privTitle": "Política de privacidad — Sill Note",
+    "privDesc": "Política de privacidad de Sill Note: sin cuenta, sin analítica, sin rastreo. Tus notas se quedan en tu PC con Windows.",
+    "ogLocale": "es_ES"
+  },
+  "pt-BR": {
+    "title": "Sill Note — App de notas grátis para Windows 10 e 11",
+    "desc": "O Sill Note é um app de notas grátis para Windows 10 e 11. Suas notas deslizam da borda da tela: notas rápidas, notas autoadesivas, notas de voz, imagens e links do YouTube. Sem conta, totalmente privado, em 10 idiomas.",
+    "keywords": "app de notas para Windows, bloco de notas, app de anotações grátis, notas autoadesivas, lembretes na área de trabalho, notas rápidas, notas de voz, notas Windows 11, Sill Note",
+    "privTitle": "Política de Privacidade — Sill Note",
+    "privDesc": "Política de privacidade do Sill Note: sem conta, sem análises, sem rastreamento. Suas notas ficam no seu PC com Windows.",
+    "ogLocale": "pt_BR"
+  },
+  "it": {
+    "title": "Sill Note — App di note gratuita per Windows 10 e 11",
+    "desc": "Sill Note è un’app di note gratuita per Windows 10 e 11. Le tue note scivolano dal bordo dello schermo: note veloci, foglietti adesivi, note vocali, immagini e link di YouTube. Nessun account, del tutto privata, in 10 lingue.",
+    "keywords": "app per note Windows, prendere appunti, app note gratuita, note adesive, post-it sul desktop, note veloci, blocco note, note vocali, note Windows 11, Sill Note",
+    "privTitle": "Informativa sulla privacy — Sill Note",
+    "privDesc": "Informativa sulla privacy di Sill Note: nessun account, nessuna statistica, nessun tracciamento. Le tue note restano sul tuo PC Windows.",
+    "ogLocale": "it_IT"
+  },
+  "ru": {
+    "title": "Sill Note — бесплатное приложение для заметок для Windows",
+    "desc": "Sill Note — бесплатное приложение для заметок для Windows 10 и 11. Заметки выезжают от края экрана: быстрые заметки, стикеры, голосовые заметки, изображения и ссылки YouTube. Без учётной записи, полностью приватно, на 10 языках.",
+    "keywords": "заметки для Windows, приложение для заметок, бесплатные заметки, стикеры на рабочий стол, быстрые заметки, блокнот, голосовые заметки, заметки Windows 11, органайзер заметок, Sill Note",
+    "privTitle": "Политика конфиденциальности — Sill Note",
+    "privDesc": "Политика конфиденциальности Sill Note: без учётной записи, аналитики и слежки. Ваши заметки остаются на вашем компьютере с Windows.",
+    "ogLocale": "ru_RU"
+  },
+  "ja": {
+    "title": "Sill Note — Windows 10 / 11 用の無料メモアプリ",
+    "desc": "Sill Note は Windows 10 / 11 用の無料メモアプリです。画面の端からメモがすっと現れます。クイックメモ、付箋、ボイスメモ、画像、YouTube リンクに対応。アカウント不要で完全プライベート、10 言語対応。",
+    "keywords": "Windows メモアプリ, 無料 メモアプリ, メモ帳, 付箋アプリ, デスクトップ 付箋, クイックメモ, ボイスメモ, Windows 11 メモ, ノートアプリ, Sill Note",
+    "privTitle": "プライバシーポリシー — Sill Note",
+    "privDesc": "Sill Note のプライバシーポリシー：アカウント不要、分析なし、追跡なし。メモはあなたの Windows PC に保存されます。",
+    "ogLocale": "ja_JP"
+  },
+  "zh-CN": {
+    "title": "Sill Note — 免费的 Windows 10 / 11 笔记应用",
+    "desc": "Sill Note 是一款适用于 Windows 10 和 11 的免费笔记应用。笔记从屏幕边缘滑出：快速笔记、便签、语音笔记、图片和 YouTube 链接。无需账户，完全私密，支持 10 种语言。",
+    "keywords": "Windows 笔记应用, 免费笔记软件, 记笔记, 桌面便签, 便笺软件, 快速笔记, 记事本, 语音笔记, Windows 11 笔记, Sill Note",
+    "privTitle": "隐私政策 — Sill Note",
+    "privDesc": "Sill Note 隐私政策：无需账户、无统计分析、无追踪。你的笔记保存在你的 Windows 电脑上。",
+    "ogLocale": "zh_CN"
+  }
+}

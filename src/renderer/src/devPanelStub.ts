@@ -67,6 +67,7 @@ export function installDevPanelStub(): void {
     importBytes: async () => ({ ok: false, message: 'Tarayıcıda görsel eklenemez.' }),
     pick: async () => [{ ok: false, message: 'Tarayıcıda görsel eklenemez.' }],
     openMicSettings: () => {},
+    importDemo: async () => [],
     youTubePreview: async () => ({ ok: false, reason: 'offline' }),
     openYouTube: () => {},
     openLightbox: () => {}

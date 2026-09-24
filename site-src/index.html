@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{desc}}">
+<meta name="keywords" content="{{keywords}}">
+<meta name="application-name" content="Sill Note">
+<link rel="canonical" href="{{canonical}}">
+{{hreflang}}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sill Note">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{desc}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:image" content="https://adwatch1.github.io/sill/img/og.png">
+<meta property="og:locale" content="{{ogLocale}}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="{{root}}img/favicon.png">
+<link rel="stylesheet" href="{{root}}style.css">
+{{jsonld}}
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top"><img src="img/icon.png" alt="">Sill</a>
+    <div class="nav-links">
+      <a href="#features" data-i18n="nav.features">Features</a>
+      <a href="privacy.html" data-i18n="nav.privacy">Privacy</a>
+      <a href="https://github.com/adwatch1/sill">GitHub</a>
+      <a class="coffee-pill" href="https://buymeacoffee.com/stilless">☕ <span data-i18n="coffee">Buy me a coffee</span></a>
+      <select class="lang" id="lang" aria-label="Language">{{langOptions}}</select>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <h1 data-i18n="hero.title">Notes, right on the edge.</h1>
+    <p class="lead" data-i18n="hero.lead">Move your mouse to the right edge of the screen and your notes slide in. Move away and they’re gone. Free for Windows.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://github.com/adwatch1/sill/releases/latest" data-i18n="cta.download">Download for Windows</a>
+      <span class="btn ghost soon" data-i18n="cta.store">Microsoft Store — coming soon</span>
+    </div>
+    <p class="fine" data-i18n="hero.fine">Free · Windows 10 and 11 · No account</p>
+    <div class="steps">
+      <figure>
+        <img src="img/hero-step1.png" data-tr="img/hero-step1-tr.png" alt="A busy Windows desktop; the mouse pointer touches the right edge of the screen" width="1400" height="880">
+        <figcaption><b>1</b><span data-i18n="step1">Push your mouse to the right edge</span></figcaption>
+      </figure>
+      <figure>
+        <img src="img/hero-step2.png" data-tr="img/hero-step2-tr.png" alt="The Sill notes panel slides in from the right edge, over all windows" width="1400" height="880">
+        <figcaption><b>2</b><span data-i18n="step2">Your notes slide in, over any window</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</header>
+
+<section class="features" id="features">
+  <div class="wrap">
+    <article class="feat">
+      <div class="txt">
+        <p class="eyebrow" data-i18n="f1.eyebrow">Media</p>
+        <h2 data-i18n="f1.title">Images, audio and YouTube. In one note.</h2>
+        <p data-i18n="f1.body"></p>
+      </div>
+      <img src="img/panel-media.png" data-tr="img/panel-media-tr.png" alt="" loading="lazy" width="620" height="1121">
+    </article>
+    <article class="feat flip">
+      <div class="txt">
+        <p class="eyebrow" data-i18n="f2.eyebrow">Voice notes</p>
+        <h2 data-i18n="f2.title">Just talk. It’s saved.</h2>
+        <p data-i18n="f2.body"></p>
+      </div>
+      <img src="img/panel-voice.png" data-tr="img/panel-voice-tr.png" alt="" loading="lazy" width="620" height="1121">
+    </article>
+    <article class="feat">
+      <div class="txt">
+        <p class="eyebrow" data-i18n="f3.eyebrow">Organize</p>
+        <h2 data-i18n="f3.title">Two levels of tabs. In color.</h2>
+        <p data-i18n="f3.body"></p>
+      </div>
+      <img src="img/panel-tabs.png" data-tr="img/panel-tabs-tr.png" alt="" loading="lazy" width="620" height="1121">
+    </article>
+    <article class="feat flip">
+      <div class="txt">
+        <p class="eyebrow" data-i18n="f4.eyebrow">Privacy</p>
+        <h2 data-i18n="f4.title">Your notes stay yours.</h2>
+        <p data-i18n="f4.body"></p>
+      </div>
+      <img src="img/panel-privacy.png" data-tr="img/panel-privacy-tr.png" alt="" loading="lazy" width="620" height="1121">
+    </article>
+    <article class="feat langs">
+      <div class="txt">
+        <p class="eyebrow" data-i18n="f5.eyebrow">Languages</p>
+        <h2 data-i18n="f5.title">Speaks your language.</h2>
+        <p data-i18n="f5.body"></p>
+      </div>
+      <ul class="lang-cloud" aria-hidden="true">
+        <li>English</li><li>Türkçe</li><li>Deutsch</li><li>Français</li><li>Español</li>
+        <li>Português</li><li>Italiano</li><li>Русский</li><li>日本語</li><li>简体中文</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap narrow">
+    <h2 data-i18n="faq.title">Good to know</h2>
+    <details><summary data-i18n="faq.q1"></summary><p data-i18n="faq.a1"></p></details>
+    <details><summary data-i18n="faq.q2"></summary><p data-i18n="faq.a2"></p></details>
+    <details><summary data-i18n="faq.q3"></summary><p data-i18n="faq.a3"></p></details>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <span>© 2026 stilless · Sill Note · <span data-i18n="foot.credit"></span></span>
+    <span class="links">
+      <a href="privacy.html" data-i18n="nav.privacy">Privacy</a>
+      <a href="mailto:mailatikleri@gmail.com" data-i18n="foot.contact">Contact</a>
+      <a href="https://github.com/adwatch1/sill">GitHub</a>
+    </span>
+  </div>
+</footer>
+
+<script src="{{root}}lang.js"></script>
+</body>
+</html>

@@ -225,17 +225,57 @@ function reducer(data: NotesData, a: Action): NotesData {
   }
 }
 
-// İlk açılışta gösterilecek örnek içerik (sadece data.json hiç yoksa).
-function seedData(): NotesData {
-  const mk = (title: string, subs: string[]): Tab => {
-    const subtabs = subs.map((s) => newSubtab(crypto.randomUUID(), s))
-    return { id: crypto.randomUUID(), title, subtabs, activeSubtabId: subtabs[0]?.id ?? null }
-  }
+// İlk açılışta gösterilecek örnek notlar (sadece data.json hiç yoksa) — aynı zamanda kısa bir kullanım
+// rehberi: 3 sekme × 2 not, görseller ve bir YouTube kartı, kullanıcının dilinde.
+// Görseller programla birlikte gelir (bize ait, telifsiz), ilk açılışta not klasörüne kopyalanır.
+// Video: Blender Foundation'ın "Big Buck Bunny"si (CC BY 3.0); küçük resmi kart görününce gelir.
+const DEMO_VIDEO = { id: 'aqz-KE-bpKQ', title: 'Big Buck Bunny 60fps 4K - Official Blender Foundation Short Film', channel: 'Blender' }
+
+async function seedData(withMedia: boolean): Promise<NotesData> {
   const t = getT() // ilk açılışta arayüz dilinde
+  const now = Date.now()
+  const text = (s: string): Block => ({ ...newTextBlock(s, now) })
+  // Örnek görseller: alınamazsa (ör. okuma hatası) notlar görselsiz kurulur, sorun değil.
+  const imgs = withMedia ? await window.media.importDemo().catch(() => []) : []
+  const image = (i: number): Block[] => {
+    const r = imgs[i]
+    if (!r || !r.ok || r.kind !== 'image') return []
+    return [{ id: crypto.randomUUID(), type: 'image', att: r.att, ext: r.ext, w: r.w, h: r.h, name: r.name, updatedAt: now } as Block]
+  }
+  const video: Block = {
+    id: crypto.randomUUID(),
+    type: 'link',
+    provider: 'youtube',
+    url: `https://youtu.be/${DEMO_VIDEO.id}`,
+    videoId: DEMO_VIDEO.id,
+    title: DEMO_VIDEO.title,
+    channel: DEMO_VIDEO.channel,
+    updatedAt: now
+  } as Block
+  const note = (title: string, blocks: Block[]): Subtab => {
+    const b = canonicalBlocks(blocks)
+    return { id: crypto.randomUUID(), title, content: mirrorContent(b), blocks: b, updatedAt: now }
+  }
+  const tab = (title: string, color: TabColor, subtabs: Subtab[]): Tab => ({
+    id: crypto.randomUUID(),
+    title,
+    color,
+    subtabs,
+    activeSubtabId: subtabs[0].id
+  })
   const tabs = [
-    mk(t('sample.daily'), [t('sample.chores'), t('sample.shopping'), t('sample.ideas')]),
-    mk(t('sample.work'), [t('sample.meetings')]),
-    mk(t('sample.project'), [])
+    tab(t('demo.welcomeTab'), 'blue', [
+      note(t('demo.welcomeNote'), [text(t('demo.welcomeText')), ...image(0), text(t('demo.welcomeOutro'))]),
+      note(t('demo.tipsNote'), [text(t('demo.tipsText'))])
+    ]),
+    tab(t('demo.dailyTab'), 'green', [
+      note(t('demo.todoNote'), [text(t('demo.todoText'))]),
+      note(t('demo.shoppingNote'), [text(t('demo.shoppingText'))])
+    ]),
+    tab(t('demo.ideasTab'), 'purple', [
+      note(t('demo.moodNote'), [text(t('demo.moodText')), ...image(1), ...image(2), text(t('demo.moodInspo')), video, text('')]),
+      note(t('demo.readingNote'), [text(t('demo.readingText'))])
+    ])
   ]
   return { version: 1, tabs, activeTabId: tabs[0].id }
 }
@@ -349,14 +389,16 @@ export function NotesProvider({ children }: { children: ReactNode }) {
     let cancelled = false // eski/yinelenen yükleme isteğinin sonucu yok sayılsın
     window.notes
       .load()
-      .then((data) => {
-        if (!cancelled) setLoaded({ data: normalizeNotes(data ?? seedData()), canSave: true })
+      .then(async (data) => {
+        const d = data ?? (await seedData(true))
+        if (!cancelled) setLoaded({ data: normalizeNotes(d), canSave: true })
       })
       .catch((e) => {
         // Dosya okunamadı (ör. izin hatası): örnek içerikle aç ama ASLA diske yazma,
         // yoksa diskteki gerçek notların üzerine yazılır.
         console.error('Notlar yüklenemedi:', e)
-        if (!cancelled) setLoaded({ data: normalizeNotes(seedData()), canSave: false })
+        // Diske dokunmamak için görselsiz örnek.
+        if (!cancelled) void seedData(false).then((d) => setLoaded({ data: normalizeNotes(d), canSave: false }))
       })
     return () => {
       cancelled = true

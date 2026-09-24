@@ -137,13 +137,25 @@ export const ptBR: Dict = {
   'settings.support': 'Apoiar',
   'settings.likeIt': 'Está gostando do Sill?',
   'settings.coffee': 'Me pague um café',
+  'support.short': 'Pagar um café',
   'settings.supportNote': 'O Sill é gratuito. Se você gosta, pode apoiar o desenvolvimento com um café.',
 
-  'sample.daily': 'Dia a dia',
-  'sample.chores': 'Tarefas de casa',
-  'sample.shopping': 'Compras',
-  'sample.ideas': 'Ideias',
-  'sample.work': 'Trabalho',
-  'sample.meetings': 'Reuniões',
-  'sample.project': 'Projeto'
+  // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
+  'demo.welcomeTab': "Boas-vindas",
+  'demo.welcomeNote': "Boas-vindas ao Sill",
+  'demo.welcomeText': "Suas notas agora moram na borda da tela. ✨\n\n— Leve o mouse até a borda direita da tela ou pressione Ctrl + Alt + N.\n— Clique no painel para mantê-lo aberto, ou fixe-o.\n— Pressione Esc ou clique fora para fechar.\n\nTudo o que você escreve é salvo automaticamente.",
+  'demo.welcomeOutro': "Pode apagar estas notas de exemplo e deixar o Sill do seu jeito. Boa escrita!",
+  'demo.tipsNote': "Dicas",
+  'demo.tipsText': "— Arraste uma imagem para uma nota ou cole com Ctrl + V.\n— Cole um link do YouTube sozinho: ele vira um cartão com miniatura.\n— Clique com o botão direito numa nota → Gravar nota de voz.\n— Clique com o botão direito numa aba para dar uma cor.\n— Segure uma nota e arraste para reordenar.\n— Arraste a borda esquerda do painel para alargá-lo.",
+  'demo.dailyTab': "Dia a dia",
+  'demo.todoNote': "Tarefas",
+  'demo.todoText': "Hoje\n— Pagar as contas\n— Academia às 18:30\n— Ligar para a mãe\n\nEsta semana\n— Marcar dentista\n— Terminar o livro",
+  'demo.shoppingNote': "Compras",
+  'demo.shoppingText': "— Café\n— Pão\n— Laranjas\n— Pilhas AA",
+  'demo.ideasTab': "Ideias",
+  'demo.moodNote': "Moodboard",
+  'demo.moodText': "Clima para um curta — noite, floresta, tons quentes.",
+  'demo.moodInspo': "Para se inspirar:",
+  'demo.readingNote': "Para ler",
+  'demo.readingText': "— O Pequeno Príncipe\n— O Alquimista\n— Fernão Capelo Gaivota"
 }

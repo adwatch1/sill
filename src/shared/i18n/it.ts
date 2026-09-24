@@ -136,13 +136,25 @@ export const it: Dict = {
   'settings.support': 'Supporta',
   'settings.likeIt': 'Ti piace Sill?',
   'settings.coffee': 'Offrimi un caffè',
+  'support.short': 'Offri un caffè',
   'settings.supportNote': 'Sill è gratuito. Se ti piace, puoi sostenerne lo sviluppo con un caffè.',
 
-  'sample.daily': 'Quotidiano',
-  'sample.chores': 'Faccende',
-  'sample.shopping': 'Spesa',
-  'sample.ideas': 'Idee',
-  'sample.work': 'Lavoro',
-  'sample.meetings': 'Riunioni',
-  'sample.project': 'Progetto'
+  // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
+  'demo.welcomeTab': "Benvenuto",
+  'demo.welcomeNote': "Benvenuto in Sill",
+  'demo.welcomeText': "Le tue note ora vivono sul bordo dello schermo. ✨\n\n— Porta il mouse sul bordo destro dello schermo o premi Ctrl + Alt + N.\n— Fai clic sul pannello per tenerlo aperto, oppure fissalo.\n— Premi Esc o fai clic fuori per chiuderlo.\n\nTutto ciò che scrivi viene salvato automaticamente.",
+  'demo.welcomeOutro': "Elimina pure queste note di esempio e organizza Sill a modo tuo. Buona scrittura!",
+  'demo.tipsNote': "Suggerimenti",
+  'demo.tipsText': "— Trascina un’immagine in una nota o incollala con Ctrl + V.\n— Incolla un link di YouTube da solo: diventa una scheda con miniatura.\n— Clic destro in una nota → Registra nota vocale.\n— Clic destro su una scheda per darle un colore.\n— Tieni premuta una nota e trascinala per riordinarla.\n— Trascina il bordo sinistro del pannello per allargarlo.",
+  'demo.dailyTab': "Quotidiano",
+  'demo.todoNote': "Da fare",
+  'demo.todoText': "Oggi\n— Pagare le bollette\n— Palestra alle 18:30\n— Chiamare la mamma\n\nQuesta settimana\n— Prenotare il dentista\n— Finire il libro",
+  'demo.shoppingNote': "Spesa",
+  'demo.shoppingText': "— Caffè\n— Pane\n— Arance\n— Pile AA",
+  'demo.ideasTab': "Idee",
+  'demo.moodNote': "Moodboard",
+  'demo.moodText': "Atmosfera per un cortometraggio — notte, bosco, toni caldi.",
+  'demo.moodInspo': "Per ispirarsi:",
+  'demo.readingNote': "Da leggere",
+  'demo.readingText': "— Il piccolo principe\n— L’alchimista\n— Il gabbiano Jonathan Livingston"
 }

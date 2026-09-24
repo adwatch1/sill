@@ -136,13 +136,25 @@ export const ja: Dict = {
   'settings.support': '応援',
   'settings.likeIt': 'Sill を気に入っていただけましたか？',
   'settings.coffee': 'コーヒーをおごる',
+  'support.short': 'コーヒーをおごる',
   'settings.supportNote': 'Sill は無料です。気に入ったら、コーヒー 1 杯で開発を応援できます。',
 
-  'sample.daily': '日々のこと',
-  'sample.chores': '家事',
-  'sample.shopping': '買い物',
-  'sample.ideas': 'アイデア',
-  'sample.work': '仕事',
-  'sample.meetings': 'ミーティング',
-  'sample.project': 'プロジェクト'
+  // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
+  'demo.welcomeTab': "ようこそ",
+  'demo.welcomeNote': "Sill へようこそ",
+  'demo.welcomeText': "メモは画面の端に住むようになりました。✨\n\n— マウスを画面の右端に動かすか、Ctrl + Alt + N を押します。\n— パネルをクリックすると開いたままになります。固定もできます。\n— Esc を押すか、外側をクリックすると閉じます。\n\n書いた内容はすべて自動で保存されます。",
+  'demo.welcomeOutro': "このサンプルメモは削除して、自由に使いこなしてください。楽しいメモ生活を！",
+  'demo.tipsNote': "ヒント",
+  'demo.tipsText': "— 画像はメモにドラッグするか、Ctrl + V で貼り付けます。\n— YouTube のリンクだけを貼り付けると、サムネイル付きのカードになります。\n— メモを右クリック → ボイスメモを録音。\n— タブを右クリックすると色を付けられます。\n— メモを長押ししてドラッグすると並べ替えられます。\n— パネルの左端をドラッグすると幅を広げられます。",
+  'demo.dailyTab': "日々のこと",
+  'demo.todoNote': "やること",
+  'demo.todoText': "今日\n— 支払いを済ませる\n— 18:30 にジム\n— 母に電話\n\n今週\n— 歯医者を予約する\n— 本を読み終える",
+  'demo.shoppingNote': "買い物",
+  'demo.shoppingText': "— コーヒー\n— パン\n— オレンジ\n— 単三電池",
+  'demo.ideasTab': "アイデア",
+  'demo.moodNote': "ムードボード",
+  'demo.moodText': "短編映画のムード — 夜、森、あたたかい色合い。",
+  'demo.moodInspo': "インスピレーション：",
+  'demo.readingNote': "読みたい本",
+  'demo.readingText': "— 星の王子さま\n— アルケミスト\n— かもめのジョナサン"
 }

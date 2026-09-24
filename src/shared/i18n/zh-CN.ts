@@ -134,13 +134,25 @@ export const zhCN: Dict = {
   'settings.support': '支持',
   'settings.likeIt': '喜欢 Sill 吗？',
   'settings.coffee': '请我喝杯咖啡',
+  'support.short': '请我喝咖啡',
   'settings.supportNote': 'Sill 是免费的。如果你喜欢，可以请我喝杯咖啡来支持开发。',
 
-  'sample.daily': '日常',
-  'sample.chores': '家务',
-  'sample.shopping': '购物',
-  'sample.ideas': '想法',
-  'sample.work': '工作',
-  'sample.meetings': '会议',
-  'sample.project': '项目'
+  // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
+  'demo.welcomeTab': "欢迎",
+  'demo.welcomeNote': "欢迎使用 Sill",
+  'demo.welcomeText': "你的笔记现在住在屏幕边缘。✨\n\n— 把鼠标移到屏幕右边缘，或按 Ctrl + Alt + N。\n— 点击面板可让它保持打开，也可以固定它。\n— 按 Esc 或点击外部即可关闭。\n\n你写下的一切都会自动保存。",
+  'demo.welcomeOutro': "可以删除这些示例笔记，按自己的方式使用 Sill。写得开心！",
+  'demo.tipsNote': "小技巧",
+  'demo.tipsText': "— 把图片拖进笔记，或用 Ctrl + V 粘贴。\n— 单独粘贴一个 YouTube 链接：它会变成带缩略图的卡片。\n— 在笔记中右键 → 录制语音笔记。\n— 右键点击标签页可设置颜色。\n— 按住笔记并拖动即可调整顺序。\n— 拖动面板左边缘可加宽面板。",
+  'demo.dailyTab': "日常",
+  'demo.todoNote': "待办",
+  'demo.todoText': "今天\n— 缴费\n— 18:30 健身\n— 给妈妈打电话\n\n本周\n— 预约牙医\n— 读完这本书",
+  'demo.shoppingNote': "购物",
+  'demo.shoppingText': "— 咖啡\n— 面包\n— 橙子\n— 5 号电池",
+  'demo.ideasTab': "想法",
+  'demo.moodNote': "灵感板",
+  'demo.moodText': "短片的氛围 — 夜晚、森林、暖色调。",
+  'demo.moodInspo': "灵感来源：",
+  'demo.readingNote': "想读的书",
+  'demo.readingText': "— 小王子\n— 牧羊少年奇幻之旅\n— 海鸥乔纳森"
 }

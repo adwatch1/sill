@@ -98,6 +98,8 @@ const mediaApi = {
     ipcRenderer.invoke('media:import-bytes', data, name),
   /** "Görsel ekle…" / "Ses ekle…": dosya seçme penceresini aç, seçilenleri içeri al. */
   pick: (kind: 'image' | 'audio'): Promise<ImportResult[]> => ipcRenderer.invoke('media:pick', kind),
+  /** İlk açılış: programla gelen örnek görselleri not klasörüne al. */
+  importDemo: (): Promise<ImportResult[]> => ipcRenderer.invoke('media:import-demo'),
   /** Windows'un mikrofon gizlilik ayarını aç (mikrofon oradan kapatılmışsa). */
   openMicSettings: () => ipcRenderer.send('media:open-mic-settings'),
   /** YouTube kartının küçük resmini ve başlığını al (ayarda kapalıysa `disabled` döner). */
