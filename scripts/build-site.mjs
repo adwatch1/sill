@@ -53,7 +53,7 @@ function render(tpl, lang, page) {
         keywords: seo.keywords,
         inLanguage: LANGS.map(([l]) => l),
         url: url(lang, page),
-        downloadUrl: 'https://github.com/adwatch1/sill/releases/latest/download/SillNote-Setup.exe',
+        downloadUrl: 'https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Setup.exe',
         screenshot: BASE + 'img/hero-step2.png',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
         author: { '@type': 'Organization', name: 'stilless' }

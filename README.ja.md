@@ -7,7 +7,7 @@
 **Windows の画面の端に住む、無料のメモパネル。**
 マウスを右端に動かすと、どのウィンドウの上にもパネルがすっと現れます。離れれば、すっと戻ります。アカウントもクラウドも追跡もありません。
 
-**[⬇ Windows 版をダウンロード](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store（近日公開） · **[Web サイト](https://www.sillnote.store/)**
+**[⬇ Windows 版をダウンロード](https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store（近日公開） · **[Web サイト](https://www.sillnote.store/)**
 
 ---
 
@@ -32,7 +32,7 @@
 
 ## インストール
 
-[Releases](../../releases/latest) から `SillNote-Setup.exe` をダウンロードして実行します（管理者権限は不要）。直接ダウンロード版はまだ署名されていないため、初回は Windows が警告することがあります：**詳細情報 → 実行**。Microsoft の署名付きで自動更新される Microsoft Store 版も近日公開予定です。 インストールしたくない場合は、ポータブル版 [ZIP](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Portable.zip) を好きな場所に展開して `Sill.exe` を実行してください。
+[Releases](../../releases/latest) から `SillNote-Setup.exe` をダウンロードして実行します（管理者権限は不要）。直接ダウンロード版はまだ署名されていないため、初回は Windows が警告することがあります：**詳細情報 → 実行**。Microsoft の署名付きで自動更新される Microsoft Store 版も近日公開予定です。 インストールしたくない場合は、ポータブル版 [ZIP](https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Portable.zip) を好きな場所に展開して `Sill.exe` を実行してください。
 
 ## プライバシー
 

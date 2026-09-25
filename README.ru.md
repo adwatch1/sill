@@ -7,7 +7,7 @@
 **Бесплатная панель заметок у края экрана Windows.**
 Подведите мышь к правому краю — панель выезжает поверх любых окон. Уберите — и она прячется. Без учётной записи, облака и слежки.
 
-**[⬇ Скачать для Windows](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store (скоро) · **[Сайт](https://www.sillnote.store/)**
+**[⬇ Скачать для Windows](https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store (скоро) · **[Сайт](https://www.sillnote.store/)**
 
 ---
 
@@ -32,7 +32,7 @@
 
 ## Установка
 
-Скачайте `SillNote-Setup.exe` на странице [Releases](../../releases/latest) и запустите (права администратора не нужны). Прямая загрузка пока не подписана, поэтому при первом запуске Windows может предупредить: **Подробнее → Выполнить в любом случае**. Скоро появится версия в Microsoft Store — с подписью Microsoft и автообновлением. Не хотите устанавливать? Скачайте портативный [ZIP](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Portable.zip), распакуйте в любую папку и запустите `Sill.exe`.
+Скачайте `SillNote-Setup.exe` на странице [Releases](../../releases/latest) и запустите (права администратора не нужны). Прямая загрузка пока не подписана, поэтому при первом запуске Windows может предупредить: **Подробнее → Выполнить в любом случае**. Скоро появится версия в Microsoft Store — с подписью Microsoft и автообновлением. Не хотите устанавливать? Скачайте портативный [ZIP](https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Portable.zip), распакуйте в любую папку и запустите `Sill.exe`.
 
 ## Конфиденциальность
 

@@ -7,7 +7,7 @@
 **Un panneau de notes gratuit, au bord de votre écran Windows.**
 Amenez la souris sur le bord droit : un panneau glisse par-dessus toutes les fenêtres. Éloignez-la : il se retire. Pas de compte, pas de cloud, pas de pistage.
 
-**[⬇ Télécharger pour Windows](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store (bientôt) · **[Site web](https://www.sillnote.store/)**
+**[⬇ Télécharger pour Windows](https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store (bientôt) · **[Site web](https://www.sillnote.store/)**
 
 ---
 
@@ -32,7 +32,7 @@ Amenez la souris sur le bord droit : un panneau glisse par-dessus toutes les fen
 
 ## Installation
 
-Téléchargez `SillNote-Setup.exe` depuis [Releases](../../releases/latest) et lancez-le (aucun droit administrateur requis). Le téléchargement direct n’est pas encore signé, Windows peut donc avertir la première fois : **Informations complémentaires → Exécuter quand même**. Une version Microsoft Store, signée par Microsoft et mise à jour automatiquement, arrive bientôt. Vous préférez ne rien installer ? Prenez le [ZIP](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Portable.zip) portable, décompressez-le où vous voulez et lancez `Sill.exe`.
+Téléchargez `SillNote-Setup.exe` depuis [Releases](../../releases/latest) et lancez-le (aucun droit administrateur requis). Le téléchargement direct n’est pas encore signé, Windows peut donc avertir la première fois : **Informations complémentaires → Exécuter quand même**. Une version Microsoft Store, signée par Microsoft et mise à jour automatiquement, arrive bientôt. Vous préférez ne rien installer ? Prenez le [ZIP](https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Portable.zip) portable, décompressez-le où vous voulez et lancez `Sill.exe`.
 
 ## Confidentialité
 

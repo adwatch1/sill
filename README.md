@@ -7,7 +7,7 @@
 **A free notes panel that lives on the edge of your Windows screen.**
 Move your mouse to the right edge and a panel slides in, over any window. Move away and it slides back out. No account, no cloud, no tracking.
 
-**[⬇ Download for Windows](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store (coming soon) · **[Website](https://www.sillnote.store/)**
+**[⬇ Download for Windows](https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store (coming soon) · **[Website](https://www.sillnote.store/)**
 
 ---
 
@@ -32,7 +32,7 @@ Move your mouse to the right edge and a panel slides in, over any window. Move a
 
 ## Install
 
-Download `SillNote-Setup.exe` from [Releases](../../releases/latest) and run it (no administrator rights needed). The direct download isn’t code-signed yet, so Windows may warn the first time: **More info → Run anyway**. A Microsoft Store version, signed by Microsoft and updating itself, is coming soon. Prefer not to install? Grab the portable [ZIP](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Portable.zip), unzip it anywhere and run `Sill.exe`.
+Download `SillNote-Setup.exe` from [Releases](../../releases/latest) and run it (no administrator rights needed). The direct download isn’t code-signed yet, so Windows may warn the first time: **More info → Run anyway**. A Microsoft Store version, signed by Microsoft and updating itself, is coming soon. Prefer not to install? Grab the portable [ZIP](https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Portable.zip), unzip it anywhere and run `Sill.exe`.
 
 ## Privacy
 

@@ -7,7 +7,7 @@
 **住在 Windows 屏幕边缘的免费笔记面板。**
 把鼠标移到右边缘，面板便滑出并覆盖在任何窗口之上；移开鼠标，它就收回。无账户、无云端、无追踪。
 
-**[⬇ 下载 Windows 版](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store（即将上架） · **[网站](https://www.sillnote.store/)**
+**[⬇ 下载 Windows 版](https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store（即将上架） · **[网站](https://www.sillnote.store/)**
 
 ---
 
@@ -32,7 +32,7 @@
 
 ## 安装
 
-从 [Releases](../../releases/latest) 下载 `SillNote-Setup.exe` 并运行（无需管理员权限）。直接下载的安装包暂未签名，首次运行时 Windows 可能会提示：**更多信息 → 仍要运行**。由 Microsoft 签名并可自动更新的 Microsoft Store 版本即将上架。 不想安装？下载便携版 [ZIP](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Portable.zip)，解压到任意位置后运行 `Sill.exe`。
+从 [Releases](../../releases/latest) 下载 `SillNote-Setup.exe` 并运行（无需管理员权限）。直接下载的安装包暂未签名，首次运行时 Windows 可能会提示：**更多信息 → 仍要运行**。由 Microsoft 签名并可自动更新的 Microsoft Store 版本即将上架。 不想安装？下载便携版 [ZIP](https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Portable.zip)，解压到任意位置后运行 `Sill.exe`。
 
 ## 隐私
 

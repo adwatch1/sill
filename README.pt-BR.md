@@ -7,7 +7,7 @@
 **Um painel de notas gratuito na borda da sua tela do Windows.**
 Leve o mouse até a borda direita e um painel desliza sobre qualquer janela. Afaste o mouse e ele se recolhe. Sem conta, sem nuvem, sem rastreamento.
 
-**[⬇ Baixar para Windows](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store (em breve) · **[Site](https://www.sillnote.store/)**
+**[⬇ Baixar para Windows](https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store (em breve) · **[Site](https://www.sillnote.store/)**
 
 ---
 
@@ -32,7 +32,7 @@ Leve o mouse até a borda direita e um painel desliza sobre qualquer janela. Afa
 
 ## Instalação
 
-Baixe `SillNote-Setup.exe` em [Releases](../../releases/latest) e execute (não precisa de administrador). O download direto ainda não é assinado, então o Windows pode avisar na primeira vez: **Mais informações → Executar assim mesmo**. Em breve haverá uma versão na Microsoft Store, assinada pela Microsoft e com atualização automática. Prefere não instalar? Baixe o [ZIP](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Portable.zip) portátil, extraia onde quiser e abra o `Sill.exe`.
+Baixe `SillNote-Setup.exe` em [Releases](../../releases/latest) e execute (não precisa de administrador). O download direto ainda não é assinado, então o Windows pode avisar na primeira vez: **Mais informações → Executar assim mesmo**. Em breve haverá uma versão na Microsoft Store, assinada pela Microsoft e com atualização automática. Prefere não instalar? Baixe o [ZIP](https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Portable.zip) portátil, extraia onde quiser e abra o `Sill.exe`.
 
 ## Privacidade
 

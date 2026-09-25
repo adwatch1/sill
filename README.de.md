@@ -7,7 +7,7 @@
 **Ein kostenloses Notiz-Panel am Rand deines Windows-Bildschirms.**
 Bewege die Maus an den rechten Rand, und ein Panel gleitet über jedes Fenster. Maus weg – und es verschwindet wieder. Kein Konto, keine Cloud, kein Tracking.
 
-**[⬇ Für Windows herunterladen](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store (bald) · **[Website](https://www.sillnote.store/)**
+**[⬇ Für Windows herunterladen](https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store (bald) · **[Website](https://www.sillnote.store/)**
 
 ---
 
@@ -32,7 +32,7 @@ Bewege die Maus an den rechten Rand, und ein Panel gleitet über jedes Fenster. 
 
 ## Installation
 
-Lade `SillNote-Setup.exe` unter [Releases](../../releases/latest) herunter und starte es (keine Administratorrechte nötig). Der direkte Download ist noch nicht signiert, daher warnt Windows beim ersten Mal: **Weitere Informationen → Trotzdem ausführen**. Eine von Microsoft signierte Store-Version mit automatischen Updates folgt bald. Lieber ohne Installation? Lade das portable [ZIP](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Portable.zip), entpacke es irgendwo und starte `Sill.exe`.
+Lade `SillNote-Setup.exe` unter [Releases](../../releases/latest) herunter und starte es (keine Administratorrechte nötig). Der direkte Download ist noch nicht signiert, daher warnt Windows beim ersten Mal: **Weitere Informationen → Trotzdem ausführen**. Eine von Microsoft signierte Store-Version mit automatischen Updates folgt bald. Lieber ohne Installation? Lade das portable [ZIP](https://github.com/adwatch1/sill-note/releases/latest/download/SillNote-Portable.zip), entpacke es irgendwo und starte `Sill.exe`.
 
 ## Datenschutz
 

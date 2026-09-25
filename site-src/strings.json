@@ -75,7 +75,7 @@
   "f7.title": "Hide the list. Give your note room.",
   "f7.body": "Click the sidebar button in the top-left corner and the note list slides away, so your note fills the whole panel. Click again to bring it back.",
   "faq.q5": "Can I see what Sill Note actually does?",
-  "faq.a5": "Yes. The complete source code is public on <a href=\"https://github.com/adwatch1/sill\">GitHub</a>, so anyone can read exactly what the app does. There are no hidden connections, no tracking and no background uploads — the only time it goes online is the optional YouTube preview. The Microsoft Store version is also reviewed by Microsoft before it’s published."
+  "faq.a5": "Yes. The complete source code is public on <a href=\"https://github.com/adwatch1/sill-note\">GitHub</a>, so anyone can read exactly what the app does. There are no hidden connections, no tracking and no background uploads — the only time it goes online is the optional YouTube preview. The Microsoft Store version is also reviewed by Microsoft before it’s published."
  },
  "tr": {
   "nav.features": "Özellikler",
@@ -153,7 +153,7 @@
   "f7.title": "Listeyi gizle. Notuna yer aç.",
   "f7.body": "Sol üst köşedeki kenar çubuğu düğmesine tıkla, başlık listesi kayarak gitsin ve notun tüm paneli kaplasın. Bir daha tıkla, geri gelsin.",
   "faq.q5": "Sill Note’un gerçekte ne yaptığını görebilir miyim?",
-  "faq.a5": "Evet. Kaynak kodun tamamı <a href=\"https://github.com/adwatch1/sill\">GitHub</a>’da herkese açık; programın tam olarak ne yaptığını herkes okuyabilir. Gizli bağlantı, takip ya da arka planda yükleme yok — internete çıktığı tek yer isteğe bağlı YouTube önizlemesi. Microsoft Store sürümü de yayınlanmadan önce Microsoft tarafından incelenir."
+  "faq.a5": "Evet. Kaynak kodun tamamı <a href=\"https://github.com/adwatch1/sill-note\">GitHub</a>’da herkese açık; programın tam olarak ne yaptığını herkes okuyabilir. Gizli bağlantı, takip ya da arka planda yükleme yok — internete çıktığı tek yer isteğe bağlı YouTube önizlemesi. Microsoft Store sürümü de yayınlanmadan önce Microsoft tarafından incelenir."
  },
  "de": {
   "nav.features": "Funktionen",
@@ -231,7 +231,7 @@
   "f7.title": "Liste ausblenden. Platz für deine Notiz.",
   "f7.body": "Klick oben links auf die Seitenleisten-Taste, und die Notizliste gleitet weg — deine Notiz füllt das ganze Panel. Noch ein Klick, und sie ist wieder da.",
   "faq.q5": "Kann ich sehen, was Sill Note wirklich tut?",
-  "faq.a5": "Ja. Der komplette Quellcode ist öffentlich auf <a href=\"https://github.com/adwatch1/sill\">GitHub</a> — jeder kann genau nachlesen, was die App tut. Keine versteckten Verbindungen, kein Tracking, keine Uploads im Hintergrund; online geht sie nur für die optionale YouTube-Vorschau. Die Microsoft-Store-Version wird zudem vor der Veröffentlichung von Microsoft geprüft."
+  "faq.a5": "Ja. Der komplette Quellcode ist öffentlich auf <a href=\"https://github.com/adwatch1/sill-note\">GitHub</a> — jeder kann genau nachlesen, was die App tut. Keine versteckten Verbindungen, kein Tracking, keine Uploads im Hintergrund; online geht sie nur für die optionale YouTube-Vorschau. Die Microsoft-Store-Version wird zudem vor der Veröffentlichung von Microsoft geprüft."
  },
  "fr": {
   "nav.features": "Fonctionnalités",
@@ -309,7 +309,7 @@
   "f7.title": "Masquez la liste. Donnez de l’espace à votre note.",
   "f7.body": "Cliquez sur le bouton de barre latérale en haut à gauche : la liste des notes s’efface et votre note occupe tout le panneau. Un autre clic la fait revenir.",
   "faq.q5": "Puis-je voir ce que fait vraiment Sill Note ?",
-  "faq.a5": "Oui. Le code source complet est public sur <a href=\"https://github.com/adwatch1/sill\">GitHub</a> : chacun peut lire exactement ce que fait l’application. Aucune connexion cachée, aucun suivi, aucun envoi en arrière-plan — elle ne se connecte à Internet que pour l’aperçu YouTube, facultatif. La version Microsoft Store est en outre examinée par Microsoft avant publication."
+  "faq.a5": "Oui. Le code source complet est public sur <a href=\"https://github.com/adwatch1/sill-note\">GitHub</a> : chacun peut lire exactement ce que fait l’application. Aucune connexion cachée, aucun suivi, aucun envoi en arrière-plan — elle ne se connecte à Internet que pour l’aperçu YouTube, facultatif. La version Microsoft Store est en outre examinée par Microsoft avant publication."
  },
  "es": {
   "nav.features": "Funciones",
@@ -387,7 +387,7 @@
   "f7.title": "Oculta la lista. Dale espacio a tu nota.",
   "f7.body": "Pulsa el botón de barra lateral de la esquina superior izquierda y la lista de notas se desliza fuera: tu nota ocupa todo el panel. Otro clic y vuelve.",
   "faq.q5": "¿Puedo ver lo que hace realmente Sill Note?",
-  "faq.a5": "Sí. Todo el código fuente es público en <a href=\"https://github.com/adwatch1/sill\">GitHub</a>, así que cualquiera puede leer exactamente qué hace la aplicación. No hay conexiones ocultas, ni seguimiento, ni subidas en segundo plano; solo se conecta a internet para la vista previa opcional de YouTube. Además, la versión de Microsoft Store la revisa Microsoft antes de publicarse."
+  "faq.a5": "Sí. Todo el código fuente es público en <a href=\"https://github.com/adwatch1/sill-note\">GitHub</a>, así que cualquiera puede leer exactamente qué hace la aplicación. No hay conexiones ocultas, ni seguimiento, ni subidas en segundo plano; solo se conecta a internet para la vista previa opcional de YouTube. Además, la versión de Microsoft Store la revisa Microsoft antes de publicarse."
  },
  "pt-BR": {
   "nav.features": "Recursos",
@@ -465,7 +465,7 @@
   "f7.title": "Esconda a lista. Dê espaço à sua nota.",
   "f7.body": "Clique no botão da barra lateral no canto superior esquerdo e a lista de notas desliza para fora — sua nota ocupa o painel inteiro. Clique de novo para trazê-la de volta.",
   "faq.q5": "Posso ver o que o Sill Note realmente faz?",
-  "faq.a5": "Sim. Todo o código-fonte é público no <a href=\"https://github.com/adwatch1/sill\">GitHub</a>, então qualquer pessoa pode ler exatamente o que o app faz. Não há conexões ocultas, rastreamento nem envios em segundo plano — ele só acessa a internet para a prévia opcional do YouTube. A versão da Microsoft Store também é analisada pela Microsoft antes de ser publicada."
+  "faq.a5": "Sim. Todo o código-fonte é público no <a href=\"https://github.com/adwatch1/sill-note\">GitHub</a>, então qualquer pessoa pode ler exatamente o que o app faz. Não há conexões ocultas, rastreamento nem envios em segundo plano — ele só acessa a internet para a prévia opcional do YouTube. A versão da Microsoft Store também é analisada pela Microsoft antes de ser publicada."
  },
  "it": {
   "nav.features": "Funzioni",
@@ -543,7 +543,7 @@
   "f7.title": "Nascondi l’elenco. Dai spazio alla nota.",
   "f7.body": "Fai clic sul pulsante della barra laterale in alto a sinistra: l’elenco delle note scivola via e la nota occupa tutto il pannello. Un altro clic e torna.",
   "faq.q5": "Posso vedere cosa fa davvero Sill Note?",
-  "faq.a5": "Sì. L’intero codice sorgente è pubblico su <a href=\"https://github.com/adwatch1/sill\">GitHub</a>: chiunque può leggere esattamente cosa fa l’app. Nessuna connessione nascosta, nessun tracciamento, nessun caricamento in background; va online solo per l’anteprima di YouTube, facoltativa. Inoltre la versione del Microsoft Store viene verificata da Microsoft prima della pubblicazione."
+  "faq.a5": "Sì. L’intero codice sorgente è pubblico su <a href=\"https://github.com/adwatch1/sill-note\">GitHub</a>: chiunque può leggere esattamente cosa fa l’app. Nessuna connessione nascosta, nessun tracciamento, nessun caricamento in background; va online solo per l’anteprima di YouTube, facoltativa. Inoltre la versione del Microsoft Store viene verificata da Microsoft prima della pubblicazione."
  },
  "ru": {
   "nav.features": "Возможности",
@@ -621,7 +621,7 @@
   "f7.title": "Скройте список. Дайте заметке место.",
   "f7.body": "Нажмите кнопку боковой панели в левом верхнем углу — список заметок уедет, и заметка займёт всю панель. Нажмите ещё раз, чтобы вернуть его.",
   "faq.q5": "Можно ли увидеть, что на самом деле делает Sill Note?",
-  "faq.a5": "Да. Весь исходный код открыт на <a href=\"https://github.com/adwatch1/sill\">GitHub</a> — любой может прочитать, что именно делает приложение. Никаких скрытых подключений, слежки и фоновых загрузок; в интернет оно выходит только для необязательного превью YouTube. Кроме того, версия из Microsoft Store перед публикацией проверяется Microsoft."
+  "faq.a5": "Да. Весь исходный код открыт на <a href=\"https://github.com/adwatch1/sill-note\">GitHub</a> — любой может прочитать, что именно делает приложение. Никаких скрытых подключений, слежки и фоновых загрузок; в интернет оно выходит только для необязательного превью YouTube. Кроме того, версия из Microsoft Store перед публикацией проверяется Microsoft."
  },
  "ja": {
   "nav.features": "機能",
@@ -699,7 +699,7 @@
   "f7.title": "一覧を隠して、ノートを広く。",
   "f7.body": "左上のサイドバーボタンをクリックするとノート一覧がすっと隠れ、ノートがパネル全体に広がります。もう一度クリックすれば元に戻ります。",
   "faq.q5": "Sill Note が実際に何をしているか確認できますか？",
-  "faq.a5": "はい。ソースコードはすべて <a href=\"https://github.com/adwatch1/sill\">GitHub</a> で公開されており、アプリが何をしているかを誰でも確認できます。隠れた通信、追跡、バックグラウンドでのアップロードはありません。インターネットに接続するのは、任意の YouTube プレビューのときだけです。Microsoft Store 版は公開前に Microsoft の審査も受けます。"
+  "faq.a5": "はい。ソースコードはすべて <a href=\"https://github.com/adwatch1/sill-note\">GitHub</a> で公開されており、アプリが何をしているかを誰でも確認できます。隠れた通信、追跡、バックグラウンドでのアップロードはありません。インターネットに接続するのは、任意の YouTube プレビューのときだけです。Microsoft Store 版は公開前に Microsoft の審査も受けます。"
  },
  "zh-CN": {
   "nav.features": "功能",
@@ -777,6 +777,6 @@
   "f7.title": "隐藏列表，给笔记更多空间。",
   "f7.body": "点击左上角的侧栏按钮，笔记列表就会滑走，笔记铺满整个面板。再点一次即可恢复。",
   "faq.q5": "我能看到 Sill Note 实际在做什么吗？",
-  "faq.a5": "可以。完整源代码公开在 <a href=\"https://github.com/adwatch1/sill\">GitHub</a> 上，任何人都能查看应用究竟做了什么。没有隐藏连接、没有跟踪、没有后台上传 —— 它唯一联网的时候是可选的 YouTube 预览。此外，Microsoft Store 版本在发布前也会经过 Microsoft 审核。"
+  "faq.a5": "可以。完整源代码公开在 <a href=\"https://github.com/adwatch1/sill-note\">GitHub</a> 上，任何人都能查看应用究竟做了什么。没有隐藏连接、没有跟踪、没有后台上传 —— 它唯一联网的时候是可选的 YouTube 预览。此外，Microsoft Store 版本在发布前也会经过 Microsoft 审核。"
  }
 }
