@@ -6,7 +6,8 @@
   right: var(--panel-pad-edge);
   display: flex;
   flex-direction: column;
-  background: var(--surface);
+  /* --panel-alpha: ayarlardaki opaklık. Sadece zemin saydamlaşır; yazı, görsel ve düğmeler net kalır. */
+  background: color-mix(in srgb, var(--surface) var(--panel-alpha, 100%), transparent);
   border: 0.5px solid var(--border);
   border-radius: var(--radius-panel);
   box-shadow: var(--shadow-panel);
@@ -20,7 +21,29 @@
   display: flex;
   min-height: 0;
   background: var(--note-bg, transparent);
-  transition: background-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    opacity 0.15s ease;
+}
+
+.panel > header,
+.empty {
+  transition: opacity 0.15s ease;
+}
+
+/* Ayarlar açıkken altındaki sekmeler ve not görünmez: ayarlar ekranının kendi zemini yok. */
+.underSettings > header,
+.underSettings > .body,
+.underSettings > .empty {
+  opacity: 0;
+}
+
+/* Alt başlık sütununun kabı: gizlenirken içerik taşmasın, sütun sağa doğru ezilmesin. */
+.subtabs {
+  display: flex;
+  flex-shrink: 0;
+  overflow: hidden;
+  min-height: 0;
 }
 
 .empty {

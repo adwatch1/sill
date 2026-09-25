@@ -104,7 +104,9 @@
 [data-color] {
   --accent: var(--tint-text);
   --accent-soft: color-mix(in srgb, var(--tint) 20%, transparent);
-  --note-bg: color-mix(in srgb, var(--tint) var(--tint-strength), var(--surface));
+  /* Sadece renk tonu, zemin değil: panelin kendi zemini altta kalır. Böylece panel saydamlaştırıldığında
+     renkli sekmenin içerik alanı opak bir blok olarak kalmaz. Opak panelde görünüm aynı. */
+  --note-bg: color-mix(in srgb, var(--tint) var(--tint-strength), transparent);
 }
 
 * {

@@ -20,6 +20,9 @@ Bewege die Maus an den rechten Rand, und ein Panel gleitet über jedes Fenster. 
 - **Audio & Sprachnotizen.** Audiodateien ablegen oder mit Live-Wellenform über das Mikrofon aufnehmen.
 - **YouTube-Karten.** YouTube-Link einfügen – er wird zur Karte mit Vorschaubild und Titel.
 - **10 Sprachen.** Folgt automatisch deiner Windows-Sprache.
+- **Bei Bildschirmfreigabe ausblenden.** Ein Schalter, und Sill Note verschwindet aus Bildschirmaufnahmen, Bildschirmfreigaben (Zoom, Teams, Discord, OBS) und Screenshots – du siehst es weiterhin.
+- **Deckkraft.** Mach den Panel-Hintergrund durchsichtig (60–100 %); Text und Bilder bleiben scharf.
+- **Fokusansicht.** Blende die Notizliste mit der Seitenleisten-Taste aus, damit die Notiz das ganze Panel füllt.
 - Helles und dunkles Design, Anheften, anpassbare Breite, Start mit Windows.
 
 | | |

@@ -20,6 +20,9 @@ Lleva el ratón al borde derecho y un panel se desliza sobre cualquier ventana. 
 - **Audio y notas de voz.** Suelta archivos de audio o graba con el micrófono con forma de onda en directo.
 - **Tarjetas de YouTube.** Pega un enlace de YouTube y se convierte en una tarjeta con miniatura y título.
 - **10 idiomas.** Sigue automáticamente el idioma de Windows.
+- **Ocultar al compartir pantalla.** Con un interruptor, Sill Note desaparece de las grabaciones de pantalla, la pantalla compartida (Zoom, Teams, Discord, OBS) y las capturas, y tú lo sigues viendo.
+- **Opacidad.** Haz transparente el fondo del panel (60–100 %); el texto y las imágenes siguen nítidos.
+- **Vista de enfoque.** Oculta la lista de notas con el botón de barra lateral para que la nota ocupe todo el panel.
 - Tema claro y oscuro, fijar el panel, ancho ajustable, inicio con Windows.
 
 | | |

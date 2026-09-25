@@ -37,6 +37,15 @@ export interface Settings {
    * çalışmaz, açık panel kapanır. Tam ekrandan çıkınca kendiliğinden geri gelir.
    */
   pauseInFullscreen: boolean
+  /** Soldaki alt başlık sütunu gizli mi (not tam genişlikte görünür). */
+  subtabsHidden: boolean
+  /** Panel arka planının opaklığı (1 = tam opak). Yazılar ve görseller her zaman net kalır. */
+  opacity: number
+  /**
+   * Ekran kaydında / paylaşımında / ekran görüntüsünde görünme (Windows'un "yakalamadan hariç tut"
+   * özelliği). Kamera veya yakalama kartına karşı koruma değildir.
+   */
+  hideFromCapture: boolean
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -53,14 +62,18 @@ export const DEFAULT_SETTINGS: Settings = {
   micId: '',
   linkPreviews: true,
   language: 'system',
-  pauseInFullscreen: true
+  pauseInFullscreen: true,
+  subtabsHidden: false,
+  opacity: 1,
+  hideFromCapture: false
 }
 
 export const LIMITS = {
   panelWidth: { min: 380, max: 640, step: 10 },
   subtabWidth: { min: 96, max: 280, step: 2 },
   triggerZone: { min: 0.2, max: 0.9, step: 0.05 },
-  dwellMs: { min: 0, max: 500, step: 25 }
+  dwellMs: { min: 0, max: 500, step: 25 },
+  opacity: { min: 0.6, max: 1, step: 0.05 }
 } as const
 
 export type SettingsResult = { ok: true; settings: Settings } | { ok: false; settings: Settings; error: string }
@@ -89,7 +102,11 @@ export function sanitizeSettings(v: unknown): Settings {
     micId: typeof o.micId === 'string' && o.micId.length <= 200 ? o.micId : d.micId,
     linkPreviews: typeof o.linkPreviews === 'boolean' ? o.linkPreviews : d.linkPreviews,
     language: isLangPref(o.language) ? o.language : d.language,
-    pauseInFullscreen: typeof o.pauseInFullscreen === 'boolean' ? o.pauseInFullscreen : d.pauseInFullscreen
+    pauseInFullscreen: typeof o.pauseInFullscreen === 'boolean' ? o.pauseInFullscreen : d.pauseInFullscreen,
+    subtabsHidden: typeof o.subtabsHidden === 'boolean' ? o.subtabsHidden : d.subtabsHidden,
+    // Kaydırıcı adımları kayan noktada 0.8500000001 gibi kalmasın.
+    opacity: Math.round(clamp(o.opacity, LIMITS.opacity.min, LIMITS.opacity.max, d.opacity) * 100) / 100,
+    hideFromCapture: typeof o.hideFromCapture === 'boolean' ? o.hideFromCapture : d.hideFromCapture
   }
 }
 

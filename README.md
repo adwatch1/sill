@@ -20,6 +20,9 @@ Move your mouse to the right edge and a panel slides in, over any window. Move a
 - **Audio & voice notes.** Drop audio files, or record from your microphone with a live waveform.
 - **YouTube cards.** Paste a YouTube link and it becomes a card with the thumbnail and title.
 - **10 languages.** Follows your Windows language automatically.
+- **Hide from screen sharing.** One switch and Sill Note disappears from screen recordings, screen sharing (Zoom, Teams, Discord, OBS) and screenshots — while you still see it.
+- **Opacity.** Make the panel background see-through (60–100 %); text and images stay sharp.
+- **Focus view.** Hide the note list with the sidebar button so your note fills the panel.
 - Light and dark themes, pin to keep open, resizable panel, start with Windows.
 
 | | |

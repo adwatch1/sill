@@ -5,7 +5,9 @@
   z-index: 15;
   display: flex;
   flex-direction: column;
-  background: var(--surface);
+  /* Kendi zemini yok: altta panelin zemini (opaklık ayarıyla) görünür, kaydırıcı oynarken ayarlar da
+     canlı saydamlaşır. Altındaki notlar bu ekran açılınca solar (Panel.module.css → .underSettings). */
+  background: transparent;
 }
 
 .header {
@@ -67,7 +69,8 @@
 
 .groupBox {
   border-radius: 12px;
-  background: var(--surface-raised);
+  /* Panel zeminiyle aynı opaklıkta: opaklık ayarı ayarlar ekranında da canlı görünsün. */
+  background: color-mix(in srgb, var(--surface-raised) var(--panel-alpha, 100%), transparent);
   box-shadow: 0 0 0 0.5px var(--separator);
   overflow: hidden;
 }

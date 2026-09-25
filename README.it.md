@@ -20,6 +20,9 @@ Porta il mouse sul bordo destro e un pannello scivola sopra qualsiasi finestra. 
 - **Audio e note vocali.** Rilascia file audio o registra dal microfono con forma d’onda dal vivo.
 - **Schede YouTube.** Incolla un link di YouTube e diventa una scheda con miniatura e titolo.
 - **10 lingue.** Segue automaticamente la lingua di Windows.
+- **Nascondi durante la condivisione schermo.** Un interruttore e Sill Note sparisce da registrazioni dello schermo, condivisione (Zoom, Teams, Discord, OBS) e screenshot, mentre tu continui a vederlo.
+- **Opacità.** Rendi trasparente lo sfondo del pannello (60–100%); testo e immagini restano nitidi.
+- **Vista concentrazione.** Nascondi l’elenco delle note con il pulsante della barra laterale e la nota occupa tutto il pannello.
 - Tema chiaro e scuro, pannello fissabile, larghezza regolabile, avvio con Windows.
 
 | | |

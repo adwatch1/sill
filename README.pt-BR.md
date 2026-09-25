@@ -20,6 +20,9 @@ Leve o mouse até a borda direita e um painel desliza sobre qualquer janela. Afa
 - **Áudio e notas de voz.** Solte arquivos de áudio ou grave pelo microfone com forma de onda ao vivo.
 - **Cartões do YouTube.** Cole um link do YouTube e ele vira um cartão com miniatura e título.
 - **10 idiomas.** Segue automaticamente o idioma do Windows.
+- **Ocultar no compartilhamento de tela.** Com um botão, o Sill Note some das gravações de tela, do compartilhamento de tela (Zoom, Teams, Discord, OBS) e das capturas — e você continua vendo.
+- **Opacidade.** Deixe o fundo do painel transparente (60–100%); texto e imagens continuam nítidos.
+- **Modo foco.** Esconda a lista de notas com o botão da barra lateral para a nota ocupar o painel inteiro.
 - Temas claro e escuro, fixar o painel, largura ajustável, iniciar com o Windows.
 
 | | |

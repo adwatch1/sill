@@ -191,3 +191,8 @@
 .pinned svg {
   transform: rotate(0deg);
 }
+
+/* Kenar çubuğu düğmesi: panelin yuvarlak köşesine fazla yaklaşmasın, ama boşluk da bırakmasın. */
+.sidebar {
+  margin-left: -4px;
+}

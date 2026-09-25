@@ -20,6 +20,9 @@ Amenez la souris sur le bord droit : un panneau glisse par-dessus toutes les fen
 - **Audio et notes vocales.** Déposez des fichiers audio ou enregistrez au micro avec une forme d’onde en direct.
 - **Cartes YouTube.** Collez un lien YouTube : il devient une carte avec miniature et titre.
 - **10 langues.** Suit automatiquement la langue de Windows.
+- **Masquer lors du partage d’écran.** Un interrupteur, et Sill Note disparaît des enregistrements d’écran, du partage d’écran (Zoom, Teams, Discord, OBS) et des captures — tout en restant visible pour vous.
+- **Opacité.** Rendez le fond du panneau transparent (60–100 %) ; texte et images restent nets.
+- **Vue concentration.** Masquez la liste des notes avec le bouton de barre latérale pour que la note occupe tout le panneau.
 - Thèmes clair et sombre, épinglage, largeur réglable, lancement avec Windows.
 
 | | |

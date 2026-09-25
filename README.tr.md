@@ -20,6 +20,9 @@ Fareyi sağ kenara götür, panel her pencerenin üstüne kayarak gelsin. Uzakla
 - **Ses ve sesli not.** Ses dosyası bırak ya da mikrofondan canlı dalgayla kaydet.
 - **YouTube kartları.** YouTube linki yapıştır, küçük resimli ve başlıklı karta dönüşsün.
 - **10 dil.** Windows’un dilini kendiliğinden takip eder.
+- **Ekran paylaşımında gizle.** Tek anahtarla Sill Note ekran kayıtlarından, ekran paylaşımından (Zoom, Teams, Discord, OBS) ve ekran görüntülerinden kaybolur — sen yine görürsün.
+- **Opaklık.** Panelin zeminini saydamlaştır (%60–100); yazı ve görseller net kalır.
+- **Odak görünümü.** Kenar çubuğu düğmesiyle başlık listesini gizle, not tüm paneli kaplasın.
 - Açık ve koyu tema, paneli açık tutan raptiye, boyutlandırılabilir panel, Windows açılışında başlatma.
 
 | | |

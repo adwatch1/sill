@@ -12,11 +12,13 @@ import styles from './SettingsView.module.css'
 
 interface Props {
   onClose: () => void
+  /** Kaydedilen ayarı panele de bildir (opaklık gibi değişiklikler anında görünsün). */
+  onChange?: (s: Settings) => void
 }
 
 // Panelin üzerine sağdan kayarak gelen Ayarlar ekranı (iPhone ayarları gibi).
 // Her değişiklik anında uygulanır ve kaydedilir; "Kaydet" düğmesi yok.
-export function SettingsView({ onClose }: Props) {
+export function SettingsView({ onClose, onChange }: Props) {
   const [settings, setSettings] = useState<Settings | null>(null)
   const [isPackaged, setIsPackaged] = useState(false)
   const [isStore, setIsStore] = useState(false)
@@ -33,9 +35,14 @@ export function SettingsView({ onClose }: Props) {
 
   /** Ayarı değiştir; arka plan geçerli (gerekirse düzeltilmiş) ayarları döndürür. Hata varsa mesajı döner. */
   const update = async (patch: Partial<Settings>): Promise<string | null> => {
-    if (settings) setSettings({ ...settings, ...patch }) // kaydırıcı anında tepki versin
+    if (settings) {
+      // Kaydırıcı ve panel anında tepki versin; arka planın cevabı sonra gelir.
+      setSettings({ ...settings, ...patch })
+      onChange?.({ ...settings, ...patch })
+    }
     const r = await window.settings.set(patch)
     setSettings(r.settings)
+    onChange?.(r.settings)
     return r.ok ? null : r.error
   }
 
@@ -90,6 +97,14 @@ export function SettingsView({ onClose }: Props) {
                   <ChevronDown size={13} strokeWidth={2.2} className={styles.selectIcon} />
                 </span>
               </Row>
+              <SliderRow
+                label={t('settings.opacity')}
+                hint={t('settings.opacityHint')}
+                value={settings.opacity}
+                display={new Intl.NumberFormat(locale, { style: 'percent' }).format(settings.opacity)}
+                {...LIMITS.opacity}
+                onChange={(opacity) => update({ opacity })}
+              />
             </Group>
 
             <Group title={t('settings.opening')} footnote={t('settings.pauseFullscreenNote')}>
@@ -156,10 +171,16 @@ export function SettingsView({ onClose }: Props) {
 
             <Group
               title={t('settings.privacy')}
-              footnote={t('settings.privacyNote')}
+              footnote={[t('settings.privacyNote'), t('settings.hideFromCaptureNote')]}
             >
               <Row label={t('settings.linkPreviews')}>
                 <Toggle checked={settings.linkPreviews} onChange={(linkPreviews) => update({ linkPreviews })} />
+              </Row>
+              <Row label={t('settings.hideFromCapture')}>
+                <Toggle
+                  checked={settings.hideFromCapture}
+                  onChange={(hideFromCapture) => update({ hideFromCapture })}
+                />
               </Row>
             </Group>
 
@@ -184,12 +205,26 @@ export function SettingsView({ onClose }: Props) {
 
 // ── Yapı taşları ─────────────────────────────────────────────
 
-function Group({ title, footnote, children }: { title: string; footnote?: string; children: ReactNode }) {
+function Group({
+  title,
+  footnote,
+  children
+}: {
+  title: string
+  /** Birden fazla satırı açıklayan grupta her açıklama ayrı paragraf. */
+  footnote?: string | string[]
+  children: ReactNode
+}) {
+  const notes = footnote === undefined ? [] : Array.isArray(footnote) ? footnote : [footnote]
   return (
     <section className={styles.group}>
       <h2 className={styles.groupTitle}>{title}</h2>
       <div className={styles.groupBox}>{children}</div>
-      {footnote && <p className={styles.footnote}>{footnote}</p>}
+      {notes.map((n) => (
+        <p key={n} className={styles.footnote}>
+          {n}
+        </p>
+      ))}
     </section>
   )
 }

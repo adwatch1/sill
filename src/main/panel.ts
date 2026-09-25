@@ -154,6 +154,7 @@ export function createPanel(opts: { onPauseChange: (paused: boolean) => void }):
 
   win.setAlwaysOnTop(true, 'pop-up-menu')
   positionWindow()
+  applyContentProtection()
 
   if (process.env.ELECTRON_RENDERER_URL) {
     win.loadURL(process.env.ELECTRON_RENDERER_URL)
@@ -204,6 +205,14 @@ export function createPanel(opts: { onPauseChange: (paused: boolean) => void }):
   watcher = setInterval(watchCursor, POLL_MS)
   fullscreenWatcher = setInterval(watchFullscreen, FULLSCREEN_POLL_MS)
   return win
+}
+
+/**
+ * "Ekran paylaşımında gizle": Windows bu pencereyi kayıt, paylaşım ve ekran görüntüsünden çıkarır
+ * (WDA_EXCLUDEFROMCAPTURE). Ekranda normal görünür; sadece yakalanan görüntüde yoktur.
+ */
+export function applyContentProtection(): void {
+  if (alive(win)) win.setContentProtection(getSettings().hideFromCapture)
 }
 
 // Pencereyi birincil monitörün sağ kenarına, dikeyde ortalı yerleştir.

@@ -9,7 +9,7 @@ import { ConfirmDialog, type ConfirmRequest } from './ConfirmDialog'
 import { ContextMenuHost } from './ContextMenu'
 import { SettingsView } from './SettingsView'
 import { Resizer } from './Resizer'
-import { LIMITS, DEFAULT_SETTINGS } from '../../../shared/settings'
+import { LIMITS, DEFAULT_SETTINGS, type Settings } from '../../../shared/settings'
 import resizerStyles from './Resizer.module.css'
 import { isTabColor } from '../../../shared/notes'
 import styles from './Panel.module.css'
@@ -26,6 +26,11 @@ interface Props {
   onPanelWidthCommit: () => void
   subtabWidth: number
   onSubtabWidth: (width: number) => void
+  subtabsHidden: boolean
+  onToggleSubtabs: () => void
+  /** Zeminin opaklığı (0.6–1). */
+  opacity: number
+  onSettingsChange: (s: Settings) => void
 }
 
 export function Panel({
@@ -37,7 +42,11 @@ export function Panel({
   onPanelWidth,
   onPanelWidthCommit,
   subtabWidth,
-  onSubtabWidth
+  onSubtabWidth,
+  subtabsHidden,
+  onToggleSubtabs,
+  opacity,
+  onSettingsChange
 }: Props) {
   const { activeTab, actions } = useNotes()
   const { t } = useI18n()
@@ -53,8 +62,11 @@ export function Panel({
   return (
     <motion.div
       ref={panelRef}
-      className={styles.panel}
-      style={{ ['--subtab-width' as string]: `${subtabWidth}px` }}
+      className={`${styles.panel} ${settingsOpen ? styles.underSettings : ''}`}
+      style={{
+        ['--subtab-width' as string]: `${subtabWidth}px`,
+        ['--panel-alpha' as string]: `${Math.round(opacity * 100)}%`
+      }}
       initial={{ x: '108%', opacity: 0.4, scale: 0.98 }}
       animate={{
         x: 0,
@@ -78,22 +90,40 @@ export function Panel({
             onOpenSettings={() => onSettingsOpenChange(true)}
             pinned={pinned}
             onTogglePin={onTogglePin}
+            subtabsHidden={subtabsHidden}
+            onToggleSubtabs={onToggleSubtabs}
           />
 
           {activeTab ? (
             <div className={styles.body} data-color={color}>
-              <SubtabList key={activeTab.id} tab={activeTab} onConfirm={setConfirm} />
+              {/* Sütun gizlenince genişliği yaylanarak sıfıra iner; not alanı boşalan yere yayılır. */}
+              <AnimatePresence initial={false}>
+                {!subtabsHidden && (
+                  <motion.div
+                    key="subtabs"
+                    className={styles.subtabs}
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{ width: 'auto', opacity: 1 }}
+                    exit={{ width: 0, opacity: 0 }}
+                    transition={springPanel}
+                  >
+                    <SubtabList key={activeTab.id} tab={activeTab} onConfirm={setConfirm} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
               {/* Alt başlık sütunuyla not arasındaki dikey çizgi: sürüklenerek genişler. */}
-              <Resizer
-                className={resizerStyles.columnEdge}
-                title={t('panel.resizeColumn')}
-                getValue={() => subtabWidth}
-                min={LIMITS.subtabWidth.min}
-                max={LIMITS.subtabWidth.max}
-                reset={DEFAULT_SETTINGS.subtabWidth}
-                onChange={onSubtabWidth}
-                onDragging={setResizing}
-              />
+              {!subtabsHidden && (
+                <Resizer
+                  className={resizerStyles.columnEdge}
+                  title={t('panel.resizeColumn')}
+                  getValue={() => subtabWidth}
+                  min={LIMITS.subtabWidth.min}
+                  max={LIMITS.subtabWidth.max}
+                  reset={DEFAULT_SETTINGS.subtabWidth}
+                  onChange={onSubtabWidth}
+                  onDragging={setResizing}
+                />
+              )}
               <NoteView />
             </div>
           ) : (
@@ -126,7 +156,7 @@ export function Panel({
       )}
 
       <AnimatePresence>
-        {settingsOpen && <SettingsView key="settings" onClose={() => onSettingsOpenChange(false)} />}
+        {settingsOpen && <SettingsView key="settings" onClose={() => onSettingsOpenChange(false)} onChange={onSettingsChange} />}
       </AnimatePresence>
 
       <AnimatePresence>

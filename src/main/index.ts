@@ -11,6 +11,7 @@ import {
   openSettingsView,
   playIntro,
   positionWindow,
+  applyContentProtection,
   refreshPause,
   setManualPause,
   setPanelSuppressed,
@@ -77,6 +78,7 @@ if (!app.requestSingleInstanceLock()) {
       onShortcut: togglePanel,
       onChange: () => {
         positionWindow() // genişlik değiştiyse pencereyi yeniden boyutlandır
+        applyContentProtection() // "ekran paylaşımında gizle" anında geçerli olsun
         refreshPause() // "tam ekranda duraklat" kapatıldıysa hemen devam et
         updateTrayMenu() // tepsi menüsündeki kısayol yazısı güncel kalsın
       }

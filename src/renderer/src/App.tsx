@@ -61,6 +61,11 @@ export function App() {
     window.settings.set({ subtabWidth })
   }, [])
 
+  const toggleSubtabs = async (): Promise<void> => {
+    const r = await window.settings.set({ subtabsHidden: !(settings?.subtabsHidden ?? false) })
+    setSettings(r.settings)
+  }
+
   const togglePin = async (): Promise<void> => {
     const r = await window.settings.set({ pinned: !(settings?.pinned ?? false) })
     setSettings(r.settings)
@@ -112,6 +117,11 @@ export function App() {
             onPanelWidthCommit={commitPanelWidth}
             subtabWidth={settings.subtabWidth}
             onSubtabWidth={setSubtabWidth}
+            subtabsHidden={settings.subtabsHidden}
+            onToggleSubtabs={toggleSubtabs}
+            opacity={settings.opacity}
+            // Ayarlar ekranındaki değişiklik (ör. opaklık) panele anında yansısın.
+            onSettingsChange={setSettings}
           />
         )}
       </AnimatePresence>

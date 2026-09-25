@@ -106,6 +106,14 @@ html[lang='zh-CN'] body { font-family: 'Inter', 'Microsoft YaHei UI', 'PingFang 
 .btn.coffee { background: #ffdd00; color: #1d1d1f; font-weight: 600; }
 .btn.coffee:hover { filter: brightness(0.97); }
 
+/* 1.3'te yeni: ekran paylaşımında gizle — en önemli yenilik, kahramanın hemen altında */
+.new { text-align: center; padding: 80px 0 64px; background: #fff; }
+.new h2 { font-size: clamp(32px, 5vw, 56px); line-height: 1.06; letter-spacing: -0.035em; font-weight: 700; margin: 0; }
+.new .steps { margin-top: 40px; }
+.new .fine { max-width: 720px; margin: 22px auto 0; }
+.steps figcaption b.ok { background: #34c759; }
+.steps figcaption b.rec { background: #ff3b30; font-size: 12px; }
+
 /* Özellikler: yazı + görsel, sırayla yer değiştirir */
 .features { background: var(--bg-2); padding: 40px 0 80px; }
 .feat {

@@ -13,6 +13,8 @@ const LANGS = [
 const T = JSON.parse(readFileSync('site-src/strings.json', 'utf8'))
 const SEO = JSON.parse(readFileSync('site-src/seo.json', 'utf8'))
 const PAGES = ['index.html', 'privacy.html']
+// Sitede görünen sürüm programla aynı kaynaktan gelir: her yeni sürümde elle güncellemek gerekmez.
+const VERSION = JSON.parse(readFileSync('package.json', 'utf8')).version
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;')
 const dir = (lang) => (lang === 'en' ? '' : `${lang}/`)
@@ -46,6 +48,7 @@ function render(tpl, lang, page) {
         alternateName: 'Sill',
         applicationCategory: 'ProductivityApplication',
         operatingSystem: 'Windows 10, Windows 11',
+        softwareVersion: VERSION,
         description: seo.desc,
         keywords: seo.keywords,
         inLanguage: LANGS.map(([l]) => l),
@@ -59,7 +62,7 @@ function render(tpl, lang, page) {
   const options = LANGS.map(([l, name]) =>
     `<option value="${root}${dir(l)}${isIndex ? '' : page}"${l === lang ? ' selected' : ''} lang="${l}">${name}</option>`).join('')
   const vars = {
-    lang, root, hreflang, jsonld, langOptions: options,
+    lang, root, hreflang, jsonld, langOptions: options, version: VERSION,
     title: esc(isIndex ? seo.title : seo.privTitle),
     desc: esc(isIndex ? seo.desc : seo.privDesc),
     keywords: esc(seo.keywords),

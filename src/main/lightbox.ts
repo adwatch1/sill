@@ -3,6 +3,7 @@ import { join } from 'path'
 import { attUrl, isHash, isImageExt } from '../shared/media'
 import { alive } from './util'
 import { currentLang } from './i18n'
+import { getSettings } from './settings'
 
 // Görseli büyütmek için ekranı kaplayan ikinci pencere (macOS'taki Quick Look gibi).
 // Panel penceresi ~516 px genişliğinde; büyütülmüş görsel oraya sığmaz, bu yüzden ayrı pencere.
@@ -73,6 +74,8 @@ function open(src: string, name: string | undefined): void {
     }
   })
   win.setAlwaysOnTop(true, 'screen-saver') // panel 'pop-up-menu' seviyesinde, bu onun üstünde
+  // Panel ekran paylaşımında gizliyse büyütülen görsel de görünmesin.
+  win.setContentProtection(getSettings().hideFromCapture)
 
   const target = win
   // Sigorta: arayüz hiç yüklenmese ya da çökse bile Esc pencereyi kapatır.
