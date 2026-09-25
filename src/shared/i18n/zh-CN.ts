@@ -3,6 +3,8 @@ import type { Dict } from './index'
 export const zhCN: Dict = {
   'tray.toggle': '显示 / 隐藏面板',
   'tray.settings': '设置…',
+  'tray.pause': "暂停",
+  'tray.pausedTip': "已暂停",
   'tray.quit': '退出',
 
   'media.typeUnsupported':
@@ -120,28 +122,31 @@ export const zhCN: Dict = {
   'settings.pressKeys': '请按下按键…',
   'settings.needsModifier': '至少需要包含 Ctrl、Alt 或 Win 中的一个。',
   'settings.shortcutTaken': '无法使用此快捷键（可能被其他应用占用）。已保留原来的快捷键。',
+  'settings.pauseFullscreen': "全屏时暂停",
+  'settings.pauseFullscreenNote':
+    "当游戏或全屏视频位于前台时，屏幕边缘和快捷键不会响应。退出全屏后会自动恢复。",
   'settings.system': '系统',
   'settings.startup': '开机时启动',
   'settings.startupButton': '管理',
-  'settings.startupStore': 'Sill 会随 Windows 启动。可在 Windows 设置 → 启动 中开启或关闭。',
+  'settings.startupStore': 'Sill Note 会随 Windows 启动。可在 Windows 设置 → 启动 中开启或关闭。',
   'settings.startupDev': '安装应用后，开机启动功能才会生效。',
   'settings.notesFolder': '笔记文件夹',
   'settings.openFolder': '打开文件夹',
   'settings.privacy': '隐私',
   'settings.linkPreviews': '链接预览',
   'settings.privacyNote':
-    '开启后，粘贴 YouTube 链接时会从 YouTube 下载一次视频缩略图和标题。这是 Sill 唯一联网的时候。关闭后，卡片将不显示图片。',
+    '开启后，粘贴 YouTube 链接时会从 YouTube 下载一次视频缩略图和标题。这是 Sill Note 唯一联网的时候。关闭后，卡片将不显示图片。',
   'settings.support': '支持',
-  'settings.likeIt': '喜欢 Sill 吗？',
+  'settings.likeIt': '喜欢 Sill Note 吗？',
   'settings.coffee': '请我喝杯咖啡',
   'support.short': '请我喝咖啡',
-  'settings.supportNote': 'Sill 是免费的。如果你喜欢，可以请我喝杯咖啡来支持开发。',
+  'settings.supportNote': 'Sill Note 是免费的。如果你喜欢，可以请我喝杯咖啡来支持开发。',
 
   // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
   'demo.welcomeTab': "欢迎",
-  'demo.welcomeNote': "欢迎使用 Sill",
+  'demo.welcomeNote': "欢迎使用 Sill Note",
   'demo.welcomeText': "你的笔记现在住在屏幕边缘。✨\n\n— 把鼠标移到屏幕右边缘，或按 Ctrl + Alt + N。\n— 点击面板可让它保持打开，也可以固定它。\n— 按 Esc 或点击外部即可关闭。\n\n你写下的一切都会自动保存。",
-  'demo.welcomeOutro': "可以删除这些示例笔记，按自己的方式使用 Sill。写得开心！",
+  'demo.welcomeOutro': "可以删除这些示例笔记，按自己的方式使用 Sill Note。写得开心！",
   'demo.tipsNote': "小技巧",
   'demo.tipsText': "— 把图片拖进笔记，或用 Ctrl + V 粘贴。\n— 单独粘贴一个 YouTube 链接：它会变成带缩略图的卡片。\n— 在笔记中右键 → 录制语音笔记。\n— 右键点击标签页可设置颜色。\n— 按住笔记并拖动即可调整顺序。\n— 拖动面板左边缘可加宽面板。",
   'demo.dailyTab': "日常",

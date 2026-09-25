@@ -3,6 +3,8 @@ import type { Dict } from './index'
 export const es: Dict = {
   'tray.toggle': 'Mostrar / ocultar panel',
   'tray.settings': 'Configuración…',
+  'tray.pause': "Pausar",
+  'tray.pausedTip': "en pausa",
   'tray.quit': 'Salir',
 
   'media.typeUnsupported':
@@ -122,28 +124,31 @@ export const es: Dict = {
   'settings.needsModifier': 'Usa al menos Ctrl, Alt o Win.',
   'settings.shortcutTaken':
     'Este atajo no se puede usar (puede que otra aplicación lo esté usando). Se mantuvo el atajo anterior.',
+  'settings.pauseFullscreen': "Pausar en pantalla completa",
+  'settings.pauseFullscreenNote':
+    "Mientras un juego o un vídeo a pantalla completa esté delante, el borde y el atajo no responden. Vuelven solos al salir de la pantalla completa.",
   'settings.system': 'Sistema',
   'settings.startup': 'Iniciar con Windows',
   'settings.startupButton': 'Gestionar',
-  'settings.startupStore': 'Sill se inicia con Windows. Para activarlo o desactivarlo: Configuración de Windows → Inicio.',
+  'settings.startupStore': 'Sill Note se inicia con Windows. Para activarlo o desactivarlo: Configuración de Windows → Inicio.',
   'settings.startupDev': 'El inicio con Windows funciona una vez instalada la aplicación.',
   'settings.notesFolder': 'Carpeta de notas',
   'settings.openFolder': 'Abrir carpeta',
   'settings.privacy': 'Privacidad',
   'settings.linkPreviews': 'Vista previa de enlaces',
   'settings.privacyNote':
-    'Si está activado, al pegar un enlace de YouTube se descargan una sola vez la miniatura y el título del vídeo desde YouTube. Es el único momento en que Sill se conecta a internet. Si está desactivado, la tarjeta se muestra sin imagen.',
+    'Si está activado, al pegar un enlace de YouTube se descargan una sola vez la miniatura y el título del vídeo desde YouTube. Es el único momento en que Sill Note se conecta a internet. Si está desactivado, la tarjeta se muestra sin imagen.',
   'settings.support': 'Apoyar',
-  'settings.likeIt': '¿Te gusta Sill?',
+  'settings.likeIt': '¿Te gusta Sill Note?',
   'settings.coffee': 'Invítame a un café',
   'support.short': 'Invita un café',
-  'settings.supportNote': 'Sill es gratis. Si te gusta, puedes apoyar su desarrollo con un café.',
+  'settings.supportNote': 'Sill Note es gratis. Si te gusta, puedes apoyar su desarrollo con un café.',
 
   // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
   'demo.welcomeTab': "Bienvenida",
-  'demo.welcomeNote': "Te damos la bienvenida a Sill",
+  'demo.welcomeNote': "Te damos la bienvenida a Sill Note",
   'demo.welcomeText': "Tus notas ahora viven en el borde de la pantalla. ✨\n\n— Lleva el ratón al borde derecho de la pantalla o pulsa Ctrl + Alt + N.\n— Haz clic en el panel para que se quede abierto, o fíjalo.\n— Pulsa Esc o haz clic fuera para cerrarlo.\n\nTodo lo que escribes se guarda solo.",
-  'demo.welcomeOutro': "Borra estas notas de ejemplo y organiza Sill a tu manera. ¡Feliz escritura!",
+  'demo.welcomeOutro': "Borra estas notas de ejemplo y organiza Sill Note a tu manera. ¡Feliz escritura!",
   'demo.tipsNote': "Consejos",
   'demo.tipsText': "— Arrastra una imagen a una nota o pégala con Ctrl + V.\n— Pega un enlace de YouTube solo: se convierte en una tarjeta con miniatura.\n— Clic derecho en una nota → Grabar nota de voz.\n— Clic derecho en una pestaña para darle color.\n— Mantén pulsada una nota y arrástrala para reordenarla.\n— Arrastra el borde izquierdo del panel para ensancharlo.",
   'demo.dailyTab': "Día a día",

@@ -2,12 +2,12 @@
 
 [English](README.md) · [Türkçe](README.tr.md) · **Deutsch** · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt-BR.md) · [Italiano](README.it.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [简体中文](README.zh-CN.md)
 
-![Sill](screenshots/01-edge-panel.png)
+![Sill Note](screenshots/01-edge-panel.png)
 
 **Ein kostenloses Notiz-Panel am Rand deines Windows-Bildschirms.**
 Bewege die Maus an den rechten Rand, und ein Panel gleitet über jedes Fenster. Maus weg – und es verschwindet wieder. Kein Konto, keine Cloud, kein Tracking.
 
-**[⬇ Für Windows herunterladen](../../releases/latest)** · Microsoft Store (bald) · **[Website](https://adwatch1.github.io/sill/)**
+**[⬇ Für Windows herunterladen](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store (bald) · **[Website](https://www.sillnote.store/)**
 
 ---
 
@@ -29,15 +29,15 @@ Bewege die Maus an den rechten Rand, und ein Panel gleitet über jedes Fenster. 
 
 ## Installation
 
-Lade `Sill-Setup-x.y.z.exe` unter [Releases](../../releases/latest) herunter und starte es (keine Administratorrechte nötig). Der direkte Download ist noch nicht signiert, daher warnt Windows beim ersten Mal: **Weitere Informationen → Trotzdem ausführen**. Eine von Microsoft signierte Store-Version mit automatischen Updates folgt bald.
+Lade `SillNote-Setup.exe` unter [Releases](../../releases/latest) herunter und starte es (keine Administratorrechte nötig). Der direkte Download ist noch nicht signiert, daher warnt Windows beim ersten Mal: **Weitere Informationen → Trotzdem ausführen**. Eine von Microsoft signierte Store-Version mit automatischen Updates folgt bald. Lieber ohne Installation? Lade das portable [ZIP](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Portable.zip), entpacke es irgendwo und starte `Sill.exe`.
 
 ## Datenschutz
 
-Notizen, Bilder, Audio und Einstellungen bleiben nur auf deinem Computer. Sill geht nur in einem Fall online: Beim Einfügen eines YouTube-Links lädt es einmalig Vorschaubild und Titel (abschaltbar unter Einstellungen → Datenschutz). Das Mikrofon ist nur während der Aufnahme aktiv. [Datenschutzerklärung](https://adwatch1.github.io/sill/privacy.html)
+Notizen, Bilder, Audio und Einstellungen bleiben nur auf deinem Computer. Sill Note geht nur in einem Fall online: Beim Einfügen eines YouTube-Links lädt es einmalig Vorschaubild und Titel (abschaltbar unter Einstellungen → Datenschutz). Das Mikrofon ist nur während der Aufnahme aktiv. [Datenschutzerklärung](https://www.sillnote.store/privacy.html)
 
 ## Unterstützen
 
-Sill ist kostenlos. Wenn es dir gefällt, [spendier mir einen Kaffee ☕](https://buymeacoffee.com/stilless).
+Sill Note ist kostenlos. Wenn es dir gefällt, [spendier mir einen Kaffee ☕](https://buymeacoffee.com/stilless).
 
 ## Lizenz
 

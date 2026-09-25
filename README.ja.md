@@ -2,12 +2,12 @@
 
 [English](README.md) · [Türkçe](README.tr.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt-BR.md) · [Italiano](README.it.md) · [Русский](README.ru.md) · **日本語** · [简体中文](README.zh-CN.md)
 
-![Sill](screenshots/01-edge-panel.png)
+![Sill Note](screenshots/01-edge-panel.png)
 
 **Windows の画面の端に住む、無料のメモパネル。**
 マウスを右端に動かすと、どのウィンドウの上にもパネルがすっと現れます。離れれば、すっと戻ります。アカウントもクラウドも追跡もありません。
 
-**[⬇ Windows 版をダウンロード](../../releases/latest)** · Microsoft Store（近日公開） · **[Web サイト](https://adwatch1.github.io/sill/)**
+**[⬇ Windows 版をダウンロード](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store（近日公開） · **[Web サイト](https://www.sillnote.store/)**
 
 ---
 
@@ -29,15 +29,15 @@
 
 ## インストール
 
-[Releases](../../releases/latest) から `Sill-Setup-x.y.z.exe` をダウンロードして実行します（管理者権限は不要）。直接ダウンロード版はまだ署名されていないため、初回は Windows が警告することがあります：**詳細情報 → 実行**。Microsoft の署名付きで自動更新される Microsoft Store 版も近日公開予定です。
+[Releases](../../releases/latest) から `SillNote-Setup.exe` をダウンロードして実行します（管理者権限は不要）。直接ダウンロード版はまだ署名されていないため、初回は Windows が警告することがあります：**詳細情報 → 実行**。Microsoft の署名付きで自動更新される Microsoft Store 版も近日公開予定です。 インストールしたくない場合は、ポータブル版 [ZIP](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Portable.zip) を好きな場所に展開して `Sill.exe` を実行してください。
 
 ## プライバシー
 
-メモ、画像、音声、設定はすべてあなたのパソコンにのみ保存されます。Sill がインターネットに接続するのは、YouTube のリンクを貼り付けてサムネイルとタイトルを一度だけ取得するときだけです（設定 → プライバシーでオフにできます）。マイクは録音中のみ使用します。[プライバシーポリシー](https://adwatch1.github.io/sill/privacy.html)
+メモ、画像、音声、設定はすべてあなたのパソコンにのみ保存されます。Sill Note がインターネットに接続するのは、YouTube のリンクを貼り付けてサムネイルとタイトルを一度だけ取得するときだけです（設定 → プライバシーでオフにできます）。マイクは録音中のみ使用します。[プライバシーポリシー](https://www.sillnote.store/privacy.html)
 
 ## 応援
 
-Sill は無料です。気に入ったら [コーヒーをおごってください ☕](https://buymeacoffee.com/stilless)。
+Sill Note は無料です。気に入ったら [コーヒーをおごってください ☕](https://buymeacoffee.com/stilless)。
 
 ## ライセンス
 

@@ -4,6 +4,8 @@ export const tr = {
   // Tepsi menüsü
   'tray.toggle': 'Paneli aç / kapat',
   'tray.settings': 'Ayarlar…',
+  'tray.pause': "Duraklat",
+  'tray.pausedTip': "duraklatıldı",
   'tray.quit': 'Çıkış',
 
   // Dosya içeri alma (arka plan)
@@ -129,26 +131,29 @@ export const tr = {
   'settings.pressKeys': 'Tuşlara basın…',
   'settings.needsModifier': 'En az bir Ctrl, Alt veya Win tuşu gerekli.',
   'settings.shortcutTaken': 'Bu kısayol kullanılamıyor (başka bir program kullanıyor olabilir). Eski kısayol korundu.',
+  'settings.pauseFullscreen': "Tam ekranda duraklat",
+  'settings.pauseFullscreenNote':
+    "Oyun veya tam ekran video açıkken kenar ve kısayol çalışmaz. Tam ekrandan çıkınca kendiliğinden devam eder.",
   'settings.system': 'Sistem',
   'settings.startup': 'Windows açılışında başlat',
   'settings.startupButton': 'Ayarla',
-  'settings.startupStore': 'Sill, Windows açılışında kendiliğinden başlar. Açıp kapatmak için Windows Ayarları → Başlangıç.',
+  'settings.startupStore': 'Sill Note, Windows açılışında kendiliğinden başlar. Açıp kapatmak için Windows Ayarları → Başlangıç.',
   'settings.startupDev': 'Windows açılışında başlatma, programı kurduktan sonra çalışır.',
   'settings.notesFolder': 'Notların klasörü',
   'settings.openFolder': 'Klasörü aç',
   'settings.privacy': 'Gizlilik',
   'settings.linkPreviews': 'Link önizlemeleri',
   'settings.privacyNote':
-    "Açıkken nota bir YouTube linki yapıştırınca videonun küçük resmi ve başlığı YouTube'dan bir kez indirilir. Sill'in internete çıktığı tek yer burası. Kapalıyken kart resimsiz görünür.",
+    "Açıkken nota bir YouTube linki yapıştırınca videonun küçük resmi ve başlığı YouTube'dan bir kez indirilir. Sill Note'un internete çıktığı tek yer burası. Kapalıyken kart resimsiz görünür.",
   'settings.support': 'Destek',
-  'settings.likeIt': "Sill'i beğendin mi?",
+  'settings.likeIt': "Sill Note'u beğendin mi?",
   'settings.coffee': 'Kahve ısmarla',
   'support.short': 'Kahve ısmarla',
-  'settings.supportNote': 'Sill ücretsiz. Beğendiysen bir kahve ısmarlayarak geliştirilmesine destek olabilirsin.',
+  'settings.supportNote': 'Sill Note ücretsiz. Beğendiysen bir kahve ısmarlayarak geliştirilmesine destek olabilirsin.',
 
   // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
   'demo.welcomeTab': "Hoş geldin",
-  'demo.welcomeNote': "Sill'e hoş geldin",
+  'demo.welcomeNote': "Sill Note'a hoş geldin",
   'demo.welcomeText': "Notların artık ekranın kenarında. ✨\n\n— Fareyi ekranın sağ kenarına götür ya da Ctrl + Alt + N'ye bas.\n— Panele tıklarsan açık kalır; raptiyeyle sabitleyebilirsin.\n— Esc'ye basınca ya da dışarı tıklayınca kapanır.\n\nYazdığın her şey kendiliğinden kaydedilir.",
   'demo.welcomeOutro': "Bu örnek notları silip kendi düzenini kurabilirsin. Keyifli yazmalar!",
   'demo.tipsNote': "İpuçları",

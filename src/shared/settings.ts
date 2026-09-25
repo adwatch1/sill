@@ -32,6 +32,11 @@ export interface Settings {
   linkPreviews: boolean
   /** Arayüz dili. 'system' = Windows'un dilini izle (listede yoksa İngilizce). */
   language: LangPref
+  /**
+   * Önde tam ekran bir program (oyun, tam ekran video) varken dur: kenar tetiği ve kısayol
+   * çalışmaz, açık panel kapanır. Tam ekrandan çıkınca kendiliğinden geri gelir.
+   */
+  pauseInFullscreen: boolean
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -47,7 +52,8 @@ export const DEFAULT_SETTINGS: Settings = {
   introShown: false,
   micId: '',
   linkPreviews: true,
-  language: 'system'
+  language: 'system',
+  pauseInFullscreen: true
 }
 
 export const LIMITS = {
@@ -82,7 +88,8 @@ export function sanitizeSettings(v: unknown): Settings {
     introShown: typeof o.introShown === 'boolean' ? o.introShown : d.introShown,
     micId: typeof o.micId === 'string' && o.micId.length <= 200 ? o.micId : d.micId,
     linkPreviews: typeof o.linkPreviews === 'boolean' ? o.linkPreviews : d.linkPreviews,
-    language: isLangPref(o.language) ? o.language : d.language
+    language: isLangPref(o.language) ? o.language : d.language,
+    pauseInFullscreen: typeof o.pauseInFullscreen === 'boolean' ? o.pauseInFullscreen : d.pauseInFullscreen
   }
 }
 

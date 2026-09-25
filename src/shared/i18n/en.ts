@@ -3,6 +3,8 @@ import type { Dict } from './index'
 export const en: Dict = {
   'tray.toggle': 'Show / hide panel',
   'tray.settings': 'Settings…',
+  'tray.pause': "Pause",
+  'tray.pausedTip': "paused",
   'tray.quit': 'Quit',
 
   'media.typeUnsupported':
@@ -120,28 +122,31 @@ export const en: Dict = {
   'settings.pressKeys': 'Press keys…',
   'settings.needsModifier': 'Use at least one of Ctrl, Alt or Win.',
   'settings.shortcutTaken': "This shortcut can't be used (another app may be using it). The previous shortcut was kept.",
+  'settings.pauseFullscreen': "Pause in full screen",
+  'settings.pauseFullscreenNote':
+    "While a game or full-screen video is in front, the edge and the shortcut don't respond. They come back on their own when you leave full screen.",
   'settings.system': 'System',
   'settings.startup': 'Start with Windows',
   'settings.startupButton': 'Manage',
-  'settings.startupStore': 'Sill starts with Windows. To turn this on or off, go to Windows Settings → Startup.',
+  'settings.startupStore': 'Sill Note starts with Windows. To turn this on or off, go to Windows Settings → Startup.',
   'settings.startupDev': 'Starting with Windows works once the app is installed.',
   'settings.notesFolder': 'Notes folder',
   'settings.openFolder': 'Open folder',
   'settings.privacy': 'Privacy',
   'settings.linkPreviews': 'Link previews',
   'settings.privacyNote':
-    "When on, pasting a YouTube link downloads the video's thumbnail and title from YouTube once. This is the only time Sill goes online. When off, the card is shown without a picture.",
+    "When on, pasting a YouTube link downloads the video's thumbnail and title from YouTube once. This is the only time Sill Note goes online. When off, the card is shown without a picture.",
   'settings.support': 'Support',
-  'settings.likeIt': 'Enjoying Sill?',
+  'settings.likeIt': 'Enjoying Sill Note?',
   'settings.coffee': 'Buy me a coffee',
   'support.short': 'Buy me a coffee',
-  'settings.supportNote': 'Sill is free. If you like it, you can support its development with a coffee.',
+  'settings.supportNote': 'Sill Note is free. If you like it, you can support its development with a coffee.',
 
   // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
   'demo.welcomeTab': "Welcome",
-  'demo.welcomeNote': "Welcome to Sill",
+  'demo.welcomeNote': "Welcome to Sill Note",
   'demo.welcomeText': "Your notes now live on the edge of your screen. ✨\n\n— Move your mouse to the right edge of the screen, or press Ctrl + Alt + N.\n— Click the panel to keep it open, or pin it.\n— Press Esc or click outside to close it.\n\nEverything you write is saved automatically.",
-  'demo.welcomeOutro': "Feel free to delete these sample notes and make Sill your own. Happy writing!",
+  'demo.welcomeOutro': "Feel free to delete these sample notes and make Sill Note your own. Happy writing!",
   'demo.tipsNote': "Tips",
   'demo.tipsText': "— Drag an image into a note, or paste one with Ctrl + V.\n— Paste a YouTube link on its own: it becomes a card with a thumbnail.\n— Right-click a note → Record voice note.\n— Right-click a tab to give it a color.\n— Hold and drag a note to reorder it.\n— Drag the panel's left edge to make it wider.",
   'demo.dailyTab': "Daily",

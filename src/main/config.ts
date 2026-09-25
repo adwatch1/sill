@@ -15,6 +15,8 @@ export const TRIGGER_EDGE_PX = 2 // ekranın en sağındaki kaç piksel tetik sa
 export const CLOSE_DELAY_MS = 400 // mouse panelden çıktıktan sonra kapanmadan önce bekleme
 export const POLL_MS = 33 // mouse konumunu kontrol sıklığı (~30 kez/sn)
 export const EXIT_FALLBACK_MS = 700 // kapanış animasyonu haber vermezse yine de gizle
+export const FULLSCREEN_POLL_MS = 250 // öndeki pencere tam ekran mı? kontrol sıklığı
+export const FULLSCREEN_EXIT_MS = 1000 // tam ekrandan çıktıktan sonra duraklatmanın bitmesi için bekleme
 
 // Kurulumdan sonraki ilk açılış: panel kendini bir kez gösterip geri çekilir ki
 // kullanıcı programın ekranın neresinde yaşadığını görsün.

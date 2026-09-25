@@ -2,12 +2,12 @@
 
 [English](README.md) · [Türkçe](README.tr.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt-BR.md) · [Italiano](README.it.md) · **Русский** · [日本語](README.ja.md) · [简体中文](README.zh-CN.md)
 
-![Sill](screenshots/01-edge-panel.png)
+![Sill Note](screenshots/01-edge-panel.png)
 
 **Бесплатная панель заметок у края экрана Windows.**
 Подведите мышь к правому краю — панель выезжает поверх любых окон. Уберите — и она прячется. Без учётной записи, облака и слежки.
 
-**[⬇ Скачать для Windows](../../releases/latest)** · Microsoft Store (скоро) · **[Сайт](https://adwatch1.github.io/sill/)**
+**[⬇ Скачать для Windows](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store (скоро) · **[Сайт](https://www.sillnote.store/)**
 
 ---
 
@@ -29,15 +29,15 @@
 
 ## Установка
 
-Скачайте `Sill-Setup-x.y.z.exe` на странице [Releases](../../releases/latest) и запустите (права администратора не нужны). Прямая загрузка пока не подписана, поэтому при первом запуске Windows может предупредить: **Подробнее → Выполнить в любом случае**. Скоро появится версия в Microsoft Store — с подписью Microsoft и автообновлением.
+Скачайте `SillNote-Setup.exe` на странице [Releases](../../releases/latest) и запустите (права администратора не нужны). Прямая загрузка пока не подписана, поэтому при первом запуске Windows может предупредить: **Подробнее → Выполнить в любом случае**. Скоро появится версия в Microsoft Store — с подписью Microsoft и автообновлением. Не хотите устанавливать? Скачайте портативный [ZIP](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Portable.zip), распакуйте в любую папку и запустите `Sill.exe`.
 
 ## Конфиденциальность
 
-Заметки, изображения, аудио и настройки хранятся только на вашем компьютере. Sill выходит в интернет лишь в одном случае: при вставке ссылки YouTube он один раз загружает миниатюру и название (отключается в Настройки → Конфиденциальность). Микрофон используется только во время записи. [Политика конфиденциальности](https://adwatch1.github.io/sill/privacy.html)
+Заметки, изображения, аудио и настройки хранятся только на вашем компьютере. Sill Note выходит в интернет лишь в одном случае: при вставке ссылки YouTube он один раз загружает миниатюру и название (отключается в Настройки → Конфиденциальность). Микрофон используется только во время записи. [Политика конфиденциальности](https://www.sillnote.store/privacy.html)
 
 ## Поддержать
 
-Sill бесплатен. Если он вам нравится, [угостите меня кофе ☕](https://buymeacoffee.com/stilless).
+Sill Note бесплатен. Если он вам нравится, [угостите меня кофе ☕](https://buymeacoffee.com/stilless).
 
 ## Лицензия
 

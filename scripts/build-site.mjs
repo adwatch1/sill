@@ -5,7 +5,7 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'fs'
 import { join } from 'path'
 
-const BASE = 'https://adwatch1.github.io/sill/'
+const BASE = 'https://www.sillnote.store/'
 const LANGS = [
   ['en', 'English'], ['tr', 'Türkçe'], ['de', 'Deutsch'], ['fr', 'Français'], ['es', 'Español'],
   ['pt-BR', 'Português (Brasil)'], ['it', 'Italiano'], ['ru', 'Русский'], ['ja', '日本語'], ['zh-CN', '简体中文']
@@ -27,6 +27,8 @@ function render(tpl, lang, page) {
     const v = d[key] ?? T.en[key]
     return open + (v ?? inner) + close
   })
+  // İpucu yazıları (title) da sözlükten: data-i18n-title="anahtar" → title="…"
+  html = html.replace(/data-i18n-title="([^"]+)"/g, (m, key) => `title="${esc(d[key] ?? T.en[key] ?? '')}"`)
   // 2) Ekran görüntüleri: Türkçe sayfada Türkçe arayüzlü set, diğerlerinde İngilizce.
   html = html.replace(/src="img\/([\w-]+)\.png" data-tr="img\/[\w-]+-tr\.png"/g, (m, n) =>
     lang === 'tr' ? `src="img/${n}-tr.png"` : `src="img/${n}.png"`)
@@ -48,7 +50,7 @@ function render(tpl, lang, page) {
         keywords: seo.keywords,
         inLanguage: LANGS.map(([l]) => l),
         url: url(lang, page),
-        downloadUrl: 'https://github.com/adwatch1/sill/releases/latest',
+        downloadUrl: 'https://github.com/adwatch1/sill/releases/latest/download/SillNote-Setup.exe',
         screenshot: BASE + 'img/hero-step2.png',
         offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
         author: { '@type': 'Organization', name: 'stilless' }

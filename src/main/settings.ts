@@ -16,6 +16,8 @@ const settingsPath = () => join(app.getPath('userData'), 'settings.json')
 
 let current: Settings = { ...DEFAULT_SETTINGS }
 let registeredShortcut: string | null = null
+// Tam ekran / elle duraklatma sırasında kısayol Windows'a bırakılır: tuşlar öndeki programa (oyuna) gitsin.
+let shortcutSuspended = false
 let onShortcut: () => void = () => {}
 let onChange: (s: Settings) => void = () => {}
 let saveTimer: NodeJS.Timeout | null = null
@@ -72,18 +74,33 @@ function registerShortcut(accel: string): boolean {
   return false
 }
 
+/** Duraklatmada kısayolu bırak, bitince geri al. */
+export function setShortcutSuspended(on: boolean): void {
+  if (on === shortcutSuspended) return
+  shortcutSuspended = on
+  if (on) {
+    if (registeredShortcut) globalShortcut.unregister(registeredShortcut)
+    registeredShortcut = null
+  } else if (!registeredShortcut) {
+    registerShortcut(current.shortcut)
+  }
+}
+
 function applyLoginItem(enabled: boolean): void {
   // Geliştirme modunda uygulama: Windows her açılışta çıplak Electron'u başlatırdı.
   // Mağaza sürümünde bu yol çalışmaz; orada paketin başlangıç görevi var (Windows Ayarları'ndan yönetilir).
   if (!app.isPackaged || IS_STORE) return
-  app.setLoginItemSettings({ openAtLogin: enabled })
+  // Kayıt defterindeki değer adı sabit: görünen ad değişse de aynı satır güncellenir,
+  // eski ada ait ikinci bir başlangıç kaydı oluşmaz.
+  app.setLoginItemSettings({ openAtLogin: enabled, name: 'electron.app.Sill' })
 }
 
 export function updateSettings(patch: Partial<Settings>): SettingsResult {
   const next = sanitizeSettings({ ...current, ...patch })
   let error: string | null = null
 
-  if (next.shortcut !== current.shortcut && !registerShortcut(next.shortcut)) {
+  // Duraklatılmışken yeni kısayol şimdi kaydedilmez; duraklatma bitince kurulur.
+  if (next.shortcut !== current.shortcut && !shortcutSuspended && !registerShortcut(next.shortcut)) {
     next.shortcut = current.shortcut
     error = mt()('settings.shortcutTaken')
   }
@@ -141,7 +158,7 @@ export function initSettings(opts: { onShortcut: () => void; onChange: (s: Setti
     if (recording === true && registeredShortcut) {
       globalShortcut.unregister(registeredShortcut)
       registeredShortcut = null
-    } else if (recording === false && !registeredShortcut) {
+    } else if (recording === false && !registeredShortcut && !shortcutSuspended) {
       registerShortcut(current.shortcut)
     }
   })

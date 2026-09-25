@@ -3,6 +3,8 @@ import type { Dict } from './index'
 export const de: Dict = {
   'tray.toggle': 'Panel ein-/ausblenden',
   'tray.settings': 'Einstellungen…',
+  'tray.pause': "Pausieren",
+  'tray.pausedTip': "pausiert",
   'tray.quit': 'Beenden',
 
   'media.typeUnsupported':
@@ -122,28 +124,31 @@ export const de: Dict = {
   'settings.needsModifier': 'Mindestens Strg, Alt oder Win ist nötig.',
   'settings.shortcutTaken':
     'Dieses Tastenkürzel kann nicht verwendet werden (evtl. nutzt es eine andere App). Das bisherige wurde beibehalten.',
+  'settings.pauseFullscreen': "Im Vollbild pausieren",
+  'settings.pauseFullscreenNote':
+    "Solange ein Spiel oder ein Vollbild-Video im Vordergrund ist, reagieren Bildschirmrand und Tastenkürzel nicht. Nach dem Vollbild geht es von selbst weiter.",
   'settings.system': 'System',
   'settings.startup': 'Mit Windows starten',
   'settings.startupButton': 'Verwalten',
-  'settings.startupStore': 'Sill startet mit Windows. Ein- oder ausschalten unter Windows-Einstellungen → Autostart.',
+  'settings.startupStore': 'Sill Note startet mit Windows. Ein- oder ausschalten unter Windows-Einstellungen → Autostart.',
   'settings.startupDev': 'Der Start mit Windows funktioniert, sobald die App installiert ist.',
   'settings.notesFolder': 'Notizordner',
   'settings.openFolder': 'Ordner öffnen',
   'settings.privacy': 'Datenschutz',
   'settings.linkPreviews': 'Linkvorschauen',
   'settings.privacyNote':
-    'Wenn aktiv, lädt Sill beim Einfügen eines YouTube-Links einmalig Vorschaubild und Titel von YouTube. Nur dann geht Sill online. Wenn aus, wird die Karte ohne Bild angezeigt.',
+    'Wenn aktiv, lädt Sill Note beim Einfügen eines YouTube-Links einmalig Vorschaubild und Titel von YouTube. Nur dann geht Sill Note online. Wenn aus, wird die Karte ohne Bild angezeigt.',
   'settings.support': 'Unterstützen',
-  'settings.likeIt': 'Gefällt dir Sill?',
+  'settings.likeIt': 'Gefällt dir Sill Note?',
   'settings.coffee': 'Spendier mir einen Kaffee',
   'support.short': 'Kaffee spenden',
-  'settings.supportNote': 'Sill ist kostenlos. Wenn es dir gefällt, kannst du die Entwicklung mit einem Kaffee unterstützen.',
+  'settings.supportNote': 'Sill Note ist kostenlos. Wenn es dir gefällt, kannst du die Entwicklung mit einem Kaffee unterstützen.',
 
   // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
   'demo.welcomeTab': "Willkommen",
-  'demo.welcomeNote': "Willkommen bei Sill",
+  'demo.welcomeNote': "Willkommen bei Sill Note",
   'demo.welcomeText': "Deine Notizen wohnen jetzt am Rand deines Bildschirms. ✨\n\n— Bewege die Maus an den rechten Bildschirmrand oder drücke Strg + Alt + N.\n— Klicke ins Panel, damit es offen bleibt, oder hefte es an.\n— Mit Esc oder einem Klick daneben schließt es sich.\n\nAlles, was du schreibst, wird automatisch gespeichert.",
-  'demo.welcomeOutro': "Lösche diese Beispielnotizen ruhig und richte Sill nach deinem Geschmack ein. Viel Spaß beim Schreiben!",
+  'demo.welcomeOutro': "Lösche diese Beispielnotizen ruhig und richte Sill Note nach deinem Geschmack ein. Viel Spaß beim Schreiben!",
   'demo.tipsNote': "Tipps",
   'demo.tipsText': "— Zieh ein Bild in eine Notiz oder füge es mit Strg + V ein.\n— Füge einen YouTube-Link allein ein: Er wird zur Karte mit Vorschaubild.\n— Rechtsklick in eine Notiz → Sprachnotiz aufnehmen.\n— Rechtsklick auf einen Tab, um ihm eine Farbe zu geben.\n— Halte eine Notiz gedrückt und zieh sie, um sie neu anzuordnen.\n— Zieh am linken Rand des Panels, um es zu verbreitern.",
   'demo.dailyTab': "Alltag",

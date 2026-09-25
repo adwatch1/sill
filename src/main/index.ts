@@ -5,10 +5,14 @@ import {
   createPanel,
   flushNotes,
   getPanelWindow,
+  isManualPause,
+  isPaused,
   openPanel,
   openSettingsView,
   playIntro,
   positionWindow,
+  refreshPause,
+  setManualPause,
   setPanelSuppressed,
   togglePanel
 } from './panel'
@@ -38,6 +42,14 @@ if (!app.isPackaged && process.env.SILL_DEBUG_PORT) {
   app.commandLine.appendSwitch('remote-debugging-port', process.env.SILL_DEBUG_PORT)
 }
 
+// Veri klasörü görünen addan bağımsız ve sabit: %APPDATA%\Sill. Electron bunu normalde programın
+// adından türetir; ad değişirse notlar başka klasörde aranır ve "kaybolmuş" görünürdü.
+// Tek kopya kilidi de bu klasöre bağlı olduğu için kilitten ÖNCE ayarlanmalı.
+// --user-data-dir verilmişse (testler geçici klasörde çalışır) ona dokunulmaz.
+if (!app.commandLine.hasSwitch('user-data-dir')) {
+  app.setPath('userData', join(app.getPath('appData'), 'Sill'))
+}
+
 // Program zaten açıksa ikinci kopyayı açma, mevcut paneli göster.
 if (!app.requestSingleInstanceLock()) {
   app.quit()
@@ -65,10 +77,11 @@ if (!app.requestSingleInstanceLock()) {
       onShortcut: togglePanel,
       onChange: () => {
         positionWindow() // genişlik değiştiyse pencereyi yeniden boyutlandır
+        refreshPause() // "tam ekranda duraklat" kapatıldıysa hemen devam et
         updateTrayMenu() // tepsi menüsündeki kısayol yazısı güncel kalsın
       }
     })
-    createPanel()
+    createPanel({ onPauseChange: updateTrayMenu })
     createTray()
     maybePlayIntro()
   })
@@ -129,7 +142,6 @@ function createTray(): void {
     : join(__dirname, '../../resources/tray.png')
   const icon = nativeImage.createFromPath(iconPath)
   tray = new Tray(icon)
-  tray.setToolTip('Sill')
   updateTrayMenu()
   tray.on('click', togglePanel)
 }
@@ -137,11 +149,19 @@ function createTray(): void {
 function updateTrayMenu(): void {
   if (!tray) return
   const t = mt() // dil ayarı değişince menü yeniden kurulur (initSettings → onChange)
+  // Duraklatılmışken ipucu bunu söylesin: kenar neden açılmıyor, kullanıcı anlasın.
+  tray.setToolTip(isPaused() ? `Sill Note · ${t('tray.pausedTip')}` : 'Sill Note')
   tray.setContextMenu(
     Menu.buildFromTemplate([
       {
         label: `${t('tray.toggle')}    (${formatShortcut(getSettings().shortcut)})`,
         click: togglePanel
+      },
+      {
+        label: t('tray.pause'),
+        type: 'checkbox',
+        checked: isManualPause(),
+        click: (item) => setManualPause(item.checked)
       },
       { label: t('tray.settings'), click: openSettingsView },
       { type: 'separator' },

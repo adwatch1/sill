@@ -2,12 +2,12 @@
 
 **English** · [Türkçe](README.tr.md) · [Deutsch](README.de.md) · [Français](README.fr.md) · [Español](README.es.md) · [Português](README.pt-BR.md) · [Italiano](README.it.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [简体中文](README.zh-CN.md)
 
-![Sill](screenshots/01-edge-panel.png)
+![Sill Note](screenshots/01-edge-panel.png)
 
 **A free notes panel that lives on the edge of your Windows screen.**
 Move your mouse to the right edge and a panel slides in, over any window. Move away and it slides back out. No account, no cloud, no tracking.
 
-**[⬇ Download for Windows](../../releases/latest)** · Microsoft Store (coming soon) · **[Website](https://adwatch1.github.io/sill/)**
+**[⬇ Download for Windows](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store (coming soon) · **[Website](https://www.sillnote.store/)**
 
 ---
 
@@ -29,22 +29,22 @@ Move your mouse to the right edge and a panel slides in, over any window. Move a
 
 ## Install
 
-Download `Sill-Setup-x.y.z.exe` from [Releases](../../releases/latest) and run it (no administrator rights needed). The direct download isn’t code-signed yet, so Windows may warn the first time: **More info → Run anyway**. A Microsoft Store version, signed by Microsoft and updating itself, is coming soon.
+Download `SillNote-Setup.exe` from [Releases](../../releases/latest) and run it (no administrator rights needed). The direct download isn’t code-signed yet, so Windows may warn the first time: **More info → Run anyway**. A Microsoft Store version, signed by Microsoft and updating itself, is coming soon. Prefer not to install? Grab the portable [ZIP](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Portable.zip), unzip it anywhere and run `Sill.exe`.
 
 ## Privacy
 
-Your notes, images, audio and settings stay only on your computer. Sill goes online in one case only: when you paste a YouTube link, it downloads that video’s thumbnail and title once (you can turn this off in Settings → Privacy). The microphone is used only while you record. [Privacy policy](https://adwatch1.github.io/sill/privacy.html)
+Your notes, images, audio and settings stay only on your computer. Sill Note goes online in one case only: when you paste a YouTube link, it downloads that video’s thumbnail and title once (you can turn this off in Settings → Privacy). The microphone is used only while you record. [Privacy policy](https://www.sillnote.store/privacy.html)
 
 ## Support
 
-Sill is free. If you like it, you can [buy me a coffee ☕](https://buymeacoffee.com/stilless).
+Sill Note is free. If you like it, you can [buy me a coffee ☕](https://buymeacoffee.com/stilless).
 
 ## Source code
 
 ```bash
 npm install
 npm run dev         # run in development mode
-npm run dist        # installer → dist/Sill-Setup-<version>.exe
+npm run dist        # installer → dist/SillNote-Setup-<version>.exe
 npm run dist:store  # Microsoft Store package (MSIX)
 ```
 

@@ -92,7 +92,7 @@ export function SettingsView({ onClose }: Props) {
               </Row>
             </Group>
 
-            <Group title={t('settings.opening')}>
+            <Group title={t('settings.opening')} footnote={t('settings.pauseFullscreenNote')}>
               <SliderRow
                 label={t('settings.trigger')}
                 hint={t('settings.triggerHint')}
@@ -112,6 +112,12 @@ export function SettingsView({ onClose }: Props) {
               />
               <Row label={t('settings.shortcut')}>
                 <ShortcutRecorder value={settings.shortcut} onChange={(shortcut) => update({ shortcut })} />
+              </Row>
+              <Row label={t('settings.pauseFullscreen')}>
+                <Toggle
+                  checked={settings.pauseInFullscreen}
+                  onChange={(pauseInFullscreen) => update({ pauseInFullscreen })}
+                />
               </Row>
             </Group>
 
@@ -167,7 +173,7 @@ export function SettingsView({ onClose }: Props) {
             </Group>
 
             <p className={styles.version}>
-              Sill {version} · {COPYRIGHT}
+              Sill Note {version} · {COPYRIGHT}
             </p>
           </div>
         </LayoutGroup>

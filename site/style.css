@@ -1,4 +1,4 @@
-/* Sill tanıtım sitesi — Apple ürün sayfası dili: açık zemin, bol boşluk, tek vurgu rengi. */
+/* Sill Note tanıtım sitesi — Apple ürün sayfası dili: açık zemin, bol boşluk, tek vurgu rengi. */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
@@ -69,6 +69,12 @@ html[lang='zh-CN'] body { font-family: 'Inter', 'Microsoft YaHei UI', 'PingFang 
   opacity: 1; padding: 5px 13px; border-radius: 980px; background: #ffdd00; color: #1d1d1f; font-weight: 600;
 }
 .nav-links a.coffee-pill:hover { filter: brightness(0.96); }
+/* Kaynak kod: yazılımcılar içine bakabilsin diye göz önünde */
+.nav-links a.source-pill {
+  opacity: 1; display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 13px; border-radius: 980px; background: var(--ink); color: #fff; font-weight: 600;
+}
+.nav-links a.source-pill:hover { background: #000; }
 .lang {
   font: inherit; font-size: 13px; font-weight: 500; color: var(--ink);
   background: var(--bg-2); border: 0; border-radius: 980px; padding: 5px 26px 5px 12px; cursor: pointer;
@@ -83,6 +89,7 @@ html[lang='zh-CN'] body { font-family: 'Inter', 'Microsoft YaHei UI', 'PingFang 
 .lead { font-size: clamp(19px, 2.2vw, 24px); color: var(--ink-2); max-width: 720px; margin: 20px auto 0; line-height: 1.4; }
 .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
 .fine { color: var(--ink-2); font-size: 14px; margin: 14px 0 0; }
+.alt-dl { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; font-size: 14px; color: var(--ink-2); margin: 16px 0 0; }
 .steps { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; margin: 44px auto 0; max-width: 1240px; }
 .steps figure { margin: 0; }
 .steps figcaption { display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 16px; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; }
@@ -139,7 +146,15 @@ details p { color: var(--ink-2); margin: 12px 0 0; }
 .doc p, .doc li { color: #333336; }
 
 @media (max-width: 760px) {
-  .nav-links a:not(.coffee-pill) { display: none; }
+  .nav-links a:not(.coffee-pill):not(.source-pill) { display: none; }
+  .nav-links a.source-pill { padding: 6px 9px; }
+  .nav-links a.source-pill span { display: none; }
+  /* Dar ekranda menü sığsın: kahve düğmesi sadece simge, marka tek satır */
+  .nav-links a.coffee-pill { padding: 5px 10px; }
+  .nav-links a.coffee-pill span { display: none; }
+  .brand { white-space: nowrap; }
+  .nav-links { gap: 8px; }
+  .lang { max-width: 104px; }
   .feat, .feat.flip { grid-template-columns: minmax(0, 1fr); padding: 28px 22px; gap: 24px; }
   .feat img { max-height: 460px; }
   .nav-links { gap: 14px; }

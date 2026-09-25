@@ -1,7 +1,7 @@
 {
   "name": "sill",
-  "productName": "Sill",
-  "version": "1.1.1",
+  "productName": "Sill Note",
+  "version": "1.2.0",
   "description": "A notes panel on the edge of your Windows screen",
   "author": "stilless",
   "main": "./out/main/index.js",
@@ -13,7 +13,8 @@
     "typecheck": "tsc --noEmit",
     "dist": "electron-vite build && electron-builder --win",
     "dist:store": "electron-vite build && electron-builder --win appx",
-    "site": "node scripts/build-site.mjs"
+    "site": "node scripts/build-site.mjs",
+    "release-files": "node scripts/release-files.mjs"
   },
   "devDependencies": {
     "@fontsource-variable/inter": "^5.3.0",
@@ -33,7 +34,8 @@
   },
   "build": {
     "appId": "app.sill.desktop",
-    "productName": "Sill",
+    "productName": "Sill Note",
+    "executableName": "Sill",
     "copyright": "© 2026 stilless",
     "directories": {
       "output": "dist",
@@ -69,16 +71,16 @@
       "runAfterFinish": true,
       "createDesktopShortcut": false,
       "createStartMenuShortcut": true,
-      "shortcutName": "Sill",
+      "shortcutName": "Sill Note",
       "deleteAppDataOnUninstall": false,
-      "artifactName": "Sill-Setup-${version}.exe"
+      "artifactName": "SillNote-Setup-${version}.exe"
     },
     "appx": {
-      "applicationId": "Sill",
-      "identityName": "stilless.Sill",
-      "publisher": "CN=00000000-0000-0000-0000-000000000000",
+      "applicationId": "SillNote",
+      "identityName": "stilless.SillNote",
+      "publisher": "CN=C885E30F-B8AF-41DC-9453-CD4DDED594A3",
       "publisherDisplayName": "stilless",
-      "displayName": "Sill",
+      "displayName": "Sill Note",
       "backgroundColor": "transparent",
       "languages": [
         "en-US",
@@ -93,10 +95,13 @@
         "zh-CN"
       ],
       "customExtensionsPath": "build/appx-extensions.xml",
-      "artifactName": "Sill-Store-${version}.${ext}",
+      "artifactName": "SillNote-Store-${version}.${ext}",
       "minVersion": "10.0.17763.0",
       "maxVersionTested": "10.0.26100.0"
     }
   },
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "dependencies": {
+    "koffi": "^3.3.1"
+  }
 }

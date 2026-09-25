@@ -1,3 +1,3 @@
         <desktop:Extension Category="windows.startupTask" Executable="app\Sill.exe" EntryPoint="Windows.FullTrustApplication">
-          <desktop:StartupTask TaskId="SillStartup" Enabled="true" DisplayName="Sill" />
+          <desktop:StartupTask TaskId="SillStartup" Enabled="true" DisplayName="Sill Note" />
         </desktop:Extension>

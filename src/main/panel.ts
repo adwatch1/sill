@@ -7,9 +7,12 @@ import {
   POLL_MS,
   EXIT_FALLBACK_MS,
   INTRO_DELAY_MS,
-  INTRO_HOLD_MS
+  INTRO_HOLD_MS,
+  FULLSCREEN_POLL_MS,
+  FULLSCREEN_EXIT_MS
 } from './config'
-import { getSettings } from './settings'
+import { getSettings, setShortcutSuspended } from './settings'
+import { foregroundState } from './fullscreen'
 import { closeLightbox, isLightboxOpen } from './lightbox'
 import { alive } from './util'
 
@@ -49,6 +52,60 @@ function setRecordingHold(on: boolean): void {
   setPanelSuppressed(on)
 }
 
+// ── Duraklatma ──
+// İki sebep: önde tam ekran bir program (oyun, tam ekran video) ya da tepsiden elle "Duraklat".
+// Duraklatılınca her şey durur: kenar tetiği çalışmaz, kısayol Windows'a bırakılır (tuşlar oyuna
+// gitsin), açık panel kapanır — raptiye takılı olsa bile. Tepsiden açmak yine mümkün.
+let manualPause = false
+let fullscreenActive = false
+let normalSince: number | null = null
+let paused = false
+let fullscreenWatcher: NodeJS.Timeout | null = null
+let onPauseChange: (paused: boolean) => void = () => {}
+
+export const isPaused = (): boolean => paused
+export const isManualPause = (): boolean => manualPause
+
+export function setManualPause(on: boolean): void {
+  manualPause = on
+  refreshPause()
+}
+
+/** Duraklatma durumunu yeniden hesapla (ayar değişince de çağrılır). */
+export function refreshPause(): void {
+  const next = manualPause || (fullscreenActive && getSettings().pauseInFullscreen)
+  if (next === paused) return
+  paused = next
+  setShortcutSuspended(paused)
+  if (paused) {
+    dwellStart = null
+    closePanel()
+  }
+  onPauseChange(paused)
+}
+
+// Tam ekrana GİRİŞ hemen algılanır (oyun açılır açılmaz kenar sussun). ÇIKIŞ için kısa bir
+// süre "normal" kalması beklenir: oyunlar yüklenirken ya da Alt+Tab sırasında bir an
+// pencere küçülüp büyüyebiliyor, panel o arada gidip gelmesin.
+function watchFullscreen(): void {
+  if (!getSettings().pauseInFullscreen) {
+    fullscreenActive = false
+    normalSince = null
+    refreshPause()
+    return
+  }
+  const st = foregroundState()
+  if (st === 'own') return // öndeki bizim penceremiz: karar değişmez
+  if (st === 'fullscreen') {
+    fullscreenActive = true
+    normalSince = null
+  } else if (fullscreenActive) {
+    normalSince ??= Date.now()
+    if (Date.now() - normalSince >= FULLSCREEN_EXIT_MS) fullscreenActive = false
+  }
+  refreshPause()
+}
+
 /** Panel şu an kendiliğinden kapanabilir mi? (raptiye veya bastırma varsa hayır) */
 const autoCloseBlocked = (): boolean => suppress > 0 || getSettings().pinned
 
@@ -62,12 +119,15 @@ export function allowPanelClose(): void {
   // Program kapanıyor: gözcüyü ve ekran dinleyicilerini durdur ki yok edilen pencereye dokunmasınlar.
   if (watcher) clearInterval(watcher)
   watcher = null
+  if (fullscreenWatcher) clearInterval(fullscreenWatcher)
+  fullscreenWatcher = null
   screen.removeListener('display-metrics-changed', positionWindow)
   screen.removeListener('display-added', positionWindow)
   screen.removeListener('display-removed', positionWindow)
 }
 
-export function createPanel(): BrowserWindow {
+export function createPanel(opts: { onPauseChange: (paused: boolean) => void }): BrowserWindow {
+  onPauseChange = opts.onPauseChange
   win = new BrowserWindow({
     show: false,
     frame: false,
@@ -142,6 +202,7 @@ export function createPanel(): BrowserWindow {
   screen.on('display-removed', positionWindow)
 
   watcher = setInterval(watchCursor, POLL_MS)
+  fullscreenWatcher = setInterval(watchFullscreen, FULLSCREEN_POLL_MS)
   return win
 }
 
@@ -279,6 +340,10 @@ function watchCursor(): void {
   const now = Date.now()
 
   if (state === 'hidden' || state === 'closing') {
+    if (paused) {
+      dwellStart = null
+      return
+    }
     const d = screen.getPrimaryDisplay().bounds
     const { triggerZone, dwellMs } = getSettings()
     const inZone =

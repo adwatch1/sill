@@ -3,6 +3,8 @@ import type { Dict } from './index'
 export const fr: Dict = {
   'tray.toggle': 'Afficher / masquer le panneau',
   'tray.settings': 'Paramètres…',
+  'tray.pause': "Mettre en pause",
+  'tray.pausedTip': "en pause",
   'tray.quit': 'Quitter',
 
   'media.typeUnsupported':
@@ -122,28 +124,31 @@ export const fr: Dict = {
   'settings.needsModifier': 'Utilisez au moins Ctrl, Alt ou Win.',
   'settings.shortcutTaken':
     'Ce raccourci ne peut pas être utilisé (une autre application l’utilise peut-être). L’ancien raccourci a été conservé.',
+  'settings.pauseFullscreen': "Pause en plein écran",
+  'settings.pauseFullscreenNote':
+    "Quand un jeu ou une vidéo en plein écran est au premier plan, le bord et le raccourci ne réagissent pas. Tout reprend automatiquement en quittant le plein écran.",
   'settings.system': 'Système',
   'settings.startup': 'Lancer avec Windows',
   'settings.startupButton': 'Gérer',
-  'settings.startupStore': 'Sill démarre avec Windows. Pour l’activer ou le désactiver : Paramètres Windows → Démarrage.',
+  'settings.startupStore': 'Sill Note démarre avec Windows. Pour l’activer ou le désactiver : Paramètres Windows → Démarrage.',
   'settings.startupDev': 'Le lancement avec Windows fonctionne une fois l’application installée.',
   'settings.notesFolder': 'Dossier des notes',
   'settings.openFolder': 'Ouvrir le dossier',
   'settings.privacy': 'Confidentialité',
   'settings.linkPreviews': 'Aperçus de liens',
   'settings.privacyNote':
-    'Si activé, coller un lien YouTube télécharge une seule fois la miniature et le titre de la vidéo depuis YouTube. C’est le seul moment où Sill se connecte à Internet. Si désactivé, la carte s’affiche sans image.',
+    'Si activé, coller un lien YouTube télécharge une seule fois la miniature et le titre de la vidéo depuis YouTube. C’est le seul moment où Sill Note se connecte à Internet. Si désactivé, la carte s’affiche sans image.',
   'settings.support': 'Soutenir',
-  'settings.likeIt': 'Vous aimez Sill ?',
+  'settings.likeIt': 'Vous aimez Sill Note ?',
   'settings.coffee': 'Offrez-moi un café',
   'support.short': 'Offrir un café',
-  'settings.supportNote': 'Sill est gratuit. S’il vous plaît, vous pouvez soutenir son développement avec un café.',
+  'settings.supportNote': 'Sill Note est gratuit. S’il vous plaît, vous pouvez soutenir son développement avec un café.',
 
   // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
   'demo.welcomeTab': "Bienvenue",
-  'demo.welcomeNote': "Bienvenue dans Sill",
+  'demo.welcomeNote': "Bienvenue dans Sill Note",
   'demo.welcomeText': "Vos notes vivent désormais au bord de votre écran. ✨\n\n— Amenez la souris sur le bord droit de l’écran, ou appuyez sur Ctrl + Alt + N.\n— Cliquez dans le panneau pour le garder ouvert, ou épinglez-le.\n— Appuyez sur Échap ou cliquez à côté pour le fermer.\n\nTout ce que vous écrivez est enregistré automatiquement.",
-  'demo.welcomeOutro': "Supprimez ces notes d’exemple et organisez Sill à votre façon. Bonne écriture !",
+  'demo.welcomeOutro': "Supprimez ces notes d’exemple et organisez Sill Note à votre façon. Bonne écriture !",
   'demo.tipsNote': "Astuces",
   'demo.tipsText': "— Glissez une image dans une note, ou collez-la avec Ctrl + V.\n— Collez un lien YouTube seul : il devient une carte avec miniature.\n— Clic droit dans une note → Enregistrer une note vocale.\n— Clic droit sur un onglet pour lui donner une couleur.\n— Maintenez une note puis faites-la glisser pour la déplacer.\n— Faites glisser le bord gauche du panneau pour l’élargir.",
   'demo.dailyTab': "Quotidien",

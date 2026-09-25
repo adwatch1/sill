@@ -2,12 +2,12 @@
 
 [English](README.md) · [Türkçe](README.tr.md) · [Deutsch](README.de.md) · **Français** · [Español](README.es.md) · [Português](README.pt-BR.md) · [Italiano](README.it.md) · [Русский](README.ru.md) · [日本語](README.ja.md) · [简体中文](README.zh-CN.md)
 
-![Sill](screenshots/01-edge-panel.png)
+![Sill Note](screenshots/01-edge-panel.png)
 
 **Un panneau de notes gratuit, au bord de votre écran Windows.**
 Amenez la souris sur le bord droit : un panneau glisse par-dessus toutes les fenêtres. Éloignez-la : il se retire. Pas de compte, pas de cloud, pas de pistage.
 
-**[⬇ Télécharger pour Windows](../../releases/latest)** · Microsoft Store (bientôt) · **[Site web](https://adwatch1.github.io/sill/)**
+**[⬇ Télécharger pour Windows](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Setup.exe)** · Microsoft Store (bientôt) · **[Site web](https://www.sillnote.store/)**
 
 ---
 
@@ -29,15 +29,15 @@ Amenez la souris sur le bord droit : un panneau glisse par-dessus toutes les fen
 
 ## Installation
 
-Téléchargez `Sill-Setup-x.y.z.exe` depuis [Releases](../../releases/latest) et lancez-le (aucun droit administrateur requis). Le téléchargement direct n’est pas encore signé, Windows peut donc avertir la première fois : **Informations complémentaires → Exécuter quand même**. Une version Microsoft Store, signée par Microsoft et mise à jour automatiquement, arrive bientôt.
+Téléchargez `SillNote-Setup.exe` depuis [Releases](../../releases/latest) et lancez-le (aucun droit administrateur requis). Le téléchargement direct n’est pas encore signé, Windows peut donc avertir la première fois : **Informations complémentaires → Exécuter quand même**. Une version Microsoft Store, signée par Microsoft et mise à jour automatiquement, arrive bientôt. Vous préférez ne rien installer ? Prenez le [ZIP](https://github.com/adwatch1/sill/releases/latest/download/SillNote-Portable.zip) portable, décompressez-le où vous voulez et lancez `Sill.exe`.
 
 ## Confidentialité
 
-Vos notes, images, audios et paramètres restent uniquement sur votre ordinateur. Sill ne se connecte qu’en un seul cas : quand vous collez un lien YouTube, il télécharge une fois la miniature et le titre (désactivable dans Paramètres → Confidentialité). Le micro n’est utilisé que pendant l’enregistrement. [Politique de confidentialité](https://adwatch1.github.io/sill/privacy.html)
+Vos notes, images, audios et paramètres restent uniquement sur votre ordinateur. Sill Note ne se connecte qu’en un seul cas : quand vous collez un lien YouTube, il télécharge une fois la miniature et le titre (désactivable dans Paramètres → Confidentialité). Le micro n’est utilisé que pendant l’enregistrement. [Politique de confidentialité](https://www.sillnote.store/privacy.html)
 
 ## Soutenir
 
-Sill est gratuit. S’il vous plaît, [offrez-moi un café ☕](https://buymeacoffee.com/stilless).
+Sill Note est gratuit. S’il vous plaît, [offrez-moi un café ☕](https://buymeacoffee.com/stilless).
 
 ## Licence
 

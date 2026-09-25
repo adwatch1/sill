@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://adwatch1.github.io/sill/sitemap.xml
+Sitemap: https://www.sillnote.store/sitemap.xml

@@ -3,6 +3,8 @@ import type { Dict } from './index'
 export const ja: Dict = {
   'tray.toggle': 'パネルを表示 / 非表示',
   'tray.settings': '設定…',
+  'tray.pause': "一時停止",
+  'tray.pausedTip': "一時停止中",
   'tray.quit': '終了',
 
   'media.typeUnsupported':
@@ -121,27 +123,30 @@ export const ja: Dict = {
   'settings.needsModifier': 'Ctrl・Alt・Win のいずれかを含めてください。',
   'settings.shortcutTaken':
     'このショートカットは使用できません（別のアプリが使用中の可能性があります）。以前のショートカットを維持しました。',
+  'settings.pauseFullscreen': "全画面表示中は一時停止",
+  'settings.pauseFullscreenNote':
+    "ゲームや全画面の動画が前面にある間は、画面端とショートカットが反応しません。全画面表示を終えると自動的に再開します。",
   'settings.system': 'システム',
   'settings.startup': 'Windows の起動時に開始',
   'settings.startupButton': '管理',
   'settings.startupStore':
-    'Sill は Windows の起動時に開始します。オン / オフは Windows の設定 → スタートアップで切り替えられます。',
+    'Sill Note は Windows の起動時に開始します。オン / オフは Windows の設定 → スタートアップで切り替えられます。',
   'settings.startupDev': 'Windows の起動時に開始する機能は、アプリのインストール後に使えます。',
   'settings.notesFolder': 'メモのフォルダー',
   'settings.openFolder': 'フォルダーを開く',
   'settings.privacy': 'プライバシー',
   'settings.linkPreviews': 'リンクのプレビュー',
   'settings.privacyNote':
-    'オンにすると、YouTube のリンクを貼り付けたときに動画のサムネイルとタイトルを一度だけダウンロードします。Sill がインターネットに接続するのはこのときだけです。オフの場合、カードは画像なしで表示されます。',
+    'オンにすると、YouTube のリンクを貼り付けたときに動画のサムネイルとタイトルを一度だけダウンロードします。Sill Note がインターネットに接続するのはこのときだけです。オフの場合、カードは画像なしで表示されます。',
   'settings.support': '応援',
-  'settings.likeIt': 'Sill を気に入っていただけましたか？',
+  'settings.likeIt': 'Sill Note を気に入っていただけましたか？',
   'settings.coffee': 'コーヒーをおごる',
   'support.short': 'コーヒーをおごる',
-  'settings.supportNote': 'Sill は無料です。気に入ったら、コーヒー 1 杯で開発を応援できます。',
+  'settings.supportNote': 'Sill Note は無料です。気に入ったら、コーヒー 1 杯で開発を応援できます。',
 
   // İlk açılıştaki örnek notlar (kısa kullanım rehberi)
   'demo.welcomeTab': "ようこそ",
-  'demo.welcomeNote': "Sill へようこそ",
+  'demo.welcomeNote': "Sill Note へようこそ",
   'demo.welcomeText': "メモは画面の端に住むようになりました。✨\n\n— マウスを画面の右端に動かすか、Ctrl + Alt + N を押します。\n— パネルをクリックすると開いたままになります。固定もできます。\n— Esc を押すか、外側をクリックすると閉じます。\n\n書いた内容はすべて自動で保存されます。",
   'demo.welcomeOutro': "このサンプルメモは削除して、自由に使いこなしてください。楽しいメモ生活を！",
   'demo.tipsNote': "ヒント",
