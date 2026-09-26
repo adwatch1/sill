@@ -54,6 +54,7 @@ export const ja: Dict = {
   'note.noSubtabs': 'このタブにはまだメモがありません。',
   'note.addSubtab': 'メモを追加',
   'note.placeholder': '入力を始める…',
+  'note.checklist': 'チェックボックス',
   'note.unknownBlock': 'この項目はこのバージョンでは表示できません',
   'note.unknownBlockTitle': '不明な項目：{type}',
   'note.edited': '編集：{date}',

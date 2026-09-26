@@ -54,6 +54,7 @@ export const it: Dict = {
   'note.noSubtabs': 'Questa scheda non ha ancora note.',
   'note.addSubtab': 'Aggiungi nota',
   'note.placeholder': 'Inizia a scrivere…',
+  'note.checklist': 'Casella di controllo',
   'note.unknownBlock': 'Questo elemento non può essere mostrato in questa versione',
   'note.unknownBlockTitle': 'Elemento sconosciuto: {type}',
   'note.edited': 'Modificato: {date}',

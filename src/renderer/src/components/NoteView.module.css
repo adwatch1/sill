@@ -13,7 +13,7 @@
   min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 18px 22px 16px;
+  padding: 4px 22px 16px;
   scrollbar-width: thin;
   scrollbar-color: var(--separator) transparent;
 }
@@ -24,6 +24,15 @@
   font-weight: 700;
   letter-spacing: -0.01em;
   overflow-wrap: anywhere;
+}
+
+/* Tik kutusu (☐ ☑) yazının içinde bir karakter; tek bir harfi büyütemediğimiz için sadece bu iki
+   karakter Windows'un simge yazı tipinden, büyütülmüş olarak çiziliyor. Diğer harfler Inter'de kalır. */
+@font-face {
+  font-family: 'Sill Box';
+  src: local('Segoe UI Symbol');
+  unicode-range: U+2610-2612;
+  size-adjust: 135%;
 }
 
 .editor {
@@ -38,7 +47,7 @@
   overflow: hidden; /* boy JS ile içeriğe ayarlanıyor, kendi çubuğu olmasın */
   background: transparent;
   color: var(--text);
-  font: 400 13.5px/1.6 var(--font);
+  font: 400 13.5px/1.6 'Sill Box', var(--font);
   user-select: text;
   cursor: text;
 }
@@ -181,4 +190,42 @@
 
 .micButton:disabled {
   opacity: 0.35;
+}
+
+/* Notun üstündeki araç çubuğu: yeri hep ayrılmış, düğmeler sadece yazarken görünür —
+   yoksa her tıklamada not aşağı zıplardı. Kaydırılmaz, uzun notta da hep üstte. */
+.toolbar {
+  flex: none;
+  height: 30px;
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  padding: 0 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease-out;
+}
+
+.toolbarShown {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.toolButton {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: default;
+}
+
+.toolButton:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
 }

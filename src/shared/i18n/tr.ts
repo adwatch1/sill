@@ -59,6 +59,7 @@ export const tr = {
   'note.noSubtabs': "Bu tab'da henüz başlık yok.",
   'note.addSubtab': 'Başlık ekle',
   'note.placeholder': 'Yazmaya başla…',
+  'note.checklist': 'Tik kutusu',
   'note.unknownBlock': 'Bu parça bu sürümde gösterilemiyor',
   'note.unknownBlockTitle': 'Bilinmeyen parça: {type}',
   'note.edited': 'Düzenlendi: {date}',

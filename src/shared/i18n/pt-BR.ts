@@ -54,6 +54,7 @@ export const ptBR: Dict = {
   'note.noSubtabs': 'Esta aba ainda não tem notas.',
   'note.addSubtab': 'Adicionar nota',
   'note.placeholder': 'Comece a digitar…',
+  'note.checklist': 'Caixa de seleção',
   'note.unknownBlock': 'Este item não pode ser exibido nesta versão',
   'note.unknownBlockTitle': 'Item desconhecido: {type}',
   'note.edited': 'Editado: {date}',

@@ -8,11 +8,12 @@ import {
   useState,
   type ClipboardEvent as ReactClipboardEvent,
   type DragEvent as ReactDragEvent,
+  type FocusEvent as ReactFocusEvent,
   type KeyboardEvent as ReactKeyboardEvent,
   type MouseEvent as ReactMouseEvent
 } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Mic } from 'lucide-react'
+import { ListChecks, Mic } from 'lucide-react'
 import { useNotes } from '../store/notesStore'
 import {
   isAudioBlock,
@@ -34,6 +35,7 @@ import { LinkCard } from './LinkCard'
 import { useRecorder, type RecordTarget } from '../hooks/useRecorder'
 import { useContextMenu } from './ContextMenu'
 import styles from './NoteView.module.css'
+import { boxAtPoint, handleChecklistKey, toggleBoxAtClick, toggleChecklist } from '../checklist'
 import { useI18n } from '../i18n'
 
 /** Bu olay tetiklenince imleç not alanına gider (kısayolla açılışta kullanılır). */
@@ -117,6 +119,9 @@ export function NoteView() {
   // Sürüklenen dosyanın hangi bloğun önüne düşeceği (kılavuz çizgisi burada çizilir).
   const [dropAt, setDropAt] = useState<number | null>(null)
   const [toast, setToast] = useState<Toast | null>(null)
+  // Yazı kutularından birinde imleç var mı — araç çubuğu sadece yazarken görünür.
+  const [editing, setEditing] = useState(false)
+  const lastEditor = useRef<HTMLTextAreaElement | null>(null)
   const toastTimer = useRef<number | null>(null)
   // Kısayol dinleyicisi her tuşta yeniden kurulmasın diye bloklar ref'te de duruyor.
   const blocksRef = useRef<Block[]>([])
@@ -181,6 +186,11 @@ export function NoteView() {
   useEffect(() => {
     stopRecording()
   }, [currentSubId, stopRecording])
+
+  // Alt başlık değişince yazı kutusu yerinden kalkar; odak kaybı olayı gelmeyebilir.
+  useEffect(() => {
+    setEditing(false)
+  }, [currentSubId])
 
   // Kayıt sürerken Esc: önce kaydı bitirir, paneli kapatmaz. document üzerinde dinliyoruz ki
   // açık bir menü (pencerede, daha önce yakalıyor) Esc'i önce kendisi alabilsin.
@@ -249,6 +259,17 @@ export function NoteView() {
     const atStart = collapsed && el.selectionStart === 0
     const atEnd = collapsed && el.selectionStart === el.value.length
     const prev = blocks[i - 1]
+
+    const listed = handleChecklistKey(el, e.key, {
+      shift: e.shiftKey,
+      ctrl: e.ctrlKey || e.metaKey,
+      alt: e.altKey,
+      composing: e.nativeEvent.isComposing
+    })
+    if (listed) {
+      e.preventDefault()
+      return
+    }
 
     if (e.key === 'Backspace' && atStart && prev && isTextBlock(prev)) {
       // En baştaki Backspace önceki yazı bloğuyla birleştirir; imleç birleşme noktasına gider.
@@ -472,8 +493,39 @@ export function NoteView() {
 
   const single = blocks.length === 1 && isTextBlock(blocks[0])
 
+  const onEditorFocus = (e: ReactFocusEvent<HTMLElement>): void => {
+    if (!(e.target instanceof HTMLTextAreaElement)) return
+    lastEditor.current = e.target
+    setEditing(true)
+  }
+
+  const onEditorBlur = (e: ReactFocusEvent<HTMLElement>): void => {
+    if (!(e.target instanceof HTMLTextAreaElement)) return
+    // Bir yazı kutusundan ötekine geçiş: çubuk kalsın.
+    if (e.relatedTarget instanceof HTMLTextAreaElement && e.currentTarget.contains(e.relatedTarget)) return
+    setEditing(false)
+  }
+
+  const onChecklistButton = (): void => {
+    const el = lastEditor.current
+    if (el && el.isConnected) toggleChecklist(el)
+  }
+
   return (
-    <main className={styles.note}>
+    <main className={styles.note} onFocus={onEditorFocus} onBlur={onEditorBlur}>
+      <div className={`${styles.toolbar} ${editing ? styles.toolbarShown : ''}`}>
+        <button
+          className={styles.toolButton}
+          title={t('note.checklist')}
+          aria-label={t('note.checklist')}
+          tabIndex={-1}
+          // Düğmeye basmak yazı kutusundan odağı ve imleci almasın.
+          onMouseDown={(e) => e.preventDefault()}
+          onClick={onChecklistButton}
+        >
+          <ListChecks size={15} strokeWidth={2} />
+        </button>
+      </div>
       <AnimatePresence mode="wait" initial={false}>
         <motion.div
           key={subId}
@@ -653,6 +705,14 @@ function TextBlockEditor({
       onKeyDown={onKeyDown}
       onPaste={onPaste}
       onContextMenu={onContextMenu}
+      onClick={(e) => {
+        if (!e.shiftKey) toggleBoxAtClick(e.currentTarget, e.clientX, e.clientY)
+      }}
+      // Kutunun üzerinde yazı imleci yerine ok: tıklanabilir olduğu belli olsun.
+      onMouseMove={(e) => {
+        const el = e.currentTarget
+        el.style.cursor = boxAtPoint(el, e.clientX, e.clientY) >= 0 ? 'default' : ''
+      }}
     />
   )
 }

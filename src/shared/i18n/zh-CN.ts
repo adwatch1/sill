@@ -54,6 +54,7 @@ export const zhCN: Dict = {
   'note.noSubtabs': '此标签页中还没有笔记。',
   'note.addSubtab': '添加笔记',
   'note.placeholder': '开始输入…',
+  'note.checklist': '复选框',
   'note.unknownBlock': '此版本无法显示该项目',
   'note.unknownBlockTitle': '未知项目：{type}',
   'note.edited': '编辑于：{date}',

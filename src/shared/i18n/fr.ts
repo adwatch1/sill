@@ -54,6 +54,7 @@ export const fr: Dict = {
   'note.noSubtabs': 'Cet onglet ne contient encore aucune note.',
   'note.addSubtab': 'Ajouter une note',
   'note.placeholder': 'Commencez à écrire…',
+  'note.checklist': 'Case à cocher',
   'note.unknownBlock': 'Cet élément ne peut pas être affiché dans cette version',
   'note.unknownBlockTitle': 'Élément inconnu : {type}',
   'note.edited': 'Modifié : {date}',

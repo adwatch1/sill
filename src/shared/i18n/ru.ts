@@ -54,6 +54,7 @@ export const ru: Dict = {
   'note.noSubtabs': 'В этой вкладке пока нет заметок.',
   'note.addSubtab': 'Добавить заметку',
   'note.placeholder': 'Начните печатать…',
+  'note.checklist': 'Флажок',
   'note.unknownBlock': 'Этот элемент нельзя показать в этой версии',
   'note.unknownBlockTitle': 'Неизвестный элемент: {type}',
   'note.edited': 'Изменено: {date}',

@@ -54,6 +54,7 @@ export const de: Dict = {
   'note.noSubtabs': 'Dieser Tab hat noch keine Notizen.',
   'note.addSubtab': 'Notiz hinzufügen',
   'note.placeholder': 'Einfach lostippen…',
+  'note.checklist': 'Kontrollkästchen',
   'note.unknownBlock': 'Dieses Element kann in dieser Version nicht angezeigt werden',
   'note.unknownBlockTitle': 'Unbekanntes Element: {type}',
   'note.edited': 'Bearbeitet: {date}',
